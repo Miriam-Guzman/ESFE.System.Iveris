@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ESFE.SystemIveris.DAL/ESFE.SystemIveris.DAL.csproj" />
+  <Project Path="ESFE.SystemIveris.EN/ESFE.SystemIveris.EN.csproj" />
+  <Project Path="ESFE.SystemIveris.LN/ESFE.SystemIveris.LN.csproj" />
+  <Project Path="ESFE.SystemIveris.UI/ESFE.SystemIveris.UI.csproj" />
+</Solution>
