@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
 
-namespace ESFE.SysDesarrollo.DAL
+namespace ESFE.SystemIveris.DAL
 {
     public class DBComun
     {
