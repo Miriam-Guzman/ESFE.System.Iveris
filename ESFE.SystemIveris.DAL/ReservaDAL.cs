@@ -8,6 +8,7 @@ namespace ESFE.SystemIveris.DAL
 {
     public class ReservaDAL
     {
+        //Metodo Buscar - Consultas
         public static List<Reserva> Buscar(Reserva pReserva)
         {
             List<Reserva> lista = new List<Reserva>();
