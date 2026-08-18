@@ -8,9 +8,9 @@ namespace ESFE.SystemIveris.LN
 {
     public class EmpleadoLN
     {
-        public static List<Empleado> Buscar(Empleado pEmpleado)
+        public static List<Empleados> Buscar(Empleados pEmpleado)
         {
-            return EmpleadoDAL.Buscar(pEmpleado);
+            return EmpleadosDAL.Buscar(pEmpleado);
         }
     }
 }

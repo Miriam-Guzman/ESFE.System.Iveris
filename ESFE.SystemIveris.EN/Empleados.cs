@@ -4,13 +4,13 @@ using System.Text;
 
 namespace ESFE.SystemIveris.EN
 {
-    public class Pasajero
+    public class Empleados
     {
-        public int id_pasajero { get; set; }
+        public int id_empleado { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }
-        public string pasaporte { get; set; }
-        public int id_ciudad { get; set; }
-
+        public string email { get; set; }
+        public string telefono { get; set; }
+        public int id_cargo { get; set; }
     }
 }

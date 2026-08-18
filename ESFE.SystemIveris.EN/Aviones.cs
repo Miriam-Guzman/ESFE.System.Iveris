@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ESFE.SystemIveris.EN
 {
-    public class Avion
+    public class Aviones 
     {
         public int id_avion { get; set; }
         public string modelo { get; set; }

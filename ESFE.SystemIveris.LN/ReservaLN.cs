@@ -8,9 +8,9 @@ namespace ESFE.SystemIveris.LN
 {
     public class ReservaLN
     {
-        public static List<Reserva> Buscar(Reserva pReserva)
+        public static List<Reservas> Buscar(Reservas pReserva)
         {
-            return ReservaDAL.Buscar(pReserva);
+            return ReservasDAL.Buscar(pReserva);
         }
     }
 }

@@ -8,9 +8,9 @@ namespace ESFE.SystemIveris.LN
 {
     public class PasajeroLN
     {
-        public static List<Pasajero> Buscar(Pasajero pPasajero)
+        public static List<Pasajeros> Buscar(Pasajeros pPasajero)
         {
-            return PasajeroDAL.Buscar(pPasajero);
+            return PasajerosDAL.Buscar(pPasajero);
         }
     }
 }

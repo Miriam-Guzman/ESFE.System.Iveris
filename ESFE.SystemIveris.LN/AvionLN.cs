@@ -10,7 +10,7 @@ namespace ESFE.SystemIveris.LN
     {
         public static List<Avion> Buscar(Avion pAvion)
         {
-            return AvionDAL.Buscar(pAvion);
+            return AvionesDAL.Buscar(pAvion);
         }
     }
 }

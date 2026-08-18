@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ESFE.SystemIveris.EN
 {
-    public class Cliente
+    public class Clientes
     {
         public int id_cliente { get; set; }
         public string? nombre { get; set; }

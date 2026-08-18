@@ -8,9 +8,9 @@ namespace ESFE.SystemIveris.LN
 {
     public class ClienteLN
     {
-        public static List<Cliente> Buscar(Cliente pCliente)
+        public static List<Clientes> Buscar(Clientes pCliente)
         {
-            return ClienteDAL.Buscar(pCliente);
+            return ClientesDAL.Buscar(pCliente);
         }
     }
 }
