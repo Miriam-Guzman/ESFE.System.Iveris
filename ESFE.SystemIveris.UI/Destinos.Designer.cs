@@ -143,6 +143,11 @@
             Hora.HeaderText = "Hora de Vuelo";
             Hora.Name = "Hora";
             // 
+            // AvionAsignado
+            // 
+            AvionAsignado.HeaderText = "Avion Asignado";
+            AvionAsignado.Name = "AvionAsignado";
+            // 
             // Destinos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -171,5 +176,6 @@
         private DataGridViewTextBoxColumn Destino;
         private DataGridViewTextBoxColumn RTSDPIBLE;
         private DataGridViewTextBoxColumn Hora;
+        private DataGridViewTextBoxColumn AvionAsignado;
     }
 }
