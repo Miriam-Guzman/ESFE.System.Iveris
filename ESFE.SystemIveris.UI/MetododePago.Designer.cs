@@ -72,7 +72,7 @@
             // 
             lblNumerodeTarjeta.AutoSize = true;
             lblNumerodeTarjeta.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNumerodeTarjeta.Location = new Point(39, 453);
+            lblNumerodeTarjeta.Location = new Point(176, 416);
             lblNumerodeTarjeta.Name = "lblNumerodeTarjeta";
             lblNumerodeTarjeta.Size = new Size(125, 16);
             lblNumerodeTarjeta.TabIndex = 25;
@@ -80,7 +80,7 @@
             // 
             // txtccv
             // 
-            txtccv.Location = new Point(584, 397);
+            txtccv.Location = new Point(535, 321);
             txtccv.Name = "txtccv";
             txtccv.Size = new Size(100, 23);
             txtccv.TabIndex = 24;
@@ -89,7 +89,7 @@
             // 
             lblCCV.AutoSize = true;
             lblCCV.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCCV.Location = new Point(584, 366);
+            lblCCV.Location = new Point(535, 290);
             lblCCV.Name = "lblCCV";
             lblCCV.Size = new Size(34, 16);
             lblCCV.TabIndex = 23;
@@ -97,7 +97,7 @@
             // 
             // dtpFecha
             // 
-            dtpFecha.Location = new Point(331, 397);
+            dtpFecha.Location = new Point(291, 321);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(214, 23);
             dtpFecha.TabIndex = 22;
@@ -106,7 +106,7 @@
             // 
             lblFechaVencimiento.AutoSize = true;
             lblFechaVencimiento.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFechaVencimiento.Location = new Point(331, 366);
+            lblFechaVencimiento.Location = new Point(292, 290);
             lblFechaVencimiento.Name = "lblFechaVencimiento";
             lblFechaVencimiento.Size = new Size(149, 16);
             lblFechaVencimiento.TabIndex = 21;
@@ -114,7 +114,7 @@
             // 
             // txtNomTitular
             // 
-            txtNomTitular.Location = new Point(39, 397);
+            txtNomTitular.Location = new Point(28, 321);
             txtNomTitular.Name = "txtNomTitular";
             txtNomTitular.Size = new Size(243, 23);
             txtNomTitular.TabIndex = 20;
@@ -123,7 +123,7 @@
             // 
             lblNombreTitular.AutoSize = true;
             lblNombreTitular.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNombreTitular.Location = new Point(39, 366);
+            lblNombreTitular.Location = new Point(28, 287);
             lblNombreTitular.Name = "lblNombreTitular";
             lblNombreTitular.Size = new Size(122, 16);
             lblNombreTitular.TabIndex = 19;
@@ -134,7 +134,7 @@
             lblDatosTarj.AutoSize = true;
             lblDatosTarj.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDatosTarj.ForeColor = Color.Blue;
-            lblDatosTarj.Location = new Point(38, 337);
+            lblDatosTarj.Location = new Point(27, 258);
             lblDatosTarj.Name = "lblDatosTarj";
             lblDatosTarj.Size = new Size(123, 16);
             lblDatosTarj.TabIndex = 18;
@@ -144,7 +144,7 @@
             // 
             picimg2.BorderStyle = BorderStyle.FixedSingle;
             picimg2.Image = (Image)resources.GetObject("picimg2.Image");
-            picimg2.Location = new Point(27, 146);
+            picimg2.Location = new Point(28, 161);
             picimg2.Name = "picimg2";
             picimg2.Size = new Size(51, 36);
             picimg2.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -155,17 +155,18 @@
             // 
             lblSelecionMetPag.AutoSize = true;
             lblSelecionMetPag.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSelecionMetPag.Location = new Point(52, 192);
+            lblSelecionMetPag.Location = new Point(517, 160);
             lblSelecionMetPag.Name = "lblSelecionMetPag";
             lblSelecionMetPag.Size = new Size(179, 16);
             lblSelecionMetPag.TabIndex = 16;
             lblSelecionMetPag.Text = "Seleciona un método de pago";
+            lblSelecionMetPag.Click += lblSelecionMetPag_Click;
             // 
             // lblmetododepago
             // 
             lblmetododepago.AutoSize = true;
             lblmetododepago.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblmetododepago.Location = new Point(83, 161);
+            lblmetododepago.Location = new Point(85, 178);
             lblmetododepago.Name = "lblmetododepago";
             lblmetododepago.Size = new Size(155, 19);
             lblmetododepago.TabIndex = 15;
@@ -178,9 +179,9 @@
             panel2.Controls.Add(lblTarjetaDevito);
             panel2.Controls.Add(picimagen);
             panel2.Controls.Add(btnO);
-            panel2.Location = new Point(38, 222);
+            panel2.Location = new Point(517, 179);
             panel2.Name = "panel2";
-            panel2.Size = new Size(193, 97);
+            panel2.Size = new Size(194, 95);
             panel2.TabIndex = 14;
             // 
             // lblTarjetaDevito
@@ -208,7 +209,7 @@
             // 
             btnO.FlatStyle = FlatStyle.System;
             btnO.Font = new Font("Arial Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnO.Location = new Point(12, 3);
+            btnO.Location = new Point(12, 14);
             btnO.Name = "btnO";
             btnO.Size = new Size(36, 36);
             btnO.TabIndex = 5;
@@ -217,7 +218,7 @@
             // 
             // pnl1
             // 
-            pnl1.BackColor = SystemColors.ActiveCaption;
+            pnl1.BackColor = Color.FromArgb(128, 128, 255);
             pnl1.BorderStyle = BorderStyle.Fixed3D;
             pnl1.Controls.Add(pic1);
             pnl1.Controls.Add(btnDestinos);
@@ -225,9 +226,9 @@
             pnl1.Controls.Add(btnVuelos);
             pnl1.Controls.Add(btnMétodopago);
             pnl1.Controls.Add(btnInicio);
-            pnl1.Location = new Point(12, 12);
+            pnl1.Location = new Point(-3, -2);
             pnl1.Name = "pnl1";
-            pnl1.Size = new Size(714, 128);
+            pnl1.Size = new Size(735, 157);
             pnl1.TabIndex = 13;
             // 
             // pic1
@@ -243,45 +244,46 @@
             // 
             // btnDestinos
             // 
-            btnDestinos.Location = new Point(536, 88);
+            btnDestinos.Location = new Point(570, 115);
             btnDestinos.Name = "btnDestinos";
-            btnDestinos.Size = new Size(75, 23);
+            btnDestinos.Size = new Size(100, 23);
             btnDestinos.TabIndex = 4;
             btnDestinos.Text = "Destinos";
             btnDestinos.UseVisualStyleBackColor = true;
             // 
             // btnReserva
             // 
-            btnReserva.Location = new Point(442, 88);
+            btnReserva.Location = new Point(448, 115);
             btnReserva.Name = "btnReserva";
-            btnReserva.Size = new Size(75, 23);
+            btnReserva.Size = new Size(100, 23);
             btnReserva.TabIndex = 3;
             btnReserva.Text = "Reserva";
             btnReserva.UseVisualStyleBackColor = true;
             // 
             // btnVuelos
             // 
-            btnVuelos.Location = new Point(352, 88);
+            btnVuelos.Location = new Point(325, 115);
             btnVuelos.Name = "btnVuelos";
-            btnVuelos.Size = new Size(75, 23);
+            btnVuelos.Size = new Size(100, 23);
             btnVuelos.TabIndex = 2;
             btnVuelos.Text = "Vuelos";
             btnVuelos.UseVisualStyleBackColor = true;
             // 
             // btnMétodopago
             // 
-            btnMétodopago.Location = new Point(219, 88);
+            btnMétodopago.BackColor = Color.FromArgb(128, 255, 128);
+            btnMétodopago.Location = new Point(163, 115);
             btnMétodopago.Name = "btnMétodopago";
-            btnMétodopago.Size = new Size(114, 23);
+            btnMétodopago.Size = new Size(139, 23);
             btnMétodopago.TabIndex = 1;
             btnMétodopago.Text = "Método de pago";
-            btnMétodopago.UseVisualStyleBackColor = true;
+            btnMétodopago.UseVisualStyleBackColor = false;
             // 
             // btnInicio
             // 
-            btnInicio.Location = new Point(123, 88);
+            btnInicio.Location = new Point(43, 115);
             btnInicio.Name = "btnInicio";
-            btnInicio.Size = new Size(75, 23);
+            btnInicio.Size = new Size(100, 23);
             btnInicio.TabIndex = 0;
             btnInicio.Text = "Inicio";
             btnInicio.UseVisualStyleBackColor = true;
@@ -291,7 +293,7 @@
             btnConfirmarPago.BackColor = Color.FromArgb(128, 128, 255);
             btnConfirmarPago.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConfirmarPago.ForeColor = Color.Black;
-            btnConfirmarPago.Location = new Point(367, 674);
+            btnConfirmarPago.Location = new Point(393, 505);
             btnConfirmarPago.Name = "btnConfirmarPago";
             btnConfirmarPago.Size = new Size(165, 37);
             btnConfirmarPago.TabIndex = 35;
@@ -301,7 +303,7 @@
             // btnCancelar
             // 
             btnCancelar.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancelar.Location = new Point(154, 674);
+            btnCancelar.Location = new Point(180, 505);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(153, 37);
             btnCancelar.TabIndex = 34;
@@ -310,7 +312,7 @@
             // 
             // txt00000
             // 
-            txt00000.Location = new Point(437, 607);
+            txt00000.Location = new Point(530, 446);
             txt00000.Name = "txt00000";
             txt00000.Size = new Size(100, 23);
             txt00000.TabIndex = 33;
@@ -320,7 +322,7 @@
             // 
             lblCodigoPostal.AutoSize = true;
             lblCodigoPostal.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCodigoPostal.Location = new Point(437, 573);
+            lblCodigoPostal.Location = new Point(530, 411);
             lblCodigoPostal.Name = "lblCodigoPostal";
             lblCodigoPostal.Size = new Size(95, 16);
             lblCodigoPostal.TabIndex = 32;
@@ -328,7 +330,7 @@
             // 
             // txtIngresacuidad
             // 
-            txtIngresacuidad.Location = new Point(234, 607);
+            txtIngresacuidad.Location = new Point(359, 446);
             txtIngresacuidad.Name = "txtIngresacuidad";
             txtIngresacuidad.Size = new Size(126, 23);
             txtIngresacuidad.TabIndex = 31;
@@ -338,7 +340,7 @@
             // 
             lblCuidad.AutoSize = true;
             lblCuidad.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCuidad.Location = new Point(231, 572);
+            lblCuidad.Location = new Point(356, 411);
             lblCuidad.Name = "lblCuidad";
             lblCuidad.Size = new Size(52, 16);
             lblCuidad.TabIndex = 30;
@@ -347,7 +349,7 @@
             // cmbpaises
             // 
             cmbpaises.FormattingEnabled = true;
-            cmbpaises.Location = new Point(39, 607);
+            cmbpaises.Location = new Point(21, 446);
             cmbpaises.Name = "cmbpaises";
             cmbpaises.Size = new Size(121, 23);
             cmbpaises.TabIndex = 29;
@@ -357,7 +359,7 @@
             // 
             lblPais.AutoSize = true;
             lblPais.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPais.Location = new Point(39, 572);
+            lblPais.Location = new Point(28, 416);
             lblPais.Name = "lblPais";
             lblPais.Size = new Size(34, 16);
             lblPais.TabIndex = 28;
@@ -368,7 +370,7 @@
             lblDirecciònFatura.AutoSize = true;
             lblDirecciònFatura.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDirecciònFatura.ForeColor = Color.Blue;
-            lblDirecciònFatura.Location = new Point(39, 537);
+            lblDirecciònFatura.Location = new Point(21, 388);
             lblDirecciònFatura.Name = "lblDirecciònFatura";
             lblDirecciònFatura.Size = new Size(166, 16);
             lblDirecciònFatura.TabIndex = 27;
@@ -376,7 +378,7 @@
             // 
             // txtnumeroTarjeta
             // 
-            txtnumeroTarjeta.Location = new Point(39, 483);
+            txtnumeroTarjeta.Location = new Point(176, 446);
             txtnumeroTarjeta.Name = "txtnumeroTarjeta";
             txtnumeroTarjeta.Size = new Size(160, 23);
             txtnumeroTarjeta.TabIndex = 26;
@@ -385,7 +387,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(729, 724);
+            ClientSize = new Size(729, 548);
             Controls.Add(btnConfirmarPago);
             Controls.Add(btnCancelar);
             Controls.Add(txt00000);

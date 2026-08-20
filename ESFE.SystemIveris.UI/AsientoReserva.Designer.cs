@@ -48,12 +48,12 @@
             btnH23 = new Button();
             btnA12 = new Button();
             panel1 = new Panel();
+            pic1 = new PictureBox();
             btnDestinos = new Button();
             btnReservas = new Button();
             btnMétodoPago = new Button();
             btnVuelos = new Button();
             btnInicio = new Button();
-            pic1 = new PictureBox();
             pnl3.SuspendLayout();
             pnl2.SuspendLayout();
             panel1.SuspendLayout();
@@ -64,7 +64,7 @@
             // 
             lblSelecionaAsiento.AutoSize = true;
             lblSelecionaAsiento.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSelecionaAsiento.Location = new Point(184, 164);
+            lblSelecionaAsiento.Location = new Point(203, 188);
             lblSelecionaAsiento.Name = "lblSelecionaAsiento";
             lblSelecionaAsiento.Size = new Size(152, 18);
             lblSelecionaAsiento.TabIndex = 7;
@@ -81,9 +81,9 @@
             pnl3.Controls.Add(btnA20);
             pnl3.Controls.Add(btnU51);
             pnl3.Controls.Add(btnM44);
-            pnl3.Location = new Point(279, 208);
+            pnl3.Location = new Point(279, 221);
             pnl3.Name = "pnl3";
-            pnl3.Size = new Size(215, 362);
+            pnl3.Size = new Size(215, 349);
             pnl3.TabIndex = 6;
             // 
             // lbl4
@@ -183,9 +183,9 @@
             pnl2.Controls.Add(btnG19);
             pnl2.Controls.Add(btnH23);
             pnl2.Controls.Add(btnA12);
-            pnl2.Location = new Point(13, 208);
+            pnl2.Location = new Point(13, 221);
             pnl2.Name = "pnl2";
-            pnl2.Size = new Size(240, 362);
+            pnl2.Size = new Size(240, 349);
             pnl2.TabIndex = 5;
             // 
             // lbl2
@@ -276,7 +276,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.BackColor = Color.FromArgb(128, 128, 255);
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(pic1);
             panel1.Controls.Add(btnDestinos);
@@ -284,55 +284,10 @@
             panel1.Controls.Add(btnMétodoPago);
             panel1.Controls.Add(btnVuelos);
             panel1.Controls.Add(btnInicio);
-            panel1.Location = new Point(2, 1);
+            panel1.Location = new Point(-4, -2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(508, 160);
+            panel1.Size = new Size(519, 163);
             panel1.TabIndex = 4;
-            // 
-            // btnDestinos
-            // 
-            btnDestinos.Location = new Point(398, 111);
-            btnDestinos.Name = "btnDestinos";
-            btnDestinos.Size = new Size(75, 23);
-            btnDestinos.TabIndex = 4;
-            btnDestinos.Text = "Destinos";
-            btnDestinos.UseVisualStyleBackColor = true;
-            // 
-            // btnReservas
-            // 
-            btnReservas.Location = new Point(317, 111);
-            btnReservas.Name = "btnReservas";
-            btnReservas.Size = new Size(75, 23);
-            btnReservas.TabIndex = 3;
-            btnReservas.Text = "Reservas";
-            btnReservas.UseVisualStyleBackColor = true;
-            // 
-            // btnMétodoPago
-            // 
-            btnMétodoPago.Location = new Point(207, 111);
-            btnMétodoPago.Name = "btnMétodoPago";
-            btnMétodoPago.Size = new Size(104, 23);
-            btnMétodoPago.TabIndex = 2;
-            btnMétodoPago.Text = "Método de Pago";
-            btnMétodoPago.UseVisualStyleBackColor = true;
-            // 
-            // btnVuelos
-            // 
-            btnVuelos.Location = new Point(117, 111);
-            btnVuelos.Name = "btnVuelos";
-            btnVuelos.Size = new Size(75, 23);
-            btnVuelos.TabIndex = 1;
-            btnVuelos.Text = "Vuelos";
-            btnVuelos.UseVisualStyleBackColor = true;
-            // 
-            // btnInicio
-            // 
-            btnInicio.Location = new Point(22, 112);
-            btnInicio.Name = "btnInicio";
-            btnInicio.Size = new Size(75, 23);
-            btnInicio.TabIndex = 0;
-            btnInicio.Text = "Inicio";
-            btnInicio.UseVisualStyleBackColor = true;
             // 
             // pic1
             // 
@@ -344,6 +299,52 @@
             pic1.SizeMode = PictureBoxSizeMode.StretchImage;
             pic1.TabIndex = 5;
             pic1.TabStop = false;
+            // 
+            // btnDestinos
+            // 
+            btnDestinos.Location = new Point(408, 125);
+            btnDestinos.Name = "btnDestinos";
+            btnDestinos.Size = new Size(75, 23);
+            btnDestinos.TabIndex = 4;
+            btnDestinos.Text = "Destinos";
+            btnDestinos.UseVisualStyleBackColor = true;
+            // 
+            // btnReservas
+            // 
+            btnReservas.BackColor = Color.FromArgb(128, 255, 128);
+            btnReservas.Location = new Point(327, 125);
+            btnReservas.Name = "btnReservas";
+            btnReservas.Size = new Size(75, 23);
+            btnReservas.TabIndex = 3;
+            btnReservas.Text = "Reservas";
+            btnReservas.UseVisualStyleBackColor = false;
+            // 
+            // btnMétodoPago
+            // 
+            btnMétodoPago.Location = new Point(217, 125);
+            btnMétodoPago.Name = "btnMétodoPago";
+            btnMétodoPago.Size = new Size(104, 23);
+            btnMétodoPago.TabIndex = 2;
+            btnMétodoPago.Text = "Método de Pago";
+            btnMétodoPago.UseVisualStyleBackColor = true;
+            // 
+            // btnVuelos
+            // 
+            btnVuelos.Location = new Point(127, 125);
+            btnVuelos.Name = "btnVuelos";
+            btnVuelos.Size = new Size(75, 23);
+            btnVuelos.TabIndex = 1;
+            btnVuelos.Text = "Vuelos";
+            btnVuelos.UseVisualStyleBackColor = true;
+            // 
+            // btnInicio
+            // 
+            btnInicio.Location = new Point(32, 126);
+            btnInicio.Name = "btnInicio";
+            btnInicio.Size = new Size(75, 23);
+            btnInicio.TabIndex = 0;
+            btnInicio.Text = "Inicio";
+            btnInicio.UseVisualStyleBackColor = true;
             // 
             // AsientoReserva
             // 

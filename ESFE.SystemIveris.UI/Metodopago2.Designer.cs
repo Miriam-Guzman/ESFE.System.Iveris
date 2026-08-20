@@ -35,13 +35,13 @@
             lblFecha = new Label();
             lblPasajero = new Label();
             lblSal = new Label();
-            label3 = new Label();
+            lbl03 = new Label();
             pic5 = new PictureBox();
-            label2 = new Label();
+            lbl2 = new Label();
             pic4 = new PictureBox();
             pic3 = new PictureBox();
-            label1 = new Label();
-            pictureBox2 = new PictureBox();
+            lbl1 = new Label();
+            pic2 = new PictureBox();
             btnResumenCompra = new Button();
             pnl1 = new Panel();
             btnDestinos = new Button();
@@ -59,15 +59,15 @@
             txt4 = new TextBox();
             txt3 = new TextBox();
             lblEquipaje2 = new Label();
-            label9 = new Label();
+            lbl9 = new Label();
             lblClase = new Label();
-            label4 = new Label();
+            lbl4 = new Label();
             pic7 = new PictureBox();
             pic6 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pic5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic2).BeginInit();
             pnl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic7).BeginInit();
@@ -77,7 +77,7 @@
             // dtp1
             // 
             dtp1.CalendarMonthBackground = Color.FromArgb(224, 224, 224);
-            dtp1.Location = new Point(441, 427);
+            dtp1.Location = new Point(444, 382);
             dtp1.Name = "dtp1";
             dtp1.Size = new Size(200, 23);
             dtp1.TabIndex = 35;
@@ -85,7 +85,7 @@
             // txt2
             // 
             txt2.BackColor = Color.FromArgb(224, 224, 224);
-            txt2.Location = new Point(436, 279);
+            txt2.Location = new Point(444, 261);
             txt2.Name = "txt2";
             txt2.Size = new Size(205, 23);
             txt2.TabIndex = 34;
@@ -93,7 +93,7 @@
             // txt1
             // 
             txt1.BackColor = Color.FromArgb(224, 224, 224);
-            txt1.Location = new Point(436, 350);
+            txt1.Location = new Point(444, 320);
             txt1.Name = "txt1";
             txt1.Size = new Size(205, 23);
             txt1.TabIndex = 33;
@@ -102,7 +102,7 @@
             // 
             lblFecha.AutoSize = true;
             lblFecha.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFecha.Location = new Point(96, 426);
+            lblFecha.Location = new Point(70, 381);
             lblFecha.Name = "lblFecha";
             lblFecha.Size = new Size(72, 24);
             lblFecha.TabIndex = 32;
@@ -112,7 +112,7 @@
             // 
             lblPasajero.AutoSize = true;
             lblPasajero.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPasajero.Location = new Point(96, 346);
+            lblPasajero.Location = new Point(70, 320);
             lblPasajero.Name = "lblPasajero";
             lblPasajero.Size = new Size(98, 24);
             lblPasajero.TabIndex = 31;
@@ -122,48 +122,48 @@
             // 
             lblSal.AutoSize = true;
             lblSal.Font = new Font("Arial", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSal.Location = new Point(96, 271);
+            lblSal.Location = new Point(62, 262);
             lblSal.Name = "lblSal";
             lblSal.Size = new Size(189, 22);
             lblSal.TabIndex = 30;
             lblSal.Text = "San Salvador (SAL)";
             // 
-            // label3
+            // lbl03
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(3, 463);
-            label3.Name = "label3";
-            label3.Size = new Size(817, 15);
-            label3.TabIndex = 29;
-            label3.Text = "__________________________________________________________________________________________________________________________________________________________________";
+            lbl03.AutoSize = true;
+            lbl03.Location = new Point(3, 408);
+            lbl03.Name = "lbl03";
+            lbl03.Size = new Size(817, 15);
+            lbl03.TabIndex = 29;
+            lbl03.Text = "__________________________________________________________________________________________________________________________________________________________________";
             // 
             // pic5
             // 
             pic5.BorderStyle = BorderStyle.FixedSingle;
             pic5.Image = (Image)resources.GetObject("pic5.Image");
-            pic5.Location = new Point(23, 412);
+            pic5.Location = new Point(22, 371);
             pic5.Name = "pic5";
-            pic5.Size = new Size(58, 48);
+            pic5.Size = new Size(36, 34);
             pic5.SizeMode = PictureBoxSizeMode.StretchImage;
             pic5.TabIndex = 28;
             pic5.TabStop = false;
             // 
-            // label2
+            // lbl2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(3, 383);
-            label2.Name = "label2";
-            label2.Size = new Size(817, 15);
-            label2.TabIndex = 27;
-            label2.Text = "__________________________________________________________________________________________________________________________________________________________________";
+            lbl2.AutoSize = true;
+            lbl2.Location = new Point(3, 344);
+            lbl2.Name = "lbl2";
+            lbl2.Size = new Size(817, 15);
+            lbl2.TabIndex = 27;
+            lbl2.Text = "__________________________________________________________________________________________________________________________________________________________________";
             // 
             // pic4
             // 
             pic4.BorderStyle = BorderStyle.FixedSingle;
             pic4.Image = (Image)resources.GetObject("pic4.Image");
-            pic4.Location = new Point(23, 330);
+            pic4.Location = new Point(25, 314);
             pic4.Name = "pic4";
-            pic4.Size = new Size(55, 50);
+            pic4.Size = new Size(33, 30);
             pic4.SizeMode = PictureBoxSizeMode.StretchImage;
             pic4.TabIndex = 26;
             pic4.TabStop = false;
@@ -172,45 +172,45 @@
             // 
             pic3.BorderStyle = BorderStyle.FixedSingle;
             pic3.Image = (Image)resources.GetObject("pic3.Image");
-            pic3.Location = new Point(23, 252);
+            pic3.Location = new Point(23, 247);
             pic3.Name = "pic3";
-            pic3.Size = new Size(55, 50);
+            pic3.Size = new Size(33, 37);
             pic3.SizeMode = PictureBoxSizeMode.StretchImage;
             pic3.TabIndex = 25;
             pic3.TabStop = false;
             // 
-            // label1
+            // lbl1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(3, 305);
-            label1.Name = "label1";
-            label1.Size = new Size(817, 15);
-            label1.TabIndex = 24;
-            label1.Text = "__________________________________________________________________________________________________________________________________________________________________";
+            lbl1.AutoSize = true;
+            lbl1.Location = new Point(3, 287);
+            lbl1.Name = "lbl1";
+            lbl1.Size = new Size(817, 15);
+            lbl1.TabIndex = 24;
+            lbl1.Text = "__________________________________________________________________________________________________________________________________________________________________";
             // 
-            // pictureBox2
+            // pic2
             // 
-            pictureBox2.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(55, 203);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(35, 30);
-            pictureBox2.TabIndex = 23;
-            pictureBox2.TabStop = false;
+            pic2.BorderStyle = BorderStyle.FixedSingle;
+            pic2.Image = (Image)resources.GetObject("pic2.Image");
+            pic2.Location = new Point(23, 190);
+            pic2.Name = "pic2";
+            pic2.Size = new Size(35, 30);
+            pic2.TabIndex = 23;
+            pic2.TabStop = false;
             // 
             // btnResumenCompra
             // 
             btnResumenCompra.BackColor = Color.RoyalBlue;
-            btnResumenCompra.Location = new Point(23, 187);
+            btnResumenCompra.Location = new Point(17, 176);
             btnResumenCompra.Name = "btnResumenCompra";
-            btnResumenCompra.Size = new Size(273, 59);
+            btnResumenCompra.Size = new Size(206, 55);
             btnResumenCompra.TabIndex = 22;
             btnResumenCompra.Text = "Resumen de Compra";
             btnResumenCompra.UseVisualStyleBackColor = false;
             // 
             // pnl1
             // 
-            pnl1.BackColor = SystemColors.ActiveCaption;
+            pnl1.BackColor = Color.FromArgb(128, 128, 255);
             pnl1.BorderStyle = BorderStyle.FixedSingle;
             pnl1.Controls.Add(btnDestinos);
             pnl1.Controls.Add(btnReserva);
@@ -255,13 +255,14 @@
             // 
             // btnMetodopago
             // 
+            btnMetodopago.BackColor = Color.FromArgb(128, 255, 128);
             btnMetodopago.Font = new Font("Arial", 9.75F, FontStyle.Bold);
             btnMetodopago.Location = new Point(233, 117);
             btnMetodopago.Name = "btnMetodopago";
             btnMetodopago.Size = new Size(148, 27);
             btnMetodopago.TabIndex = 2;
             btnMetodopago.Text = "Metodo de Pago";
-            btnMetodopago.UseVisualStyleBackColor = true;
+            btnMetodopago.UseVisualStyleBackColor = false;
             // 
             // btnInicio
             // 
@@ -288,7 +289,7 @@
             // 
             lbl16.AutoSize = true;
             lbl16.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl16.Location = new Point(604, 676);
+            lbl16.Location = new Point(578, 568);
             lbl16.Name = "lbl16";
             lbl16.Size = new Size(166, 24);
             lbl16.TabIndex = 49;
@@ -299,7 +300,7 @@
             lbl15.AutoSize = true;
             lbl15.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbl15.ForeColor = Color.Blue;
-            lbl15.Location = new Point(457, 676);
+            lbl15.Location = new Point(431, 568);
             lbl15.Name = "lbl15";
             lbl15.Size = new Size(141, 24);
             lbl15.TabIndex = 48;
@@ -309,7 +310,7 @@
             // 
             lbl14.AutoSize = true;
             lbl14.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl14.Location = new Point(234, 698);
+            lbl14.Location = new Point(208, 590);
             lbl14.Name = "lbl14";
             lbl14.Size = new Size(106, 24);
             lbl14.TabIndex = 47;
@@ -319,7 +320,7 @@
             // 
             lbl3.AutoSize = true;
             lbl3.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbl3.Location = new Point(234, 650);
+            lbl3.Location = new Point(208, 542);
             lbl3.Name = "lbl3";
             lbl3.Size = new Size(142, 24);
             lbl3.TabIndex = 46;
@@ -329,7 +330,7 @@
             // 
             lblEquipaje.AutoSize = true;
             lblEquipaje.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEquipaje.Location = new Point(45, 698);
+            lblEquipaje.Location = new Point(19, 590);
             lblEquipaje.Name = "lblEquipaje";
             lblEquipaje.Size = new Size(97, 24);
             lblEquipaje.TabIndex = 45;
@@ -339,7 +340,7 @@
             // 
             lblTarifaVuelo.AutoSize = true;
             lblTarifaVuelo.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTarifaVuelo.Location = new Point(36, 650);
+            lblTarifaVuelo.Location = new Point(10, 542);
             lblTarifaVuelo.Name = "lblTarifaVuelo";
             lblTarifaVuelo.Size = new Size(157, 24);
             lblTarifaVuelo.TabIndex = 44;
@@ -348,7 +349,7 @@
             // txt4
             // 
             txt4.BackColor = Color.FromArgb(224, 224, 224);
-            txt4.Location = new Point(441, 580);
+            txt4.Location = new Point(444, 498);
             txt4.Name = "txt4";
             txt4.Size = new Size(208, 23);
             txt4.TabIndex = 43;
@@ -356,7 +357,7 @@
             // txt3
             // 
             txt3.BackColor = Color.FromArgb(224, 224, 224);
-            txt3.Location = new Point(441, 497);
+            txt3.Location = new Point(444, 441);
             txt3.Name = "txt3";
             txt3.Size = new Size(208, 23);
             txt3.TabIndex = 42;
@@ -365,47 +366,47 @@
             // 
             lblEquipaje2.AutoSize = true;
             lblEquipaje2.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEquipaje2.Location = new Point(96, 579);
+            lblEquipaje2.Location = new Point(70, 497);
             lblEquipaje2.Name = "lblEquipaje2";
             lblEquipaje2.Size = new Size(97, 24);
             lblEquipaje2.TabIndex = 41;
             lblEquipaje2.Text = "Equipaje";
             // 
-            // label9
+            // lbl9
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(3, 616);
-            label9.Name = "label9";
-            label9.Size = new Size(817, 15);
-            label9.TabIndex = 40;
-            label9.Text = "__________________________________________________________________________________________________________________________________________________________________";
+            lbl9.AutoSize = true;
+            lbl9.Location = new Point(-6, 524);
+            lbl9.Name = "lbl9";
+            lbl9.Size = new Size(817, 15);
+            lbl9.TabIndex = 40;
+            lbl9.Text = "__________________________________________________________________________________________________________________________________________________________________";
             // 
             // lblClase
             // 
             lblClase.AutoSize = true;
             lblClase.Font = new Font("Arial", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblClase.Location = new Point(96, 497);
+            lblClase.Location = new Point(70, 437);
             lblClase.Name = "lblClase";
             lblClase.Size = new Size(66, 24);
             lblClase.TabIndex = 39;
             lblClase.Text = "Clase";
             // 
-            // label4
+            // lbl4
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(3, 534);
-            label4.Name = "label4";
-            label4.Size = new Size(817, 15);
-            label4.TabIndex = 38;
-            label4.Text = "__________________________________________________________________________________________________________________________________________________________________";
+            lbl4.AutoSize = true;
+            lbl4.Location = new Point(3, 461);
+            lbl4.Name = "lbl4";
+            lbl4.Size = new Size(817, 15);
+            lbl4.TabIndex = 38;
+            lbl4.Text = "__________________________________________________________________________________________________________________________________________________________________";
             // 
             // pic7
             // 
             pic7.BorderStyle = BorderStyle.FixedSingle;
             pic7.Image = (Image)resources.GetObject("pic7.Image");
-            pic7.Location = new Point(23, 563);
+            pic7.Location = new Point(22, 490);
             pic7.Name = "pic7";
-            pic7.Size = new Size(55, 50);
+            pic7.Size = new Size(36, 31);
             pic7.SizeMode = PictureBoxSizeMode.StretchImage;
             pic7.TabIndex = 37;
             pic7.TabStop = false;
@@ -414,9 +415,9 @@
             // 
             pic6.BorderStyle = BorderStyle.FixedSingle;
             pic6.Image = (Image)resources.GetObject("pic6.Image");
-            pic6.Location = new Point(23, 481);
+            pic6.Location = new Point(22, 426);
             pic6.Name = "pic6";
-            pic6.Size = new Size(55, 50);
+            pic6.Size = new Size(33, 35);
             pic6.SizeMode = PictureBoxSizeMode.StretchImage;
             pic6.TabIndex = 36;
             pic6.TabStop = false;
@@ -425,7 +426,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(813, 738);
+            ClientSize = new Size(813, 625);
             Controls.Add(lbl16);
             Controls.Add(lbl15);
             Controls.Add(lbl14);
@@ -435,9 +436,9 @@
             Controls.Add(txt4);
             Controls.Add(txt3);
             Controls.Add(lblEquipaje2);
-            Controls.Add(label9);
+            Controls.Add(lbl9);
             Controls.Add(lblClase);
-            Controls.Add(label4);
+            Controls.Add(lbl4);
             Controls.Add(pic7);
             Controls.Add(pic6);
             Controls.Add(dtp1);
@@ -446,13 +447,13 @@
             Controls.Add(lblFecha);
             Controls.Add(lblPasajero);
             Controls.Add(lblSal);
-            Controls.Add(label3);
+            Controls.Add(lbl03);
             Controls.Add(pic5);
-            Controls.Add(label2);
+            Controls.Add(lbl2);
             Controls.Add(pic4);
             Controls.Add(pic3);
-            Controls.Add(label1);
-            Controls.Add(pictureBox2);
+            Controls.Add(lbl1);
+            Controls.Add(pic2);
             Controls.Add(btnResumenCompra);
             Controls.Add(pnl1);
             Name = "Metodopago2";
@@ -460,7 +461,7 @@
             ((System.ComponentModel.ISupportInitialize)pic5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic2).EndInit();
             pnl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pic1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic7).EndInit();
@@ -477,13 +478,13 @@
         private Label lblFecha;
         private Label lblPasajero;
         private Label lblSal;
-        private Label label3;
+        private Label lbl03;
         private PictureBox pic5;
-        private Label label2;
+        private Label lbl2;
         private PictureBox pic4;
         private PictureBox pic3;
-        private Label label1;
-        private PictureBox pictureBox2;
+        private Label lbl1;
+        private PictureBox pic2;
         private Button btnResumenCompra;
         private Panel pnl1;
         private Button btnDestinos;
@@ -501,9 +502,9 @@
         private TextBox txt4;
         private TextBox txt3;
         private Label lblEquipaje2;
-        private Label label9;
+        private Label lbl9;
         private Label lblClase;
-        private Label label4;
+        private Label lbl4;
         private PictureBox pic7;
         private PictureBox pic6;
     }

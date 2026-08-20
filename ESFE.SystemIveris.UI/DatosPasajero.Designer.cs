@@ -58,7 +58,7 @@
             // 
             // btnInicio
             // 
-            btnInicio.BackColor = SystemColors.ActiveCaption;
+            btnInicio.BackColor = Color.White;
             btnInicio.FlatAppearance.BorderSize = 0;
             btnInicio.FlatStyle = FlatStyle.Flat;
             btnInicio.Location = new Point(17, 112);
@@ -70,7 +70,7 @@
             // 
             // btnMetodopago
             // 
-            btnMetodopago.BackColor = SystemColors.ScrollBar;
+            btnMetodopago.BackColor = Color.White;
             btnMetodopago.FlatAppearance.BorderSize = 0;
             btnMetodopago.FlatStyle = FlatStyle.Flat;
             btnMetodopago.Location = new Point(133, 112);
@@ -82,7 +82,7 @@
             // 
             // btnVuelos
             // 
-            btnVuelos.BackColor = SystemColors.ScrollBar;
+            btnVuelos.BackColor = Color.White;
             btnVuelos.FlatAppearance.BorderSize = 0;
             btnVuelos.FlatStyle = FlatStyle.Flat;
             btnVuelos.Location = new Point(282, 112);
@@ -94,7 +94,7 @@
             // 
             // btnReservas
             // 
-            btnReservas.BackColor = SystemColors.ScrollBar;
+            btnReservas.BackColor = Color.FromArgb(128, 255, 128);
             btnReservas.FlatAppearance.BorderSize = 0;
             btnReservas.FlatStyle = FlatStyle.Flat;
             btnReservas.Location = new Point(434, 112);
@@ -106,7 +106,7 @@
             // 
             // btndestinos
             // 
-            btndestinos.BackColor = SystemColors.ScrollBar;
+            btndestinos.BackColor = Color.White;
             btndestinos.FlatAppearance.BorderSize = 0;
             btndestinos.FlatStyle = FlatStyle.Flat;
             btndestinos.Location = new Point(584, 112);
@@ -120,7 +120,7 @@
             // 
             lblDastospasajero.AutoSize = true;
             lblDastospasajero.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblDastospasajero.Location = new Point(24, 185);
+            lblDastospasajero.Location = new Point(20, 166);
             lblDastospasajero.Name = "lblDastospasajero";
             lblDastospasajero.Size = new Size(108, 15);
             lblDastospasajero.TabIndex = 5;
@@ -130,7 +130,7 @@
             // 
             lblApellidos.AutoSize = true;
             lblApellidos.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblApellidos.Location = new Point(28, 278);
+            lblApellidos.Location = new Point(24, 259);
             lblApellidos.Name = "lblApellidos";
             lblApellidos.Size = new Size(57, 15);
             lblApellidos.TabIndex = 6;
@@ -140,7 +140,7 @@
             // 
             lblfechanacimiento.AutoSize = true;
             lblfechanacimiento.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblfechanacimiento.Location = new Point(28, 342);
+            lblfechanacimiento.Location = new Point(24, 323);
             lblfechanacimiento.Name = "lblfechanacimiento";
             lblfechanacimiento.Size = new Size(123, 15);
             lblfechanacimiento.TabIndex = 7;
@@ -150,7 +150,7 @@
             // 
             lblnacionalidad.AutoSize = true;
             lblnacionalidad.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblnacionalidad.Location = new Point(28, 412);
+            lblnacionalidad.Location = new Point(24, 393);
             lblnacionalidad.Name = "lblnacionalidad";
             lblnacionalidad.Size = new Size(77, 15);
             lblnacionalidad.TabIndex = 8;
@@ -160,7 +160,7 @@
             // 
             lblNumeroPasaporteDui.AutoSize = true;
             lblNumeroPasaporteDui.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblNumeroPasaporteDui.Location = new Point(24, 482);
+            lblNumeroPasaporteDui.Location = new Point(20, 463);
             lblNumeroPasaporteDui.Name = "lblNumeroPasaporteDui";
             lblNumeroPasaporteDui.Size = new Size(163, 15);
             lblNumeroPasaporteDui.TabIndex = 9;
@@ -170,7 +170,7 @@
             // 
             lblCorreoElectro.AutoSize = true;
             lblCorreoElectro.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblCorreoElectro.Location = new Point(24, 552);
+            lblCorreoElectro.Location = new Point(20, 533);
             lblCorreoElectro.Name = "lblCorreoElectro";
             lblCorreoElectro.Size = new Size(110, 15);
             lblCorreoElectro.TabIndex = 10;
@@ -180,7 +180,7 @@
             // 
             lblNumeroTelefon.AutoSize = true;
             lblNumeroTelefon.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblNumeroTelefon.Location = new Point(24, 618);
+            lblNumeroTelefon.Location = new Point(20, 599);
             lblNumeroTelefon.Name = "lblNumeroTelefon";
             lblNumeroTelefon.Size = new Size(136, 15);
             lblNumeroTelefon.TabIndex = 11;
@@ -190,7 +190,7 @@
             // 
             lblNombres.AutoSize = true;
             lblNombres.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblNombres.Location = new Point(28, 214);
+            lblNombres.Location = new Point(24, 195);
             lblNombres.Name = "lblNombres";
             lblNombres.Size = new Size(58, 15);
             lblNombres.TabIndex = 12;
@@ -199,49 +199,49 @@
             // dtp1
             // 
             dtp1.Format = DateTimePickerFormat.Short;
-            dtp1.Location = new Point(24, 372);
+            dtp1.Location = new Point(20, 353);
             dtp1.Name = "dtp1";
             dtp1.Size = new Size(200, 23);
             dtp1.TabIndex = 13;
             // 
             // txt1
             // 
-            txt1.Location = new Point(22, 232);
+            txt1.Location = new Point(18, 213);
             txt1.Name = "txt1";
             txt1.Size = new Size(202, 23);
             txt1.TabIndex = 14;
             // 
             // txt2
             // 
-            txt2.Location = new Point(22, 305);
+            txt2.Location = new Point(18, 286);
             txt2.Name = "txt2";
             txt2.Size = new Size(200, 23);
             txt2.TabIndex = 15;
             // 
             // txt3
             // 
-            txt3.Location = new Point(24, 440);
+            txt3.Location = new Point(20, 421);
             txt3.Name = "txt3";
             txt3.Size = new Size(200, 23);
             txt3.TabIndex = 16;
             // 
             // txt4
             // 
-            txt4.Location = new Point(24, 516);
+            txt4.Location = new Point(20, 497);
             txt4.Name = "txt4";
             txt4.Size = new Size(200, 23);
             txt4.TabIndex = 17;
             // 
             // txt5
             // 
-            txt5.Location = new Point(22, 570);
+            txt5.Location = new Point(18, 551);
             txt5.Name = "txt5";
             txt5.Size = new Size(202, 23);
             txt5.TabIndex = 18;
             // 
             // txt6
             // 
-            txt6.Location = new Point(22, 645);
+            txt6.Location = new Point(18, 626);
             txt6.Name = "txt6";
             txt6.Size = new Size(202, 23);
             txt6.TabIndex = 19;
@@ -251,7 +251,7 @@
             btncontinuar.BackColor = SystemColors.Highlight;
             btncontinuar.FlatStyle = FlatStyle.Flat;
             btncontinuar.ForeColor = SystemColors.Window;
-            btncontinuar.Location = new Point(257, 680);
+            btncontinuar.Location = new Point(423, 409);
             btncontinuar.Name = "btncontinuar";
             btncontinuar.Size = new Size(122, 44);
             btncontinuar.TabIndex = 20;
@@ -272,6 +272,7 @@
             // pnl1
             // 
             pnl1.BackColor = Color.FromArgb(128, 128, 255);
+            pnl1.BorderStyle = BorderStyle.FixedSingle;
             pnl1.Controls.Add(pic1);
             pnl1.Controls.Add(btnMetodopago);
             pnl1.Controls.Add(btnInicio);
@@ -287,7 +288,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(731, 749);
+            ClientSize = new Size(731, 662);
             Controls.Add(pnl1);
             Controls.Add(btncontinuar);
             Controls.Add(txt6);

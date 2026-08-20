@@ -71,13 +71,14 @@
             // 
             // btnDestinos
             // 
+            btnDestinos.BackColor = Color.FromArgb(128, 255, 128);
             btnDestinos.Font = new Font("Arial", 9.75F, FontStyle.Bold);
             btnDestinos.Location = new Point(498, 150);
             btnDestinos.Name = "btnDestinos";
             btnDestinos.Size = new Size(105, 27);
             btnDestinos.TabIndex = 11;
             btnDestinos.Text = "Destinos";
-            btnDestinos.UseVisualStyleBackColor = true;
+            btnDestinos.UseVisualStyleBackColor = false;
             // 
             // btnMetodopago
             // 
@@ -142,11 +143,6 @@
             // 
             Hora.HeaderText = "Hora de Vuelo";
             Hora.Name = "Hora";
-            // 
-            // AvionAsignado
-            // 
-            AvionAsignado.HeaderText = "Avion Asignado";
-            AvionAsignado.Name = "AvionAsignado";
             // 
             // Destinos
             // 

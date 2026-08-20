@@ -19,5 +19,10 @@ namespace ESFE.SystemIveris.UI
         {
 
         }
+
+        private void Reserva2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

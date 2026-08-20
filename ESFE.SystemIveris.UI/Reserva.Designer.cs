@@ -133,7 +133,7 @@
             // 
             lblidaVuelta.AutoSize = true;
             lblidaVuelta.Font = new Font("Arial", 9.75F, FontStyle.Bold);
-            lblidaVuelta.Location = new Point(13, 216);
+            lblidaVuelta.Location = new Point(244, 217);
             lblidaVuelta.Name = "lblidaVuelta";
             lblidaVuelta.Size = new Size(83, 16);
             lblidaVuelta.TabIndex = 16;
@@ -141,7 +141,7 @@
             // 
             // txt1
             // 
-            txt1.Location = new Point(35, 269);
+            txt1.Location = new Point(14, 264);
             txt1.Name = "txt1";
             txt1.Size = new Size(366, 23);
             txt1.TabIndex = 17;
@@ -150,7 +150,7 @@
             // 
             lblorigen.AutoSize = true;
             lblorigen.Font = new Font("Arial", 9.75F, FontStyle.Bold);
-            lblorigen.Location = new Point(35, 251);
+            lblorigen.Location = new Point(18, 245);
             lblorigen.Name = "lblorigen";
             lblorigen.Size = new Size(50, 16);
             lblorigen.TabIndex = 18;
@@ -160,7 +160,7 @@
             // 
             lblDestino.AutoSize = true;
             lblDestino.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDestino.Location = new Point(34, 319);
+            lblDestino.Location = new Point(14, 290);
             lblDestino.Name = "lblDestino";
             lblDestino.Size = new Size(54, 16);
             lblDestino.TabIndex = 19;
@@ -170,7 +170,7 @@
             // 
             lblfechasalida.AutoSize = true;
             lblfechasalida.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblfechasalida.Location = new Point(32, 389);
+            lblfechasalida.Location = new Point(14, 345);
             lblfechasalida.Name = "lblfechasalida";
             lblfechasalida.Size = new Size(108, 16);
             lblfechasalida.TabIndex = 20;
@@ -180,7 +180,7 @@
             // 
             lblfecharegreso.AutoSize = true;
             lblfecharegreso.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblfecharegreso.Location = new Point(32, 447);
+            lblfecharegreso.Location = new Point(14, 403);
             lblfecharegreso.Name = "lblfecharegreso";
             lblfecharegreso.Size = new Size(118, 16);
             lblfecharegreso.TabIndex = 21;
@@ -190,7 +190,7 @@
             // 
             lblpasajero.AutoSize = true;
             lblpasajero.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblpasajero.Location = new Point(32, 513);
+            lblpasajero.Location = new Point(14, 469);
             lblpasajero.Name = "lblpasajero";
             lblpasajero.Size = new Size(63, 16);
             lblpasajero.TabIndex = 22;
@@ -200,7 +200,7 @@
             // 
             lblclase.AutoSize = true;
             lblclase.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblclase.Location = new Point(35, 586);
+            lblclase.Location = new Point(17, 542);
             lblclase.Name = "lblclase";
             lblclase.Size = new Size(42, 16);
             lblclase.TabIndex = 23;
@@ -208,35 +208,35 @@
             // 
             // txt2
             // 
-            txt2.Location = new Point(31, 353);
+            txt2.Location = new Point(13, 309);
             txt2.Name = "txt2";
             txt2.Size = new Size(366, 23);
             txt2.TabIndex = 25;
             // 
             // txt5
             // 
-            txt5.Location = new Point(32, 544);
+            txt5.Location = new Point(14, 500);
             txt5.Name = "txt5";
             txt5.Size = new Size(366, 23);
             txt5.TabIndex = 28;
             // 
             // txt6
             // 
-            txt6.Location = new Point(31, 604);
+            txt6.Location = new Point(13, 560);
             txt6.Name = "txt6";
             txt6.Size = new Size(366, 23);
             txt6.TabIndex = 29;
             // 
             // dtp1
             // 
-            dtp1.Location = new Point(31, 476);
+            dtp1.Location = new Point(13, 432);
             dtp1.Name = "dtp1";
             dtp1.Size = new Size(357, 23);
             dtp1.TabIndex = 30;
             // 
             // dtp2
             // 
-            dtp2.Location = new Point(36, 412);
+            dtp2.Location = new Point(18, 368);
             dtp2.Name = "dtp2";
             dtp2.Size = new Size(356, 23);
             dtp2.TabIndex = 31;
@@ -246,7 +246,7 @@
             btnBuscarvuelos.BackColor = Color.Blue;
             btnBuscarvuelos.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBuscarvuelos.ForeColor = Color.White;
-            btnBuscarvuelos.Location = new Point(193, 649);
+            btnBuscarvuelos.Location = new Point(175, 605);
             btnBuscarvuelos.Name = "btnBuscarvuelos";
             btnBuscarvuelos.Size = new Size(208, 45);
             btnBuscarvuelos.TabIndex = 32;
@@ -257,7 +257,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(616, 722);
+            ClientSize = new Size(616, 654);
             Controls.Add(btnBuscarvuelos);
             Controls.Add(dtp2);
             Controls.Add(dtp1);

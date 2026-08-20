@@ -14,5 +14,10 @@ namespace ESFE.SystemIveris.UI
         {
             InitializeComponent();
         }
+
+        private void lblSelecionMetPag_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
