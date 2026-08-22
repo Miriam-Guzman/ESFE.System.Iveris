@@ -57,6 +57,7 @@
             pnl1.Name = "pnl1";
             pnl1.Size = new Size(615, 199);
             pnl1.TabIndex = 14;
+            pnl1.Paint += pnl1_Paint;
             // 
             // pic1
             // 
@@ -68,6 +69,7 @@
             pic1.SizeMode = PictureBoxSizeMode.StretchImage;
             pic1.TabIndex = 6;
             pic1.TabStop = false;
+            pic1.Click += pic1_Click;
             // 
             // btnDestinos
             // 
@@ -79,6 +81,7 @@
             btnDestinos.TabIndex = 11;
             btnDestinos.Text = "Destinos";
             btnDestinos.UseVisualStyleBackColor = false;
+            btnDestinos.Click += btnDestinos_Click;
             // 
             // btnMetodopago
             // 
@@ -89,6 +92,7 @@
             btnMetodopago.TabIndex = 8;
             btnMetodopago.Text = "Metodo de Pago";
             btnMetodopago.UseVisualStyleBackColor = true;
+            btnMetodopago.Click += btnMetodopago_Click;
             // 
             // btnReserva
             // 
@@ -99,6 +103,7 @@
             btnReserva.TabIndex = 10;
             btnReserva.Text = "Reserva";
             btnReserva.UseVisualStyleBackColor = true;
+            btnReserva.Click += btnReserva_Click;
             // 
             // btnVuelos
             // 
@@ -109,6 +114,7 @@
             btnVuelos.TabIndex = 9;
             btnVuelos.Text = "Vuelos";
             btnVuelos.UseVisualStyleBackColor = true;
+            btnVuelos.Click += btnVuelos_Click;
             // 
             // btnInicio
             // 
@@ -119,6 +125,7 @@
             btnInicio.TabIndex = 7;
             btnInicio.Text = "Inicio ";
             btnInicio.UseVisualStyleBackColor = true;
+            btnInicio.Click += btnInicio_Click;
             // 
             // dgv1
             // 
@@ -128,6 +135,7 @@
             dgv1.Name = "dgv1";
             dgv1.Size = new Size(347, 155);
             dgv1.TabIndex = 13;
+            dgv1.CellContentClick += dgv1_CellContentClick;
             // 
             // Destino
             // 
@@ -153,6 +161,7 @@
             Controls.Add(dgv1);
             Name = "Destinos";
             Text = "Destinos";
+            Load += Destinos_Load;
             pnl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pic1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgv1).EndInit();

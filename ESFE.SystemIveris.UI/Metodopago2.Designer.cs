@@ -81,6 +81,7 @@
             dtp1.Name = "dtp1";
             dtp1.Size = new Size(200, 23);
             dtp1.TabIndex = 35;
+            dtp1.ValueChanged += dtp1_ValueChanged;
             // 
             // txt2
             // 
@@ -89,6 +90,7 @@
             txt2.Name = "txt2";
             txt2.Size = new Size(205, 23);
             txt2.TabIndex = 34;
+            txt2.TextChanged += txt2_TextChanged;
             // 
             // txt1
             // 
@@ -97,6 +99,7 @@
             txt1.Name = "txt1";
             txt1.Size = new Size(205, 23);
             txt1.TabIndex = 33;
+            txt1.TextChanged += txt1_TextChanged;
             // 
             // lblFecha
             // 
@@ -107,6 +110,7 @@
             lblFecha.Size = new Size(72, 24);
             lblFecha.TabIndex = 32;
             lblFecha.Text = "Fecha";
+            lblFecha.Click += lblFecha_Click;
             // 
             // lblPasajero
             // 
@@ -117,6 +121,7 @@
             lblPasajero.Size = new Size(98, 24);
             lblPasajero.TabIndex = 31;
             lblPasajero.Text = "Pasajero";
+            lblPasajero.Click += lblPasajero_Click;
             // 
             // lblSal
             // 
@@ -127,6 +132,7 @@
             lblSal.Size = new Size(189, 22);
             lblSal.TabIndex = 30;
             lblSal.Text = "San Salvador (SAL)";
+            lblSal.Click += lblSal_Click;
             // 
             // lbl03
             // 
@@ -136,6 +142,7 @@
             lbl03.Size = new Size(817, 15);
             lbl03.TabIndex = 29;
             lbl03.Text = "__________________________________________________________________________________________________________________________________________________________________";
+            lbl03.Click += lbl03_Click;
             // 
             // pic5
             // 
@@ -147,6 +154,7 @@
             pic5.SizeMode = PictureBoxSizeMode.StretchImage;
             pic5.TabIndex = 28;
             pic5.TabStop = false;
+            pic5.Click += pic5_Click;
             // 
             // lbl2
             // 
@@ -167,6 +175,7 @@
             pic4.SizeMode = PictureBoxSizeMode.StretchImage;
             pic4.TabIndex = 26;
             pic4.TabStop = false;
+            pic4.Click += pic4_Click;
             // 
             // pic3
             // 
@@ -178,6 +187,7 @@
             pic3.SizeMode = PictureBoxSizeMode.StretchImage;
             pic3.TabIndex = 25;
             pic3.TabStop = false;
+            pic3.Click += pic3_Click;
             // 
             // lbl1
             // 
@@ -187,6 +197,7 @@
             lbl1.Size = new Size(817, 15);
             lbl1.TabIndex = 24;
             lbl1.Text = "__________________________________________________________________________________________________________________________________________________________________";
+            lbl1.Click += lbl1_Click;
             // 
             // pic2
             // 
@@ -197,6 +208,7 @@
             pic2.Size = new Size(35, 30);
             pic2.TabIndex = 23;
             pic2.TabStop = false;
+            pic2.Click += pic2_Click;
             // 
             // btnResumenCompra
             // 
@@ -207,6 +219,7 @@
             btnResumenCompra.TabIndex = 22;
             btnResumenCompra.Text = "Resumen de Compra";
             btnResumenCompra.UseVisualStyleBackColor = false;
+            btnResumenCompra.Click += btnResumenCompra_Click;
             // 
             // pnl1
             // 
@@ -232,6 +245,7 @@
             btnDestinos.TabIndex = 5;
             btnDestinos.Text = "Destinos";
             btnDestinos.UseVisualStyleBackColor = true;
+            btnDestinos.Click += btnDestinos_Click;
             // 
             // btnReserva
             // 
@@ -242,6 +256,7 @@
             btnReserva.TabIndex = 4;
             btnReserva.Text = "Reserva";
             btnReserva.UseVisualStyleBackColor = true;
+            btnReserva.Click += btnReserva_Click;
             // 
             // btnVuelos
             // 
@@ -252,6 +267,7 @@
             btnVuelos.TabIndex = 3;
             btnVuelos.Text = "Vuelos";
             btnVuelos.UseVisualStyleBackColor = true;
+            btnVuelos.Click += btnVuelos_Click;
             // 
             // btnMetodopago
             // 
@@ -263,6 +279,7 @@
             btnMetodopago.TabIndex = 2;
             btnMetodopago.Text = "Metodo de Pago";
             btnMetodopago.UseVisualStyleBackColor = false;
+            btnMetodopago.Click += btnMetodopago_Click;
             // 
             // btnInicio
             // 
@@ -273,6 +290,7 @@
             btnInicio.TabIndex = 1;
             btnInicio.Text = "Inicio ";
             btnInicio.UseVisualStyleBackColor = true;
+            btnInicio.Click += btnInicio_Click;
             // 
             // pic1
             // 
@@ -284,6 +302,7 @@
             pic1.SizeMode = PictureBoxSizeMode.StretchImage;
             pic1.TabIndex = 0;
             pic1.TabStop = false;
+            pic1.Click += pic1_Click;
             // 
             // lbl16
             // 
@@ -294,6 +313,7 @@
             lbl16.Size = new Size(166, 24);
             lbl16.TabIndex = 49;
             lbl16.Text = "$____________";
+            lbl16.Click += lbl16_Click;
             // 
             // lbl15
             // 
@@ -305,6 +325,7 @@
             lbl15.Size = new Size(141, 24);
             lbl15.TabIndex = 48;
             lbl15.Text = "Total a Pagar";
+            lbl15.Click += lbl15_Click;
             // 
             // lbl14
             // 
@@ -315,6 +336,7 @@
             lbl14.Size = new Size(106, 24);
             lbl14.TabIndex = 47;
             lbl14.Text = "$_______";
+            lbl14.Click += lbl14_Click;
             // 
             // lbl3
             // 
@@ -325,6 +347,7 @@
             lbl3.Size = new Size(142, 24);
             lbl3.TabIndex = 46;
             lbl3.Text = "$__________";
+            lbl3.Click += lbl3_Click;
             // 
             // lblEquipaje
             // 
@@ -335,6 +358,7 @@
             lblEquipaje.Size = new Size(97, 24);
             lblEquipaje.TabIndex = 45;
             lblEquipaje.Text = "Equipaje";
+            lblEquipaje.Click += lblEquipaje_Click;
             // 
             // lblTarifaVuelo
             // 
@@ -345,6 +369,7 @@
             lblTarifaVuelo.Size = new Size(157, 24);
             lblTarifaVuelo.TabIndex = 44;
             lblTarifaVuelo.Text = "Tarifa de Vuelo";
+            lblTarifaVuelo.Click += lblTarifaVuelo_Click;
             // 
             // txt4
             // 
@@ -353,6 +378,7 @@
             txt4.Name = "txt4";
             txt4.Size = new Size(208, 23);
             txt4.TabIndex = 43;
+            txt4.TextChanged += txt4_TextChanged;
             // 
             // txt3
             // 
@@ -361,6 +387,7 @@
             txt3.Name = "txt3";
             txt3.Size = new Size(208, 23);
             txt3.TabIndex = 42;
+            txt3.TextChanged += txt3_TextChanged;
             // 
             // lblEquipaje2
             // 
@@ -371,6 +398,7 @@
             lblEquipaje2.Size = new Size(97, 24);
             lblEquipaje2.TabIndex = 41;
             lblEquipaje2.Text = "Equipaje";
+            lblEquipaje2.Click += lblEquipaje2_Click;
             // 
             // lbl9
             // 
@@ -380,6 +408,7 @@
             lbl9.Size = new Size(817, 15);
             lbl9.TabIndex = 40;
             lbl9.Text = "__________________________________________________________________________________________________________________________________________________________________";
+            lbl9.Click += lbl9_Click;
             // 
             // lblClase
             // 
@@ -390,6 +419,7 @@
             lblClase.Size = new Size(66, 24);
             lblClase.TabIndex = 39;
             lblClase.Text = "Clase";
+            lblClase.Click += lblClase_Click;
             // 
             // lbl4
             // 
@@ -399,6 +429,7 @@
             lbl4.Size = new Size(817, 15);
             lbl4.TabIndex = 38;
             lbl4.Text = "__________________________________________________________________________________________________________________________________________________________________";
+            lbl4.Click += lbl4_Click;
             // 
             // pic7
             // 
@@ -410,6 +441,7 @@
             pic7.SizeMode = PictureBoxSizeMode.StretchImage;
             pic7.TabIndex = 37;
             pic7.TabStop = false;
+            pic7.Click += pic7_Click;
             // 
             // pic6
             // 
@@ -421,6 +453,7 @@
             pic6.SizeMode = PictureBoxSizeMode.StretchImage;
             pic6.TabIndex = 36;
             pic6.TabStop = false;
+            pic6.Click += pic6_Click;
             // 
             // Metodopago2
             // 

@@ -52,6 +52,10 @@
             btncontinuar = new Button();
             pic1 = new PictureBox();
             pnl1 = new Panel();
+            btnInsertar = new Button();
+            btnEliminar = new Button();
+            btnBuscar = new Button();
+            btnActualizar = new Button();
             ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
             pnl1.SuspendLayout();
             SuspendLayout();
@@ -67,6 +71,7 @@
             btnInicio.TabIndex = 0;
             btnInicio.Text = "INICIO";
             btnInicio.UseVisualStyleBackColor = false;
+            btnInicio.Click += btnInicio_Click;
             // 
             // btnMetodopago
             // 
@@ -79,6 +84,7 @@
             btnMetodopago.TabIndex = 1;
             btnMetodopago.Text = "Metodo de Pago";
             btnMetodopago.UseVisualStyleBackColor = false;
+            btnMetodopago.Click += btnMetodopago_Click;
             // 
             // btnVuelos
             // 
@@ -91,6 +97,7 @@
             btnVuelos.TabIndex = 2;
             btnVuelos.Text = "VUELOS";
             btnVuelos.UseVisualStyleBackColor = false;
+            btnVuelos.Click += btnVuelos_Click;
             // 
             // btnReservas
             // 
@@ -103,6 +110,7 @@
             btnReservas.TabIndex = 3;
             btnReservas.Text = "RESERVAS";
             btnReservas.UseVisualStyleBackColor = false;
+            btnReservas.Click += btnReservas_Click;
             // 
             // btndestinos
             // 
@@ -115,6 +123,7 @@
             btndestinos.TabIndex = 4;
             btndestinos.Text = "DESTINOS";
             btndestinos.UseVisualStyleBackColor = false;
+            btndestinos.Click += btndestinos_Click;
             // 
             // lblDastospasajero
             // 
@@ -125,6 +134,7 @@
             lblDastospasajero.Size = new Size(108, 15);
             lblDastospasajero.TabIndex = 5;
             lblDastospasajero.Text = "Datos del Pasajero";
+            lblDastospasajero.Click += lblDastospasajero_Click;
             // 
             // lblApellidos
             // 
@@ -135,6 +145,7 @@
             lblApellidos.Size = new Size(57, 15);
             lblApellidos.TabIndex = 6;
             lblApellidos.Text = "Apellidos";
+            lblApellidos.Click += lblApellidos_Click;
             // 
             // lblfechanacimiento
             // 
@@ -145,6 +156,7 @@
             lblfechanacimiento.Size = new Size(123, 15);
             lblfechanacimiento.TabIndex = 7;
             lblfechanacimiento.Text = "Fecha de Nacimiento";
+            lblfechanacimiento.Click += lblfechanacimiento_Click;
             // 
             // lblnacionalidad
             // 
@@ -155,6 +167,7 @@
             lblnacionalidad.Size = new Size(77, 15);
             lblnacionalidad.TabIndex = 8;
             lblnacionalidad.Text = "Nacionalidad";
+            lblnacionalidad.Click += lblnacionalidad_Click;
             // 
             // lblNumeroPasaporteDui
             // 
@@ -165,6 +178,7 @@
             lblNumeroPasaporteDui.Size = new Size(163, 15);
             lblNumeroPasaporteDui.TabIndex = 9;
             lblNumeroPasaporteDui.Text = "Numero de Pasaporte o DUI";
+            lblNumeroPasaporteDui.Click += lblNumeroPasaporteDui_Click;
             // 
             // lblCorreoElectro
             // 
@@ -175,6 +189,7 @@
             lblCorreoElectro.Size = new Size(110, 15);
             lblCorreoElectro.TabIndex = 10;
             lblCorreoElectro.Text = "Correo Electronico";
+            lblCorreoElectro.Click += lblCorreoElectro_Click;
             // 
             // lblNumeroTelefon
             // 
@@ -185,6 +200,7 @@
             lblNumeroTelefon.Size = new Size(136, 15);
             lblNumeroTelefon.TabIndex = 11;
             lblNumeroTelefon.Text = "Numerono de Telefono";
+            lblNumeroTelefon.Click += lblNumeroTelefon_Click;
             // 
             // lblNombres
             // 
@@ -195,6 +211,7 @@
             lblNombres.Size = new Size(58, 15);
             lblNombres.TabIndex = 12;
             lblNombres.Text = "Nombres";
+            lblNombres.Click += lblNombres_Click;
             // 
             // dtp1
             // 
@@ -203,6 +220,7 @@
             dtp1.Name = "dtp1";
             dtp1.Size = new Size(200, 23);
             dtp1.TabIndex = 13;
+            dtp1.ValueChanged += dtp1_ValueChanged;
             // 
             // txt1
             // 
@@ -210,6 +228,7 @@
             txt1.Name = "txt1";
             txt1.Size = new Size(202, 23);
             txt1.TabIndex = 14;
+            txt1.TextChanged += txt1_TextChanged;
             // 
             // txt2
             // 
@@ -217,6 +236,7 @@
             txt2.Name = "txt2";
             txt2.Size = new Size(200, 23);
             txt2.TabIndex = 15;
+            txt2.TextChanged += txt2_TextChanged;
             // 
             // txt3
             // 
@@ -224,6 +244,7 @@
             txt3.Name = "txt3";
             txt3.Size = new Size(200, 23);
             txt3.TabIndex = 16;
+            txt3.TextChanged += txt3_TextChanged;
             // 
             // txt4
             // 
@@ -231,6 +252,7 @@
             txt4.Name = "txt4";
             txt4.Size = new Size(200, 23);
             txt4.TabIndex = 17;
+            txt4.TextChanged += txt4_TextChanged;
             // 
             // txt5
             // 
@@ -238,6 +260,7 @@
             txt5.Name = "txt5";
             txt5.Size = new Size(202, 23);
             txt5.TabIndex = 18;
+            txt5.TextChanged += txt5_TextChanged;
             // 
             // txt6
             // 
@@ -245,6 +268,7 @@
             txt6.Name = "txt6";
             txt6.Size = new Size(202, 23);
             txt6.TabIndex = 19;
+            txt6.TextChanged += txt6_TextChanged;
             // 
             // btncontinuar
             // 
@@ -257,6 +281,7 @@
             btncontinuar.TabIndex = 20;
             btncontinuar.Text = "CONTINUAR";
             btncontinuar.UseVisualStyleBackColor = false;
+            btncontinuar.Click += btncontinuar_Click;
             // 
             // pic1
             // 
@@ -268,6 +293,7 @@
             pic1.SizeMode = PictureBoxSizeMode.StretchImage;
             pic1.TabIndex = 21;
             pic1.TabStop = false;
+            pic1.Click += pic1_Click;
             // 
             // pnl1
             // 
@@ -283,12 +309,57 @@
             pnl1.Name = "pnl1";
             pnl1.Size = new Size(725, 152);
             pnl1.TabIndex = 22;
+            pnl1.Paint += pnl1_Paint;
+            // 
+            // btnInsertar
+            // 
+            btnInsertar.Location = new Point(355, 198);
+            btnInsertar.Name = "btnInsertar";
+            btnInsertar.Size = new Size(75, 23);
+            btnInsertar.TabIndex = 23;
+            btnInsertar.Text = "Insertar";
+            btnInsertar.UseVisualStyleBackColor = true;
+            btnInsertar.Click += btnInsertar_Click;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(448, 198);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.TabIndex = 24;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(540, 198);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(75, 23);
+            btnBuscar.TabIndex = 25;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.Location = new Point(621, 198);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(75, 23);
+            btnActualizar.TabIndex = 26;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // DatosPasajero
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(731, 662);
+            Controls.Add(btnActualizar);
+            Controls.Add(btnBuscar);
+            Controls.Add(btnEliminar);
+            Controls.Add(btnInsertar);
             Controls.Add(pnl1);
             Controls.Add(btncontinuar);
             Controls.Add(txt6);
@@ -307,6 +378,8 @@
             Controls.Add(lblfechanacimiento);
             Controls.Add(lblApellidos);
             Name = "DatosPasajero";
+            Text = "Actualizar";
+            Load += DatosPasajero_Load;
             ((System.ComponentModel.ISupportInitialize)pic1).EndInit();
             pnl1.ResumeLayout(false);
             ResumeLayout(false);
@@ -338,5 +411,9 @@
         private Button btncontinuar;
         private PictureBox pic1;
         private Panel pnl1;
+        private Button btnInsertar;
+        private Button btnEliminar;
+        private Button btnBuscar;
+        private Button btnActualizar;
     }
 }

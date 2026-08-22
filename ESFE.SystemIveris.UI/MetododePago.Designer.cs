@@ -77,6 +77,7 @@
             lblNumerodeTarjeta.Size = new Size(125, 16);
             lblNumerodeTarjeta.TabIndex = 25;
             lblNumerodeTarjeta.Text = "Numero de Tarjeta";
+            lblNumerodeTarjeta.Click += lblNumerodeTarjeta_Click;
             // 
             // txtccv
             // 
@@ -84,6 +85,7 @@
             txtccv.Name = "txtccv";
             txtccv.Size = new Size(100, 23);
             txtccv.TabIndex = 24;
+            txtccv.TextChanged += txtccv_TextChanged;
             // 
             // lblCCV
             // 
@@ -94,6 +96,7 @@
             lblCCV.Size = new Size(34, 16);
             lblCCV.TabIndex = 23;
             lblCCV.Text = "CCV";
+            lblCCV.Click += lblCCV_Click;
             // 
             // dtpFecha
             // 
@@ -101,6 +104,7 @@
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(214, 23);
             dtpFecha.TabIndex = 22;
+            dtpFecha.ValueChanged += dtpFecha_ValueChanged;
             // 
             // lblFechaVencimiento
             // 
@@ -111,6 +115,7 @@
             lblFechaVencimiento.Size = new Size(149, 16);
             lblFechaVencimiento.TabIndex = 21;
             lblFechaVencimiento.Text = "Fecha de Vencimiento";
+            lblFechaVencimiento.Click += lblFechaVencimiento_Click;
             // 
             // txtNomTitular
             // 
@@ -118,6 +123,7 @@
             txtNomTitular.Name = "txtNomTitular";
             txtNomTitular.Size = new Size(243, 23);
             txtNomTitular.TabIndex = 20;
+            txtNomTitular.TextChanged += txtNomTitular_TextChanged;
             // 
             // lblNombreTitular
             // 
@@ -128,6 +134,7 @@
             lblNombreTitular.Size = new Size(122, 16);
             lblNombreTitular.TabIndex = 19;
             lblNombreTitular.Text = "Nombre del titular";
+            lblNombreTitular.Click += lblNombreTitular_Click;
             // 
             // lblDatosTarj
             // 
@@ -139,6 +146,7 @@
             lblDatosTarj.Size = new Size(123, 16);
             lblDatosTarj.TabIndex = 18;
             lblDatosTarj.Text = "Datos de la tarjeta";
+            lblDatosTarj.Click += lblDatosTarj_Click;
             // 
             // picimg2
             // 
@@ -150,6 +158,7 @@
             picimg2.SizeMode = PictureBoxSizeMode.AutoSize;
             picimg2.TabIndex = 17;
             picimg2.TabStop = false;
+            picimg2.Click += picimg2_Click;
             // 
             // lblSelecionMetPag
             // 
@@ -171,6 +180,7 @@
             lblmetododepago.Size = new Size(155, 19);
             lblmetododepago.TabIndex = 15;
             lblmetododepago.Text = "MÉTODO DE PAGO";
+            lblmetododepago.Click += lblmetododepago_Click;
             // 
             // panel2
             // 
@@ -183,6 +193,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(194, 95);
             panel2.TabIndex = 14;
+            panel2.Paint += panel2_Paint;
             // 
             // lblTarjetaDevito
             // 
@@ -192,6 +203,7 @@
             lblTarjetaDevito.Size = new Size(123, 15);
             lblTarjetaDevito.TabIndex = 6;
             lblTarjetaDevito.Text = "Tarjeta Crédito/Devito";
+            lblTarjetaDevito.Click += lblTarjetaDevito_Click;
             // 
             // picimagen
             // 
@@ -204,6 +216,7 @@
             picimagen.SizeMode = PictureBoxSizeMode.AutoSize;
             picimagen.TabIndex = 5;
             picimagen.TabStop = false;
+            picimagen.Click += picimagen_Click;
             // 
             // btnO
             // 
@@ -215,6 +228,7 @@
             btnO.TabIndex = 5;
             btnO.Text = "O";
             btnO.UseVisualStyleBackColor = true;
+            btnO.Click += btnO_Click;
             // 
             // pnl1
             // 
@@ -230,6 +244,7 @@
             pnl1.Name = "pnl1";
             pnl1.Size = new Size(735, 157);
             pnl1.TabIndex = 13;
+            pnl1.Paint += pnl1_Paint;
             // 
             // pic1
             // 
@@ -241,6 +256,7 @@
             pic1.SizeMode = PictureBoxSizeMode.StretchImage;
             pic1.TabIndex = 5;
             pic1.TabStop = false;
+            pic1.Click += pic1_Click;
             // 
             // btnDestinos
             // 
@@ -250,6 +266,7 @@
             btnDestinos.TabIndex = 4;
             btnDestinos.Text = "Destinos";
             btnDestinos.UseVisualStyleBackColor = true;
+            btnDestinos.Click += btnDestinos_Click;
             // 
             // btnReserva
             // 
@@ -259,6 +276,7 @@
             btnReserva.TabIndex = 3;
             btnReserva.Text = "Reserva";
             btnReserva.UseVisualStyleBackColor = true;
+            btnReserva.Click += btnReserva_Click;
             // 
             // btnVuelos
             // 
@@ -268,6 +286,7 @@
             btnVuelos.TabIndex = 2;
             btnVuelos.Text = "Vuelos";
             btnVuelos.UseVisualStyleBackColor = true;
+            btnVuelos.Click += btnVuelos_Click;
             // 
             // btnMétodopago
             // 
@@ -278,6 +297,7 @@
             btnMétodopago.TabIndex = 1;
             btnMétodopago.Text = "Método de pago";
             btnMétodopago.UseVisualStyleBackColor = false;
+            btnMétodopago.Click += btnMétodopago_Click;
             // 
             // btnInicio
             // 
@@ -287,6 +307,7 @@
             btnInicio.TabIndex = 0;
             btnInicio.Text = "Inicio";
             btnInicio.UseVisualStyleBackColor = true;
+            btnInicio.Click += btnInicio_Click;
             // 
             // btnConfirmarPago
             // 
@@ -299,6 +320,7 @@
             btnConfirmarPago.TabIndex = 35;
             btnConfirmarPago.Text = "Confirmar Pago";
             btnConfirmarPago.UseVisualStyleBackColor = false;
+            btnConfirmarPago.Click += btnConfirmarPago_Click;
             // 
             // btnCancelar
             // 
@@ -309,6 +331,7 @@
             btnCancelar.TabIndex = 34;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // txt00000
             // 
@@ -317,6 +340,7 @@
             txt00000.Size = new Size(100, 23);
             txt00000.TabIndex = 33;
             txt00000.Text = "00000";
+            txt00000.TextChanged += txt00000_TextChanged;
             // 
             // lblCodigoPostal
             // 
@@ -327,6 +351,7 @@
             lblCodigoPostal.Size = new Size(95, 16);
             lblCodigoPostal.TabIndex = 32;
             lblCodigoPostal.Text = "Codigo Postal";
+            lblCodigoPostal.Click += lblCodigoPostal_Click;
             // 
             // txtIngresacuidad
             // 
@@ -335,6 +360,7 @@
             txtIngresacuidad.Size = new Size(126, 23);
             txtIngresacuidad.TabIndex = 31;
             txtIngresacuidad.Text = "Ingresa tu ciudad";
+            txtIngresacuidad.TextChanged += txtIngresacuidad_TextChanged;
             // 
             // lblCuidad
             // 
@@ -345,6 +371,7 @@
             lblCuidad.Size = new Size(52, 16);
             lblCuidad.TabIndex = 30;
             lblCuidad.Text = "Cuidad";
+            lblCuidad.Click += lblCuidad_Click;
             // 
             // cmbpaises
             // 
@@ -354,6 +381,7 @@
             cmbpaises.Size = new Size(121, 23);
             cmbpaises.TabIndex = 29;
             cmbpaises.Text = "El Salvador";
+            cmbpaises.SelectedIndexChanged += cmbpaises_SelectedIndexChanged;
             // 
             // lblPais
             // 
@@ -364,6 +392,7 @@
             lblPais.Size = new Size(34, 16);
             lblPais.TabIndex = 28;
             lblPais.Text = "Pais";
+            lblPais.Click += lblPais_Click;
             // 
             // lblDirecciònFatura
             // 
@@ -375,6 +404,7 @@
             lblDirecciònFatura.Size = new Size(166, 16);
             lblDirecciònFatura.TabIndex = 27;
             lblDirecciònFatura.Text = "Direcciòn de Facturacion";
+            lblDirecciònFatura.Click += lblDirecciònFatura_Click;
             // 
             // txtnumeroTarjeta
             // 
@@ -382,6 +412,7 @@
             txtnumeroTarjeta.Name = "txtnumeroTarjeta";
             txtnumeroTarjeta.Size = new Size(160, 23);
             txtnumeroTarjeta.TabIndex = 26;
+            txtnumeroTarjeta.TextChanged += txtnumeroTarjeta_TextChanged;
             // 
             // MetododePago
             // 
@@ -413,6 +444,7 @@
             Controls.Add(pnl1);
             Name = "MetododePago";
             Text = "MetododePago";
+            Load += MetododePago_Load;
             ((System.ComponentModel.ISupportInitialize)picimg2).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
