@@ -21,9 +21,20 @@ namespace ESFE.SystemIveris.UI
         }
 
         // --- MÉTODOS DE EVENTOS VACÍOS DE LA INTERFAZ ---
-        private void btnInsertar_Click_1(object sender, EventArgs e) { }
-        private void btnEliminar_Click_1(object sender, EventArgs e) { }
-        private void btnModificar_Click_1(object sender, EventArgs e) { }
+        private void btnInsertar_Click_1(object sender, EventArgs e)
+        {
+            btnInsertar_Click(sender, e);
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            btnEliminar_Click(sender, e);
+        }
+
+        private void btnModificar_Click_1(object sender, EventArgs e)
+        {
+            btnModificar_Click(sender, e);
+        }
         private void DatosPasajero_Load(object sender, EventArgs e) { }
         private void pnl1_Paint(object sender, PaintEventArgs e) { }
         private void pic1_Click(object sender, EventArgs e) { }
