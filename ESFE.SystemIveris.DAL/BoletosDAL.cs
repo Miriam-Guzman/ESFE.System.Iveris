@@ -14,7 +14,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("InsertarBoleto", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_InsertarBoleto", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -37,7 +37,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("ActualizarBoleto", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_ActualizarBoleto", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -61,7 +61,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("EliminarBoleto", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_EliminarBoleto", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@id_boleto", idBoleto);
@@ -79,7 +79,7 @@ namespace ESFE.SystemIveris.DAL
 
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("BuscarBoletoCodigo", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_BuscarBoletoCodigo", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@codigo_boleto", codigo);

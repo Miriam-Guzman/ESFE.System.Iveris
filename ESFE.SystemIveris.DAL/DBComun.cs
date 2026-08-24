@@ -10,7 +10,7 @@ namespace ESFE.SystemIveris.DAL
 {
     public class DBComun
     {
-        //public const string _stringCnn = @"DESKTOP-9JI9BTT\MSSQLSERVER01;Initial Catalog=BDDesarrollo;Integrated Security=True";
+        //Conexión 
         public const string _stringCnn = @"Server=MIRIAM\SQLEXPRESS;Database=IVERIS_DB;Integrated Security=True;TrustServerCertificate=True;";
 
         /// <summary>

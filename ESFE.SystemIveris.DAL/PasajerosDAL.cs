@@ -14,7 +14,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("InsertarPasajero", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_InsertarPasajero", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -35,7 +35,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("ActualizarPasajero", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_ActualizarPasajero", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -57,7 +57,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("EliminarPasajero", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_EliminarPasajero", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@id_pasajero", idPasajero);
@@ -75,7 +75,7 @@ namespace ESFE.SystemIveris.DAL
 
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("BuscarPasajero", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_BuscarPasajero", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@criterio", criterio);

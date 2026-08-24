@@ -14,7 +14,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("InsertarFactura", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_InsertarFactura", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -37,7 +37,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("ActualizarFactura", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_ActualizarFactura", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -61,7 +61,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("EliminarFactura", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_EliminarFactura", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@id_factura", idFactura);
@@ -79,7 +79,7 @@ namespace ESFE.SystemIveris.DAL
 
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("BuscarFacturaNumero", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_BuscarFacturaNumero", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@numero_factura", numeroFactura);

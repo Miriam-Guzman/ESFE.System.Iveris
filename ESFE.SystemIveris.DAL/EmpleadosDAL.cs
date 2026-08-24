@@ -14,7 +14,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("InsertarEmpleado", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_InsertarEmpleado", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -36,7 +36,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("ActualizarEmpleado", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_ActualizarEmpleado", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -59,7 +59,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("EliminarEmpleado", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_EliminarEmpleado", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@id_empleado", idEmpleado);
@@ -77,7 +77,7 @@ namespace ESFE.SystemIveris.DAL
 
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("BuscarEmpleado", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_BuscarEmpleado", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@criterio", criterio);

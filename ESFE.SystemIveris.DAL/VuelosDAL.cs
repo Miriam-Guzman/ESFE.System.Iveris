@@ -14,7 +14,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("InsertarVuelo", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_InsertarVuelo", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -39,7 +39,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("ActualizarVuelo", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_ActualizarVuelo", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -65,7 +65,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("EliminarVuelo", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_EliminarVuelo", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@id_vuelo", idVuelo);
@@ -83,7 +83,7 @@ namespace ESFE.SystemIveris.DAL
 
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("BuscarVueloNumero", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_BuscarVueloNumero", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@numero_vuelo", numeroVuelo);

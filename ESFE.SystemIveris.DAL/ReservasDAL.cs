@@ -14,7 +14,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("InsertarReserva", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_InsertarReserva", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -34,7 +34,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("ActualizarReserva", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_ActualizarReserva", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -55,7 +55,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("EliminarReserva", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_EliminarReserva", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@id_reserva", idReserva);
@@ -73,7 +73,7 @@ namespace ESFE.SystemIveris.DAL
 
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("BuscarReservaCliente", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_BuscarReservaCliente", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@id_cliente", idCliente);
