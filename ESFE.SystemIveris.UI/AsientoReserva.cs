@@ -20,7 +20,7 @@ namespace ESFE.SystemIveris.UI
         private void AsientoReserva_Load(object sender, EventArgs e)
         {
         }
-
+        //hola
         // ==========================================
         //  BARRA DE NAVEGACIÓN SUPERIOR
         // ==========================================
