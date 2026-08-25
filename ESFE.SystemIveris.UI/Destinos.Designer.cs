@@ -1,4 +1,4 @@
-﻿namespace ESFE.SystemIveris.UI
+namespace ESFE.SystemIveris.UI
 {
     partial class Destinos
     {
@@ -230,9 +230,9 @@
         private DataGridViewTextBoxColumn RTSDPIBLE;
         private DataGridViewTextBoxColumn Hora;
         private DataGridViewTextBoxColumn AvionAsignado;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnInsertar;
+        private Button btnEliminar;
+        private Button btnModificar;
         private Button btnBuscar;
     }
 }

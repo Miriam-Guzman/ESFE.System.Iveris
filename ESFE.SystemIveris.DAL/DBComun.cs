@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -10,8 +10,9 @@ namespace ESFE.SystemIveris.DAL
 {
     public class DBComun
     {
+        //xd
         //Conexión 
-        public const string _stringCnn = @"Server=MIRIAM\SQLEXPRESS;Database=IVERIS_DB;Integrated Security=True;TrustServerCertificate=True;";
+        public const string _stringCnn = @"Server=sql8012.site4now.net;Database=db_acda63_iveridbaerolinea;User Id=db_acda63_iveridbaerolinea_admin;Password=Zuniga_7881;TrustServerCertificate=True;";
 
         /// <summary>
         /// Metodo para obtener base de datos.

@@ -1,4 +1,4 @@
-﻿using ESFE.SystemIveris.EN;
+using ESFE.SystemIveris.EN;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("InsertarAvion", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_InsertarAvion", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -34,7 +34,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("ActualizarAvion", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_ActualizarAvion", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
@@ -55,7 +55,7 @@ namespace ESFE.SystemIveris.DAL
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("EliminarAvion", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_EliminarAvion", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@id_avion", idAvion);
@@ -73,7 +73,7 @@ namespace ESFE.SystemIveris.DAL
 
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
             {
-                using (SqlCommand comando = new SqlCommand("BuscarAvion", conexion))
+                using (SqlCommand comando = new SqlCommand("SP_BuscarAvion", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@criterio", criterio);
