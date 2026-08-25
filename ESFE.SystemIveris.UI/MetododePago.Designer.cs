@@ -61,6 +61,10 @@
             lblPais = new Label();
             lblDirecciònFatura = new Label();
             txtnumeroTarjeta = new TextBox();
+            btnBuscar = new Button();
+            btnEliminar = new Button();
+            btnInsertar = new Button();
+            btnModificar = new Button();
             ((System.ComponentModel.ISupportInitialize)picimg2).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picimagen).BeginInit();
@@ -72,7 +76,7 @@
             // 
             lblNumerodeTarjeta.AutoSize = true;
             lblNumerodeTarjeta.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNumerodeTarjeta.Location = new Point(176, 416);
+            lblNumerodeTarjeta.Location = new Point(185, 379);
             lblNumerodeTarjeta.Name = "lblNumerodeTarjeta";
             lblNumerodeTarjeta.Size = new Size(125, 16);
             lblNumerodeTarjeta.TabIndex = 25;
@@ -210,7 +214,7 @@
             picimagen.BackColor = Color.Silver;
             picimagen.BorderStyle = BorderStyle.FixedSingle;
             picimagen.Image = (Image)resources.GetObject("picimagen.Image");
-            picimagen.Location = new Point(12, 56);
+            picimagen.Location = new Point(12, 54);
             picimagen.Name = "picimagen";
             picimagen.Size = new Size(51, 36);
             picimagen.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -314,7 +318,7 @@
             btnConfirmarPago.BackColor = Color.FromArgb(128, 128, 255);
             btnConfirmarPago.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConfirmarPago.ForeColor = Color.Black;
-            btnConfirmarPago.Location = new Point(393, 505);
+            btnConfirmarPago.Location = new Point(402, 468);
             btnConfirmarPago.Name = "btnConfirmarPago";
             btnConfirmarPago.Size = new Size(165, 37);
             btnConfirmarPago.TabIndex = 35;
@@ -325,7 +329,7 @@
             // btnCancelar
             // 
             btnCancelar.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancelar.Location = new Point(180, 505);
+            btnCancelar.Location = new Point(189, 468);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(153, 37);
             btnCancelar.TabIndex = 34;
@@ -335,7 +339,7 @@
             // 
             // txt00000
             // 
-            txt00000.Location = new Point(530, 446);
+            txt00000.Location = new Point(539, 409);
             txt00000.Name = "txt00000";
             txt00000.Size = new Size(100, 23);
             txt00000.TabIndex = 33;
@@ -346,7 +350,7 @@
             // 
             lblCodigoPostal.AutoSize = true;
             lblCodigoPostal.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCodigoPostal.Location = new Point(530, 411);
+            lblCodigoPostal.Location = new Point(539, 374);
             lblCodigoPostal.Name = "lblCodigoPostal";
             lblCodigoPostal.Size = new Size(95, 16);
             lblCodigoPostal.TabIndex = 32;
@@ -355,7 +359,7 @@
             // 
             // txtIngresacuidad
             // 
-            txtIngresacuidad.Location = new Point(359, 446);
+            txtIngresacuidad.Location = new Point(368, 409);
             txtIngresacuidad.Name = "txtIngresacuidad";
             txtIngresacuidad.Size = new Size(126, 23);
             txtIngresacuidad.TabIndex = 31;
@@ -366,7 +370,7 @@
             // 
             lblCuidad.AutoSize = true;
             lblCuidad.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCuidad.Location = new Point(356, 411);
+            lblCuidad.Location = new Point(365, 374);
             lblCuidad.Name = "lblCuidad";
             lblCuidad.Size = new Size(52, 16);
             lblCuidad.TabIndex = 30;
@@ -376,7 +380,7 @@
             // cmbpaises
             // 
             cmbpaises.FormattingEnabled = true;
-            cmbpaises.Location = new Point(21, 446);
+            cmbpaises.Location = new Point(30, 409);
             cmbpaises.Name = "cmbpaises";
             cmbpaises.Size = new Size(121, 23);
             cmbpaises.TabIndex = 29;
@@ -387,7 +391,7 @@
             // 
             lblPais.AutoSize = true;
             lblPais.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPais.Location = new Point(28, 416);
+            lblPais.Location = new Point(37, 379);
             lblPais.Name = "lblPais";
             lblPais.Size = new Size(34, 16);
             lblPais.TabIndex = 28;
@@ -399,7 +403,7 @@
             lblDirecciònFatura.AutoSize = true;
             lblDirecciònFatura.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDirecciònFatura.ForeColor = Color.Blue;
-            lblDirecciònFatura.Location = new Point(21, 388);
+            lblDirecciònFatura.Location = new Point(30, 351);
             lblDirecciònFatura.Name = "lblDirecciònFatura";
             lblDirecciònFatura.Size = new Size(166, 16);
             lblDirecciònFatura.TabIndex = 27;
@@ -408,17 +412,57 @@
             // 
             // txtnumeroTarjeta
             // 
-            txtnumeroTarjeta.Location = new Point(176, 446);
+            txtnumeroTarjeta.Location = new Point(185, 409);
             txtnumeroTarjeta.Name = "txtnumeroTarjeta";
             txtnumeroTarjeta.Size = new Size(160, 23);
             txtnumeroTarjeta.TabIndex = 26;
             txtnumeroTarjeta.TextChanged += txtnumeroTarjeta_TextChanged;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(165, 222);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(75, 23);
+            btnBuscar.TabIndex = 36;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(246, 222);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.TabIndex = 37;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnInsertar
+            // 
+            btnInsertar.Location = new Point(324, 222);
+            btnInsertar.Name = "btnInsertar";
+            btnInsertar.Size = new Size(75, 23);
+            btnInsertar.TabIndex = 38;
+            btnInsertar.Text = "Insertar";
+            btnInsertar.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar
+            // 
+            btnModificar.Location = new Point(405, 222);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(75, 23);
+            btnModificar.TabIndex = 39;
+            btnModificar.Text = "Modificar";
+            btnModificar.UseVisualStyleBackColor = true;
             // 
             // MetododePago
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(729, 548);
+            Controls.Add(btnModificar);
+            Controls.Add(btnInsertar);
+            Controls.Add(btnEliminar);
+            Controls.Add(btnBuscar);
             Controls.Add(btnConfirmarPago);
             Controls.Add(btnCancelar);
             Controls.Add(txt00000);
@@ -489,5 +533,9 @@
         private Label lblPais;
         private Label lblDirecciònFatura;
         private TextBox txtnumeroTarjeta;
+        private Button btnBuscar;
+        private Button btnEliminar;
+        private Button btnInsertar;
+        private Button btnModificar;
     }
 }

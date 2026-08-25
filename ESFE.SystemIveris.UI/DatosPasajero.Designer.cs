@@ -55,6 +55,7 @@
             btnInsertar = new Button();
             btnEliminar = new Button();
             btnModificar = new Button();
+            btnBuscar = new Button();
             ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
             pnl1.SuspendLayout();
             SuspendLayout();
@@ -64,9 +65,9 @@
             btnInicio.BackColor = Color.White;
             btnInicio.FlatAppearance.BorderSize = 0;
             btnInicio.FlatStyle = FlatStyle.Flat;
-            btnInicio.Location = new Point(17, 127);
+            btnInicio.Location = new Point(17, 112);
             btnInicio.Name = "btnInicio";
-            btnInicio.Size = new Size(75, 26);
+            btnInicio.Size = new Size(75, 23);
             btnInicio.TabIndex = 0;
             btnInicio.Text = "INICIO";
             btnInicio.UseVisualStyleBackColor = false;
@@ -77,9 +78,9 @@
             btnMetodopago.BackColor = Color.White;
             btnMetodopago.FlatAppearance.BorderSize = 0;
             btnMetodopago.FlatStyle = FlatStyle.Flat;
-            btnMetodopago.Location = new Point(133, 127);
+            btnMetodopago.Location = new Point(133, 112);
             btnMetodopago.Name = "btnMetodopago";
-            btnMetodopago.Size = new Size(119, 26);
+            btnMetodopago.Size = new Size(119, 23);
             btnMetodopago.TabIndex = 1;
             btnMetodopago.Text = "Metodo de Pago";
             btnMetodopago.UseVisualStyleBackColor = false;
@@ -90,9 +91,9 @@
             btnVuelos.BackColor = Color.White;
             btnVuelos.FlatAppearance.BorderSize = 0;
             btnVuelos.FlatStyle = FlatStyle.Flat;
-            btnVuelos.Location = new Point(282, 127);
+            btnVuelos.Location = new Point(282, 112);
             btnVuelos.Name = "btnVuelos";
-            btnVuelos.Size = new Size(119, 26);
+            btnVuelos.Size = new Size(119, 23);
             btnVuelos.TabIndex = 2;
             btnVuelos.Text = "VUELOS";
             btnVuelos.UseVisualStyleBackColor = false;
@@ -103,9 +104,9 @@
             btnReservas.BackColor = Color.FromArgb(128, 255, 128);
             btnReservas.FlatAppearance.BorderSize = 0;
             btnReservas.FlatStyle = FlatStyle.Flat;
-            btnReservas.Location = new Point(434, 127);
+            btnReservas.Location = new Point(434, 112);
             btnReservas.Name = "btnReservas";
-            btnReservas.Size = new Size(119, 26);
+            btnReservas.Size = new Size(119, 23);
             btnReservas.TabIndex = 3;
             btnReservas.Text = "RESERVAS";
             btnReservas.UseVisualStyleBackColor = false;
@@ -116,9 +117,9 @@
             btndestinos.BackColor = Color.White;
             btndestinos.FlatAppearance.BorderSize = 0;
             btndestinos.FlatStyle = FlatStyle.Flat;
-            btndestinos.Location = new Point(584, 127);
+            btndestinos.Location = new Point(584, 112);
             btndestinos.Name = "btndestinos";
-            btndestinos.Size = new Size(119, 26);
+            btndestinos.Size = new Size(119, 23);
             btndestinos.TabIndex = 4;
             btndestinos.Text = "DESTINOS";
             btndestinos.UseVisualStyleBackColor = false;
@@ -128,7 +129,7 @@
             // 
             lblDastospasajero.AutoSize = true;
             lblDastospasajero.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblDastospasajero.Location = new Point(20, 188);
+            lblDastospasajero.Location = new Point(20, 166);
             lblDastospasajero.Name = "lblDastospasajero";
             lblDastospasajero.Size = new Size(108, 15);
             lblDastospasajero.TabIndex = 5;
@@ -139,7 +140,7 @@
             // 
             lblApellidos.AutoSize = true;
             lblApellidos.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblApellidos.Location = new Point(24, 294);
+            lblApellidos.Location = new Point(24, 259);
             lblApellidos.Name = "lblApellidos";
             lblApellidos.Size = new Size(57, 15);
             lblApellidos.TabIndex = 6;
@@ -150,7 +151,7 @@
             // 
             lblfechanacimiento.AutoSize = true;
             lblfechanacimiento.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblfechanacimiento.Location = new Point(24, 366);
+            lblfechanacimiento.Location = new Point(24, 323);
             lblfechanacimiento.Name = "lblfechanacimiento";
             lblfechanacimiento.Size = new Size(123, 15);
             lblfechanacimiento.TabIndex = 7;
@@ -161,7 +162,7 @@
             // 
             lblnacionalidad.AutoSize = true;
             lblnacionalidad.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblnacionalidad.Location = new Point(24, 445);
+            lblnacionalidad.Location = new Point(24, 393);
             lblnacionalidad.Name = "lblnacionalidad";
             lblnacionalidad.Size = new Size(77, 15);
             lblnacionalidad.TabIndex = 8;
@@ -172,7 +173,7 @@
             // 
             lblNumeroPasaporteDui.AutoSize = true;
             lblNumeroPasaporteDui.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblNumeroPasaporteDui.Location = new Point(20, 525);
+            lblNumeroPasaporteDui.Location = new Point(20, 463);
             lblNumeroPasaporteDui.Name = "lblNumeroPasaporteDui";
             lblNumeroPasaporteDui.Size = new Size(163, 15);
             lblNumeroPasaporteDui.TabIndex = 9;
@@ -183,7 +184,7 @@
             // 
             lblCorreoElectro.AutoSize = true;
             lblCorreoElectro.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblCorreoElectro.Location = new Point(20, 604);
+            lblCorreoElectro.Location = new Point(20, 533);
             lblCorreoElectro.Name = "lblCorreoElectro";
             lblCorreoElectro.Size = new Size(110, 15);
             lblCorreoElectro.TabIndex = 10;
@@ -194,7 +195,7 @@
             // 
             lblNumeroTelefon.AutoSize = true;
             lblNumeroTelefon.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblNumeroTelefon.Location = new Point(20, 679);
+            lblNumeroTelefon.Location = new Point(20, 599);
             lblNumeroTelefon.Name = "lblNumeroTelefon";
             lblNumeroTelefon.Size = new Size(136, 15);
             lblNumeroTelefon.TabIndex = 11;
@@ -205,7 +206,7 @@
             // 
             lblNombres.AutoSize = true;
             lblNombres.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblNombres.Location = new Point(24, 221);
+            lblNombres.Location = new Point(24, 195);
             lblNombres.Name = "lblNombres";
             lblNombres.Size = new Size(58, 15);
             lblNombres.TabIndex = 12;
@@ -215,57 +216,57 @@
             // dtp1
             // 
             dtp1.Format = DateTimePickerFormat.Short;
-            dtp1.Location = new Point(20, 400);
+            dtp1.Location = new Point(20, 353);
             dtp1.Name = "dtp1";
-            dtp1.Size = new Size(200, 25);
+            dtp1.Size = new Size(200, 23);
             dtp1.TabIndex = 13;
             dtp1.ValueChanged += dtp1_ValueChanged;
             // 
             // txt1
             // 
-            txt1.Location = new Point(18, 241);
+            txt1.Location = new Point(18, 213);
             txt1.Name = "txt1";
-            txt1.Size = new Size(202, 25);
+            txt1.Size = new Size(202, 23);
             txt1.TabIndex = 14;
             txt1.TextChanged += txt1_TextChanged;
             // 
             // txt2
             // 
-            txt2.Location = new Point(18, 324);
+            txt2.Location = new Point(18, 286);
             txt2.Name = "txt2";
-            txt2.Size = new Size(200, 25);
+            txt2.Size = new Size(200, 23);
             txt2.TabIndex = 15;
             txt2.TextChanged += txt2_TextChanged;
             // 
             // txt3
             // 
-            txt3.Location = new Point(20, 477);
+            txt3.Location = new Point(20, 421);
             txt3.Name = "txt3";
-            txt3.Size = new Size(200, 25);
+            txt3.Size = new Size(200, 23);
             txt3.TabIndex = 16;
             txt3.TextChanged += txt3_TextChanged;
             // 
             // txt4
             // 
-            txt4.Location = new Point(20, 563);
+            txt4.Location = new Point(20, 497);
             txt4.Name = "txt4";
-            txt4.Size = new Size(200, 25);
+            txt4.Size = new Size(200, 23);
             txt4.TabIndex = 17;
             txt4.TextChanged += txt4_TextChanged;
             // 
             // txt5
             // 
-            txt5.Location = new Point(18, 624);
+            txt5.Location = new Point(18, 551);
             txt5.Name = "txt5";
-            txt5.Size = new Size(202, 25);
+            txt5.Size = new Size(202, 23);
             txt5.TabIndex = 18;
             txt5.TextChanged += txt5_TextChanged;
             // 
             // txt6
             // 
-            txt6.Location = new Point(18, 709);
+            txt6.Location = new Point(18, 626);
             txt6.Name = "txt6";
-            txt6.Size = new Size(202, 25);
+            txt6.Size = new Size(202, 23);
             txt6.TabIndex = 19;
             txt6.TextChanged += txt6_TextChanged;
             // 
@@ -274,9 +275,9 @@
             btncontinuar.BackColor = SystemColors.Highlight;
             btncontinuar.FlatStyle = FlatStyle.Flat;
             btncontinuar.ForeColor = SystemColors.Window;
-            btncontinuar.Location = new Point(467, 554);
+            btncontinuar.Location = new Point(467, 489);
             btncontinuar.Name = "btncontinuar";
-            btncontinuar.Size = new Size(147, 34);
+            btncontinuar.Size = new Size(147, 30);
             btncontinuar.TabIndex = 20;
             btncontinuar.Text = "CONTINUAR";
             btncontinuar.UseVisualStyleBackColor = false;
@@ -288,7 +289,7 @@
             pic1.Image = (Image)resources.GetObject("pic1.Image");
             pic1.Location = new Point(289, 3);
             pic1.Name = "pic1";
-            pic1.Size = new Size(170, 104);
+            pic1.Size = new Size(170, 92);
             pic1.SizeMode = PictureBoxSizeMode.StretchImage;
             pic1.TabIndex = 21;
             pic1.TabStop = false;
@@ -306,18 +307,18 @@
             pnl1.Controls.Add(btndestinos);
             pnl1.Location = new Point(2, 2);
             pnl1.Name = "pnl1";
-            pnl1.Size = new Size(725, 172);
+            pnl1.Size = new Size(725, 152);
             pnl1.TabIndex = 22;
             pnl1.Paint += pnl1_Paint;
             // 
             // btnInsertar
             // 
-            btnInsertar.BackColor = SystemColors.Highlight;
+            btnInsertar.BackColor = Color.White;
             btnInsertar.FlatStyle = FlatStyle.Flat;
-            btnInsertar.ForeColor = SystemColors.Window;
-            btnInsertar.Location = new Point(363, 426);
+            btnInsertar.ForeColor = SystemColors.WindowText;
+            btnInsertar.Location = new Point(398, 376);
             btnInsertar.Name = "btnInsertar";
-            btnInsertar.Size = new Size(99, 34);
+            btnInsertar.Size = new Size(99, 30);
             btnInsertar.TabIndex = 23;
             btnInsertar.Text = "Insertar";
             btnInsertar.UseVisualStyleBackColor = false;
@@ -325,12 +326,12 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.BackColor = SystemColors.Highlight;
+            btnEliminar.BackColor = Color.White;
             btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.ForeColor = SystemColors.Window;
-            btnEliminar.Location = new Point(487, 426);
+            btnEliminar.ForeColor = SystemColors.WindowText;
+            btnEliminar.Location = new Point(503, 376);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(100, 34);
+            btnEliminar.Size = new Size(100, 30);
             btnEliminar.TabIndex = 24;
             btnEliminar.Text = "Eliminar ";
             btnEliminar.UseVisualStyleBackColor = false;
@@ -338,22 +339,35 @@
             // 
             // btnModificar
             // 
-            btnModificar.BackColor = SystemColors.Highlight;
+            btnModificar.BackColor = Color.White;
             btnModificar.FlatStyle = FlatStyle.Flat;
-            btnModificar.ForeColor = SystemColors.Window;
-            btnModificar.Location = new Point(609, 426);
+            btnModificar.ForeColor = SystemColors.WindowText;
+            btnModificar.Location = new Point(609, 376);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(97, 34);
+            btnModificar.Size = new Size(97, 30);
             btnModificar.TabIndex = 25;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = false;
             btnModificar.Click += btnModificar_Click;
             // 
+            // btnBuscar
+            // 
+            btnBuscar.BackColor = Color.White;
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.ForeColor = SystemColors.WindowText;
+            btnBuscar.Location = new Point(293, 376);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(99, 30);
+            btnBuscar.TabIndex = 26;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = false;
+            // 
             // DatosPasajero
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(731, 749);
+            ClientSize = new Size(731, 661);
+            Controls.Add(btnBuscar);
             Controls.Add(btnModificar);
             Controls.Add(btnEliminar);
             Controls.Add(btnInsertar);
@@ -411,5 +425,6 @@
         private Button btnInsertar;
         private Button btnEliminar;
         private Button btnModificar;
+        private Button btnBuscar;
     }
 }

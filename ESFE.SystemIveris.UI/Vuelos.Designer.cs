@@ -41,6 +41,10 @@
             Destino = new DataGridViewTextBoxColumn();
             Hora = new DataGridViewTextBoxColumn();
             AvionAsignado = new DataGridViewTextBoxColumn();
+            btnBuscar = new Button();
+            btnEliminar = new Button();
+            btnInsertar = new Button();
+            btnModificar = new Button();
             pnl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgv1).BeginInit();
@@ -167,11 +171,51 @@
             AvionAsignado.HeaderText = "Avion Asiganado";
             AvionAsignado.Name = "AvionAsignado";
             // 
+            // btnBuscar
+            // 
+            btnBuscar.Location = new Point(57, 377);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(75, 23);
+            btnBuscar.TabIndex = 7;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(193, 377);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.TabIndex = 8;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnInsertar
+            // 
+            btnInsertar.Location = new Point(357, 377);
+            btnInsertar.Name = "btnInsertar";
+            btnInsertar.Size = new Size(75, 23);
+            btnInsertar.TabIndex = 9;
+            btnInsertar.Text = "Insertar";
+            btnInsertar.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar
+            // 
+            btnModificar.Location = new Point(496, 377);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(75, 23);
+            btnModificar.TabIndex = 10;
+            btnModificar.Text = "Modificar";
+            btnModificar.UseVisualStyleBackColor = true;
+            // 
             // Vuelos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(612, 450);
+            Controls.Add(btnModificar);
+            Controls.Add(btnInsertar);
+            Controls.Add(btnEliminar);
+            Controls.Add(btnBuscar);
             Controls.Add(dgv1);
             Controls.Add(pnl1);
             Name = "Vuelos";
@@ -198,5 +242,9 @@
         private Button btnReserva;
         private Button btnVuelos;
         private Button btnInicio;
+        private Button btnBuscar;
+        private Button btnEliminar;
+        private Button btnInsertar;
+        private Button btnModificar;
     }
 }
