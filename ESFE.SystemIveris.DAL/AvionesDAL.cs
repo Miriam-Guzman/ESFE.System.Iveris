@@ -29,7 +29,7 @@ namespace ESFE.SystemIveris.DAL
             }
         }
 
-        // Método para actualizar un avión existente en la base de datos
+        // Método para actualizar un avión existente en la base de datos...
         public bool Actualizar(Aviones aviones)
         {
             using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
