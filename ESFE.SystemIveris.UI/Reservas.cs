@@ -27,88 +27,41 @@ namespace ESFE.SystemIveris.UI
             this.WindowState = FormWindowState.Maximized;
         }
 
-        private void pnl1_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void pic1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-        }
+        // ==========================================
+        //  NAVEGACIÓN ENTRE FORMULARIOS
+        // ==========================================
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
+            Inicio formulario = new Inicio();
+            formulario.Show();
+            this.Hide();
         }
 
         private void btnMetodopago_Click(object sender, EventArgs e)
         {
+            MetododePago formulario = new MetododePago();
+            formulario.Show();
+            this.Hide();
         }
 
         private void btnReserva_Click(object sender, EventArgs e)
         {
+            // Ya estamos en Reservas
         }
 
         private void btnVuelos_Click(object sender, EventArgs e)
         {
+            Vuelos formulario = new Vuelos();
+            formulario.Show();
+            this.Hide();
         }
 
         private void btnDestinos_Click(object sender, EventArgs e)
         {
-        }
-
-        private void lblidaVuelta_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void lblorigen_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void txt1_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void lblDestino_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void txt2_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void lblfechasalida_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void dtp2_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void lblfecharegreso_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void dtp1_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void lblpasajero_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void txt5_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void lblclase_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void txt6_TextChanged(object sender, EventArgs e)
-        {
+            Destinos formulario = new Destinos();
+            formulario.Show();
+            this.Hide();
         }
 
         // ==========================================
@@ -137,7 +90,7 @@ namespace ESFE.SystemIveris.UI
 
                 if (resultado)
                 {
-                    MessageBox.Show("¡Reserva guardada con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("¡Reserva guardada con éxito mediante Procedimiento Almacenado!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
                 }
             }
@@ -153,7 +106,7 @@ namespace ESFE.SystemIveris.UI
             {
                 if (!int.TryParse(txt1.Text.Trim(), out int idReserva))
                 {
-                    MessageBox.Show("Ingrese el ID de la reserva a modificar.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Ingrese el ID de la reserva a modificar en el primer campo.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txt1.Focus();
                     return;
                 }
@@ -177,7 +130,7 @@ namespace ESFE.SystemIveris.UI
 
                 if (resultado)
                 {
-                    MessageBox.Show("¡Reserva modificada correctamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("¡Reserva modificada correctamente mediante Procedimiento Almacenado!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
                 }
             }
@@ -221,7 +174,7 @@ namespace ESFE.SystemIveris.UI
             {
                 if (!int.TryParse(txt1.Text.Trim(), out int idReserva))
                 {
-                    MessageBox.Show("Ingrese el ID de la reserva a eliminar.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Ingrese el ID de la reserva a eliminar en el primer campo.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txt1.Focus();
                     return;
                 }
@@ -236,7 +189,7 @@ namespace ESFE.SystemIveris.UI
                 {
                     if (reservaLN.Eliminar(idReserva))
                     {
-                        MessageBox.Show("Reserva eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Reserva eliminada correctamente mediante Procedimiento Almacenado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LimpiarCampos();
                     }
                 }

@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using ESFE.SystemIveris.EN;
 using ESFE.SystemIveris.LN;
@@ -66,7 +67,6 @@ namespace ESFE.SystemIveris.UI
 
         private void btnVuelos_Click(object sender, EventArgs e)
         {
-            // Ya estamos en Vuelos
             CargarVuelos();
         }
 
@@ -76,9 +76,6 @@ namespace ESFE.SystemIveris.UI
             formulario.Show();
             this.Hide();
         }
-
-        private void pic1_Click(object sender, EventArgs e) { }
-        private void pnl1_Paint(object sender, PaintEventArgs e) { }
 
         // ==========================================
         //  INTERACCIÓN CON DATAGRIDVIEW
@@ -291,6 +288,11 @@ namespace ESFE.SystemIveris.UI
             txtBuscar.Clear();
             LimpiarCampos();
             CargarVuelos();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
 
         private void LimpiarCampos()

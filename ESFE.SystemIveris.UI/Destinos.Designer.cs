@@ -29,217 +29,389 @@ namespace ESFE.SystemIveris.UI
         private void InitializeComponent()
         {
             pnl1 = new Panel();
-            pic1 = new PictureBox();
-            btnDestinos = new Button();
+            pnlNav = new Panel();
+            btnInicio = new Button();
             btnMetodopago = new Button();
             btnReserva = new Button();
             btnVuelos = new Button();
-            btnInicio = new Button();
+            btnDestinos = new Button();
+            pic1 = new PictureBox();
+            pnlContent = new Panel();
+            scMain = new SplitContainer();
+            pnlGridCard = new Panel();
             dgv1 = new DataGridView();
-            btnInsertar = new Button();
-            btnEliminar = new Button();
-            btnModificar = new Button();
-            btnBuscar = new Button();
+            pnlSearch = new Panel();
             txtBuscar = new TextBox();
-            lblBuscar = new Label();
-            txtNombreDestino = new TextBox();
-            lblNombreDestino = new Label();
-            txtCodigoIata = new TextBox();
-            lblCodigoIata = new Label();
-            txtIdCiudad = new TextBox();
-            lblIdCiudad = new Label();
+            btnBuscar = new Button();
             btnRefrescar = new Button();
+            lblTituloGrid = new Label();
+            pnlFormCard = new Panel();
+            lblTituloForm = new Label();
+            lblNombreDestino = new Label();
+            txtNombreDestino = new TextBox();
+            lblCodigoIata = new Label();
+            txtCodigoIata = new TextBox();
+            lblIdCiudad = new Label();
+            txtIdCiudad = new TextBox();
+            btnInsertar = new Button();
+            btnModificar = new Button();
+            btnEliminar = new Button();
+            btnLimpiar = new Button();
             pnl1.SuspendLayout();
+            pnlNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
+            pnlContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)scMain).BeginInit();
+            scMain.Panel1.SuspendLayout();
+            scMain.Panel2.SuspendLayout();
+            scMain.SuspendLayout();
+            pnlGridCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv1).BeginInit();
+            pnlSearch.SuspendLayout();
+            pnlFormCard.SuspendLayout();
             SuspendLayout();
             // 
             // pnl1
             // 
-            pnl1.BackColor = Color.FromArgb(128, 128, 255);
+            pnl1.BackColor = Color.FromArgb(70, 90, 200);
+            pnl1.Controls.Add(pnlNav);
             pnl1.Controls.Add(pic1);
-            pnl1.Controls.Add(btnDestinos);
-            pnl1.Controls.Add(btnMetodopago);
-            pnl1.Controls.Add(btnReserva);
-            pnl1.Controls.Add(btnVuelos);
-            pnl1.Controls.Add(btnInicio);
             pnl1.Dock = DockStyle.Top;
             pnl1.Location = new Point(0, 0);
             pnl1.Name = "pnl1";
-            pnl1.Size = new Size(800, 190);
+            pnl1.Size = new Size(1150, 160);
             pnl1.TabIndex = 14;
-            pnl1.Paint += pnl1_Paint;
             // 
-            // pic1
+            // pnlNav
             // 
-            pic1.BorderStyle = BorderStyle.FixedSingle;
-            pic1.Image = Properties.Resources.WhatsApp_Image_2026_08_11_at_9_32_19_PM;
-            pic1.Location = new Point(300, 15);
-            pic1.Name = "pic1";
-            pic1.Size = new Size(200, 100);
-            pic1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pic1.TabIndex = 6;
-            pic1.TabStop = false;
-            pic1.Click += pic1_Click;
+            pnlNav.Anchor = AnchorStyles.Top;
+            pnlNav.Controls.Add(btnInicio);
+            pnlNav.Controls.Add(btnMetodopago);
+            pnlNav.Controls.Add(btnReserva);
+            pnlNav.Controls.Add(btnVuelos);
+            pnlNav.Controls.Add(btnDestinos);
+            pnlNav.Location = new Point(200, 110);
+            pnlNav.Name = "pnlNav";
+            pnlNav.Size = new Size(750, 42);
+            pnlNav.TabIndex = 12;
             // 
-            // btnDestinos
+            // btnInicio
             // 
-            btnDestinos.BackColor = Color.FromArgb(128, 255, 128);
-            btnDestinos.Font = new Font("Arial", 9.75F, FontStyle.Bold);
-            btnDestinos.Location = new Point(560, 140);
-            btnDestinos.Name = "btnDestinos";
-            btnDestinos.Size = new Size(110, 32);
-            btnDestinos.TabIndex = 11;
-            btnDestinos.Text = "Destinos";
-            btnDestinos.UseVisualStyleBackColor = false;
-            btnDestinos.Click += btnDestinos_Click;
+            btnInicio.BackColor = Color.White;
+            btnInicio.Cursor = Cursors.Hand;
+            btnInicio.FlatAppearance.BorderSize = 0;
+            btnInicio.FlatStyle = FlatStyle.Flat;
+            btnInicio.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnInicio.Location = new Point(10, 5);
+            btnInicio.Name = "btnInicio";
+            btnInicio.Size = new Size(130, 32);
+            btnInicio.TabIndex = 7;
+            btnInicio.Text = "INICIO";
+            btnInicio.UseVisualStyleBackColor = false;
+            btnInicio.Click += btnInicio_Click;
             // 
             // btnMetodopago
             // 
-            btnMetodopago.Font = new Font("Arial", 9.75F, FontStyle.Bold);
-            btnMetodopago.Location = new Point(140, 140);
+            btnMetodopago.BackColor = Color.White;
+            btnMetodopago.Cursor = Cursors.Hand;
+            btnMetodopago.FlatAppearance.BorderSize = 0;
+            btnMetodopago.FlatStyle = FlatStyle.Flat;
+            btnMetodopago.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnMetodopago.Location = new Point(155, 5);
             btnMetodopago.Name = "btnMetodopago";
-            btnMetodopago.Size = new Size(130, 32);
+            btnMetodopago.Size = new Size(140, 32);
             btnMetodopago.TabIndex = 8;
-            btnMetodopago.Text = "Metodo de Pago";
-            btnMetodopago.UseVisualStyleBackColor = true;
+            btnMetodopago.Text = "MÉTODO DE PAGO";
+            btnMetodopago.UseVisualStyleBackColor = false;
             btnMetodopago.Click += btnMetodopago_Click;
             // 
             // btnReserva
             // 
-            btnReserva.Font = new Font("Arial", 9.75F, FontStyle.Bold);
-            btnReserva.Location = new Point(280, 140);
+            btnReserva.BackColor = Color.White;
+            btnReserva.Cursor = Cursors.Hand;
+            btnReserva.FlatAppearance.BorderSize = 0;
+            btnReserva.FlatStyle = FlatStyle.Flat;
+            btnReserva.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnReserva.Location = new Point(310, 5);
             btnReserva.Name = "btnReserva";
-            btnReserva.Size = new Size(110, 32);
+            btnReserva.Size = new Size(130, 32);
             btnReserva.TabIndex = 10;
-            btnReserva.Text = "Reserva";
-            btnReserva.UseVisualStyleBackColor = true;
+            btnReserva.Text = "RESERVAS";
+            btnReserva.UseVisualStyleBackColor = false;
             btnReserva.Click += btnReserva_Click;
             // 
             // btnVuelos
             // 
-            btnVuelos.Font = new Font("Arial", 9.75F, FontStyle.Bold);
-            btnVuelos.Location = new Point(420, 140);
+            btnVuelos.BackColor = Color.White;
+            btnVuelos.Cursor = Cursors.Hand;
+            btnVuelos.FlatAppearance.BorderSize = 0;
+            btnVuelos.FlatStyle = FlatStyle.Flat;
+            btnVuelos.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnVuelos.Location = new Point(455, 5);
             btnVuelos.Name = "btnVuelos";
-            btnVuelos.Size = new Size(110, 32);
+            btnVuelos.Size = new Size(130, 32);
             btnVuelos.TabIndex = 9;
-            btnVuelos.Text = "Vuelos";
-            btnVuelos.UseVisualStyleBackColor = true;
+            btnVuelos.Text = "VUELOS";
+            btnVuelos.UseVisualStyleBackColor = false;
             btnVuelos.Click += btnVuelos_Click;
             // 
-            // btnInicio
+            // btnDestinos
             // 
-            btnInicio.Font = new Font("Arial", 9.75F, FontStyle.Bold);
-            btnInicio.Location = new Point(20, 140);
-            btnInicio.Name = "btnInicio";
-            btnInicio.Size = new Size(100, 32);
-            btnInicio.TabIndex = 7;
-            btnInicio.Text = "Inicio";
-            btnInicio.UseVisualStyleBackColor = true;
-            btnInicio.Click += btnInicio_Click;
+            btnDestinos.BackColor = Color.FromArgb(128, 255, 128);
+            btnDestinos.Cursor = Cursors.Hand;
+            btnDestinos.FlatAppearance.BorderSize = 0;
+            btnDestinos.FlatStyle = FlatStyle.Flat;
+            btnDestinos.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnDestinos.Location = new Point(600, 5);
+            btnDestinos.Name = "btnDestinos";
+            btnDestinos.Size = new Size(130, 32);
+            btnDestinos.TabIndex = 11;
+            btnDestinos.Text = "DESTINOS";
+            btnDestinos.UseVisualStyleBackColor = false;
+            btnDestinos.Click += btnDestinos_Click;
+            // 
+            // pic1
+            // 
+            pic1.Anchor = AnchorStyles.Top;
+            pic1.BorderStyle = BorderStyle.FixedSingle;
+            pic1.Image = Properties.Resources.WhatsApp_Image_2026_08_11_at_9_32_19_PM;
+            pic1.Location = new Point(485, 10);
+            pic1.Name = "pic1";
+            pic1.Size = new Size(180, 90);
+            pic1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pic1.TabIndex = 6;
+            pic1.TabStop = false;
+            // 
+            // pnlContent
+            // 
+            pnlContent.Controls.Add(scMain);
+            pnlContent.Dock = DockStyle.Fill;
+            pnlContent.Location = new Point(0, 160);
+            pnlContent.Name = "pnlContent";
+            pnlContent.Padding = new Padding(15);
+            pnlContent.Size = new Size(1150, 580);
+            pnlContent.TabIndex = 15;
+            // 
+            // scMain
+            // 
+            scMain.Dock = DockStyle.Fill;
+            scMain.FixedPanel = FixedPanel.Panel2;
+            scMain.Location = new Point(15, 15);
+            scMain.Name = "scMain";
+            // 
+            // scMain.Panel1
+            // 
+            scMain.Panel1.Controls.Add(pnlGridCard);
+            scMain.Panel1MinSize = 450;
+            // 
+            // scMain.Panel2
+            // 
+            scMain.Panel2.AutoScroll = true;
+            scMain.Panel2.Controls.Add(pnlFormCard);
+            scMain.Panel2MinSize = 380;
+            scMain.Size = new Size(1120, 550);
+            scMain.SplitterDistance = 710;
+            scMain.TabIndex = 0;
+            // 
+            // pnlGridCard
+            // 
+            pnlGridCard.BackColor = Color.White;
+            pnlGridCard.BorderStyle = BorderStyle.FixedSingle;
+            pnlGridCard.Controls.Add(dgv1);
+            pnlGridCard.Controls.Add(pnlSearch);
+            pnlGridCard.Controls.Add(lblTituloGrid);
+            pnlGridCard.Dock = DockStyle.Fill;
+            pnlGridCard.Location = new Point(0, 0);
+            pnlGridCard.Name = "pnlGridCard";
+            pnlGridCard.Padding = new Padding(15);
+            pnlGridCard.Size = new Size(710, 550);
+            pnlGridCard.TabIndex = 0;
             // 
             // dgv1
             // 
             dgv1.AllowUserToAddRows = false;
             dgv1.AllowUserToDeleteRows = false;
             dgv1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv1.BackgroundColor = Color.FromArgb(245, 247, 250);
             dgv1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv1.Location = new Point(20, 205);
+            dgv1.Dock = DockStyle.Fill;
+            dgv1.Location = new Point(15, 90);
+            dgv1.MultiSelect = false;
             dgv1.Name = "dgv1";
             dgv1.ReadOnly = true;
             dgv1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv1.Size = new Size(460, 300);
+            dgv1.Size = new Size(678, 443);
             dgv1.TabIndex = 13;
             dgv1.CellClick += dgv1_CellClick;
             // 
-            // lblBuscar
+            // pnlSearch
             // 
-            lblBuscar.AutoSize = true;
-            lblBuscar.Font = new Font("Arial", 9F, FontStyle.Bold);
-            lblBuscar.Location = new Point(500, 205);
-            lblBuscar.Name = "lblBuscar";
-            lblBuscar.Size = new Size(100, 15);
-            lblBuscar.TabIndex = 19;
-            lblBuscar.Text = "Buscar Destino:";
+            pnlSearch.Controls.Add(txtBuscar);
+            pnlSearch.Controls.Add(btnBuscar);
+            pnlSearch.Controls.Add(btnRefrescar);
+            pnlSearch.Dock = DockStyle.Top;
+            pnlSearch.Location = new Point(15, 50);
+            pnlSearch.Name = "pnlSearch";
+            pnlSearch.Size = new Size(678, 40);
+            pnlSearch.TabIndex = 28;
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(500, 225);
+            txtBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtBuscar.Location = new Point(0, 8);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.PlaceholderText = "Ciudad, Aeropuerto o Código";
-            txtBuscar.Size = new Size(170, 23);
+            txtBuscar.PlaceholderText = "Buscar por ciudad, aeropuerto, código IATA o número de vuelo...";
+            txtBuscar.Size = new Size(464, 23);
             txtBuscar.TabIndex = 20;
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(680, 224);
+            btnBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnBuscar.BackColor = Color.LightSkyBlue;
+            btnBuscar.Cursor = Cursors.Hand;
+            btnBuscar.FlatAppearance.BorderSize = 0;
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnBuscar.Location = new Point(474, 5);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(80, 25);
+            btnBuscar.Size = new Size(95, 28);
             btnBuscar.TabIndex = 18;
             btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.UseVisualStyleBackColor = false;
             btnBuscar.Click += btnBuscar_Click;
+            // 
+            // btnRefrescar
+            // 
+            btnRefrescar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRefrescar.BackColor = Color.FromArgb(46, 204, 113);
+            btnRefrescar.Cursor = Cursors.Hand;
+            btnRefrescar.FlatAppearance.BorderSize = 0;
+            btnRefrescar.FlatStyle = FlatStyle.Flat;
+            btnRefrescar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnRefrescar.ForeColor = Color.White;
+            btnRefrescar.Location = new Point(578, 5);
+            btnRefrescar.Name = "btnRefrescar";
+            btnRefrescar.Size = new Size(100, 28);
+            btnRefrescar.TabIndex = 27;
+            btnRefrescar.Text = "Listar Todo";
+            btnRefrescar.UseVisualStyleBackColor = false;
+            btnRefrescar.Click += btnRefrescar_Click;
+            // 
+            // lblTituloGrid
+            // 
+            lblTituloGrid.AutoSize = true;
+            lblTituloGrid.Dock = DockStyle.Top;
+            lblTituloGrid.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblTituloGrid.ForeColor = Color.FromArgb(40, 50, 120);
+            lblTituloGrid.Location = new Point(15, 15);
+            lblTituloGrid.Name = "lblTituloGrid";
+            lblTituloGrid.Padding = new Padding(0, 0, 0, 10);
+            lblTituloGrid.Size = new Size(272, 35);
+            lblTituloGrid.TabIndex = 29;
+            lblTituloGrid.Text = "Destinos y Rutas Disponibles";
+            // 
+            // pnlFormCard
+            // 
+            pnlFormCard.BackColor = Color.White;
+            pnlFormCard.BorderStyle = BorderStyle.FixedSingle;
+            pnlFormCard.Controls.Add(lblTituloForm);
+            pnlFormCard.Controls.Add(lblNombreDestino);
+            pnlFormCard.Controls.Add(txtNombreDestino);
+            pnlFormCard.Controls.Add(lblCodigoIata);
+            pnlFormCard.Controls.Add(txtCodigoIata);
+            pnlFormCard.Controls.Add(lblIdCiudad);
+            pnlFormCard.Controls.Add(txtIdCiudad);
+            pnlFormCard.Controls.Add(btnInsertar);
+            pnlFormCard.Controls.Add(btnModificar);
+            pnlFormCard.Controls.Add(btnEliminar);
+            pnlFormCard.Controls.Add(btnLimpiar);
+            pnlFormCard.Dock = DockStyle.Fill;
+            pnlFormCard.Location = new Point(0, 0);
+            pnlFormCard.Name = "pnlFormCard";
+            pnlFormCard.Padding = new Padding(20);
+            pnlFormCard.Size = new Size(406, 550);
+            pnlFormCard.TabIndex = 0;
+            // 
+            // lblTituloForm
+            // 
+            lblTituloForm.AutoSize = true;
+            lblTituloForm.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblTituloForm.ForeColor = Color.FromArgb(40, 50, 120);
+            lblTituloForm.Location = new Point(20, 15);
+            lblTituloForm.Name = "lblTituloForm";
+            lblTituloForm.Size = new Size(276, 25);
+            lblTituloForm.TabIndex = 28;
+            lblTituloForm.Text = "Gestión de Destino / Aeropuerto";
             // 
             // lblNombreDestino
             // 
             lblNombreDestino.AutoSize = true;
-            lblNombreDestino.Font = new Font("Arial", 9F, FontStyle.Bold);
-            lblNombreDestino.Location = new Point(500, 265);
+            lblNombreDestino.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblNombreDestino.Location = new Point(20, 65);
             lblNombreDestino.Name = "lblNombreDestino";
-            lblNombreDestino.Size = new Size(144, 15);
+            lblNombreDestino.Size = new Size(141, 15);
             lblNombreDestino.TabIndex = 21;
             lblNombreDestino.Text = "Nombre del Aeropuerto:";
             // 
             // txtNombreDestino
             // 
-            txtNombreDestino.Location = new Point(500, 285);
+            txtNombreDestino.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtNombreDestino.Location = new Point(20, 85);
             txtNombreDestino.Name = "txtNombreDestino";
-            txtNombreDestino.Size = new Size(260, 23);
+            txtNombreDestino.Size = new Size(364, 23);
             txtNombreDestino.TabIndex = 22;
             // 
             // lblCodigoIata
             // 
             lblCodigoIata.AutoSize = true;
-            lblCodigoIata.Font = new Font("Arial", 9F, FontStyle.Bold);
-            lblCodigoIata.Location = new Point(500, 320);
+            lblCodigoIata.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblCodigoIata.Location = new Point(20, 125);
             lblCodigoIata.Name = "lblCodigoIata";
-            lblCodigoIata.Size = new Size(111, 15);
+            lblCodigoIata.Size = new Size(116, 15);
             lblCodigoIata.TabIndex = 23;
             lblCodigoIata.Text = "Código IATA (3 ltr):";
             // 
             // txtCodigoIata
             // 
-            txtCodigoIata.Location = new Point(500, 340);
+            txtCodigoIata.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtCodigoIata.CharacterCasing = CharacterCasing.Upper;
+            txtCodigoIata.Location = new Point(20, 145);
             txtCodigoIata.MaxLength = 3;
             txtCodigoIata.Name = "txtCodigoIata";
-            txtCodigoIata.Size = new Size(100, 23);
+            txtCodigoIata.Size = new Size(364, 23);
             txtCodigoIata.TabIndex = 24;
             // 
             // lblIdCiudad
             // 
             lblIdCiudad.AutoSize = true;
-            lblIdCiudad.Font = new Font("Arial", 9F, FontStyle.Bold);
-            lblIdCiudad.Location = new Point(620, 320);
+            lblIdCiudad.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblIdCiudad.Location = new Point(20, 185);
             lblIdCiudad.Name = "lblIdCiudad";
-            lblIdCiudad.Size = new Size(65, 15);
+            lblIdCiudad.Size = new Size(130, 15);
             lblIdCiudad.TabIndex = 25;
-            lblIdCiudad.Text = "ID Ciudad:";
+            lblIdCiudad.Text = "ID Ciudad / Ubicación:";
             // 
             // txtIdCiudad
             // 
-            txtIdCiudad.Location = new Point(620, 340);
+            txtIdCiudad.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtIdCiudad.Location = new Point(20, 205);
             txtIdCiudad.Name = "txtIdCiudad";
-            txtIdCiudad.Size = new Size(100, 23);
+            txtIdCiudad.Size = new Size(364, 23);
             txtIdCiudad.TabIndex = 26;
             txtIdCiudad.Text = "1";
             // 
             // btnInsertar
             // 
-            btnInsertar.BackColor = Color.FromArgb(192, 255, 192);
-            btnInsertar.Font = new Font("Arial", 9F, FontStyle.Bold);
-            btnInsertar.Location = new Point(500, 385);
+            btnInsertar.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            btnInsertar.BackColor = Color.FromArgb(46, 204, 113);
+            btnInsertar.Cursor = Cursors.Hand;
+            btnInsertar.FlatAppearance.BorderSize = 0;
+            btnInsertar.FlatStyle = FlatStyle.Flat;
+            btnInsertar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnInsertar.ForeColor = Color.White;
+            btnInsertar.Location = new Point(20, 260);
             btnInsertar.Name = "btnInsertar";
-            btnInsertar.Size = new Size(115, 32);
+            btnInsertar.Size = new Size(170, 38);
             btnInsertar.TabIndex = 15;
             btnInsertar.Text = "Insertar";
             btnInsertar.UseVisualStyleBackColor = false;
@@ -247,11 +419,16 @@ namespace ESFE.SystemIveris.UI
             // 
             // btnModificar
             // 
-            btnModificar.BackColor = Color.FromArgb(255, 255, 192);
-            btnModificar.Font = new Font("Arial", 9F, FontStyle.Bold);
-            btnModificar.Location = new Point(640, 385);
+            btnModificar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnModificar.BackColor = Color.FromArgb(241, 196, 15);
+            btnModificar.Cursor = Cursors.Hand;
+            btnModificar.FlatAppearance.BorderSize = 0;
+            btnModificar.FlatStyle = FlatStyle.Flat;
+            btnModificar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnModificar.ForeColor = Color.Black;
+            btnModificar.Location = new Point(214, 260);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(115, 32);
+            btnModificar.Size = new Size(170, 38);
             btnModificar.TabIndex = 17;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = false;
@@ -259,82 +436,99 @@ namespace ESFE.SystemIveris.UI
             // 
             // btnEliminar
             // 
-            btnEliminar.BackColor = Color.FromArgb(255, 192, 192);
-            btnEliminar.Font = new Font("Arial", 9F, FontStyle.Bold);
-            btnEliminar.Location = new Point(500, 430);
+            btnEliminar.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            btnEliminar.BackColor = Color.FromArgb(231, 76, 60);
+            btnEliminar.Cursor = Cursors.Hand;
+            btnEliminar.FlatAppearance.BorderSize = 0;
+            btnEliminar.FlatStyle = FlatStyle.Flat;
+            btnEliminar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnEliminar.ForeColor = Color.White;
+            btnEliminar.Location = new Point(20, 315);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(115, 32);
+            btnEliminar.Size = new Size(170, 38);
             btnEliminar.TabIndex = 16;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
             // 
-            // btnRefrescar
+            // btnLimpiar
             // 
-            btnRefrescar.BackColor = Color.LightSkyBlue;
-            btnRefrescar.Font = new Font("Arial", 9F, FontStyle.Bold);
-            btnRefrescar.Location = new Point(640, 430);
-            btnRefrescar.Name = "btnRefrescar";
-            btnRefrescar.Size = new Size(115, 32);
-            btnRefrescar.TabIndex = 27;
-            btnRefrescar.Text = "Listar Todo";
-            btnRefrescar.UseVisualStyleBackColor = false;
-            btnRefrescar.Click += btnRefrescar_Click;
+            btnLimpiar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnLimpiar.BackColor = Color.LightGray;
+            btnLimpiar.Cursor = Cursors.Hand;
+            btnLimpiar.FlatAppearance.BorderSize = 0;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnLimpiar.Location = new Point(214, 315);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(170, 38);
+            btnLimpiar.TabIndex = 29;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // Destinos
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 530);
-            Controls.Add(btnRefrescar);
-            Controls.Add(txtIdCiudad);
-            Controls.Add(lblIdCiudad);
-            Controls.Add(txtCodigoIata);
-            Controls.Add(lblCodigoIata);
-            Controls.Add(txtNombreDestino);
-            Controls.Add(lblNombreDestino);
-            Controls.Add(txtBuscar);
-            Controls.Add(lblBuscar);
-            Controls.Add(btnBuscar);
-            Controls.Add(btnModificar);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnInsertar);
+            BackColor = Color.FromArgb(245, 247, 250);
+            ClientSize = new Size(1150, 740);
+            Controls.Add(pnlContent);
             Controls.Add(pnl1);
-            Controls.Add(dgv1);
+            MinimumSize = new Size(950, 650);
             Name = "Destinos";
-            Text = "Destinos";
-            WindowState = FormWindowState.Maximized;
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "Destinos - ESFE System Iveris";
+            WindowState = FormWindowState.Maximized;
             Load += Destinos_Load;
             pnl1.ResumeLayout(false);
+            pnlNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pic1).EndInit();
+            pnlContent.ResumeLayout(false);
+            scMain.Panel1.ResumeLayout(false);
+            scMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)scMain).EndInit();
+            scMain.ResumeLayout(false);
+            pnlGridCard.ResumeLayout(false);
+            pnlGridCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv1).EndInit();
+            pnlSearch.ResumeLayout(false);
+            pnlSearch.PerformLayout();
+            pnlFormCard.ResumeLayout(false);
+            pnlFormCard.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private Panel pnl1;
+        private Panel pnlNav;
         private PictureBox pic1;
         private Button btnDestinos;
         private Button btnMetodopago;
         private Button btnReserva;
         private Button btnVuelos;
         private Button btnInicio;
+        private Panel pnlContent;
+        private SplitContainer scMain;
+        private Panel pnlGridCard;
         private DataGridView dgv1;
-        private Button btnInsertar;
-        private Button btnEliminar;
-        private Button btnModificar;
-        private Button btnBuscar;
+        private Panel pnlSearch;
         private TextBox txtBuscar;
-        private Label lblBuscar;
-        private TextBox txtNombreDestino;
-        private Label lblNombreDestino;
-        private TextBox txtCodigoIata;
-        private Label lblCodigoIata;
-        private TextBox txtIdCiudad;
-        private Label lblIdCiudad;
+        private Button btnBuscar;
         private Button btnRefrescar;
+        private Label lblTituloGrid;
+        private Panel pnlFormCard;
+        private Label lblTituloForm;
+        private Label lblNombreDestino;
+        private TextBox txtNombreDestino;
+        private Label lblCodigoIata;
+        private TextBox txtCodigoIata;
+        private Label lblIdCiudad;
+        private TextBox txtIdCiudad;
+        private Button btnInsertar;
+        private Button btnModificar;
+        private Button btnEliminar;
+        private Button btnLimpiar;
     }
 }

@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using ESFE.SystemIveris.EN;
 using ESFE.SystemIveris.LN;
@@ -26,6 +24,42 @@ namespace ESFE.SystemIveris.UI
         private void DatosPasajero_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
+            CargarPasajeros();
+        }
+
+        private void CargarPasajeros()
+        {
+            try
+            {
+                List<Pasajeros> lista = pasajeroLN.Listar();
+                dgvPasajeros.DataSource = null;
+                dgvPasajeros.DataSource = lista;
+                ConfigurarColumnasGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al conectar y listar pasajeros: " + ex.Message, "Error de Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ConfigurarColumnasGrid()
+        {
+            if (dgvPasajeros.Columns.Count > 0)
+            {
+                if (dgvPasajeros.Columns["id_pasajero"] != null)
+                {
+                    dgvPasajeros.Columns["id_pasajero"].HeaderText = "ID";
+                    dgvPasajeros.Columns["id_pasajero"].Width = 50;
+                }
+                if (dgvPasajeros.Columns["nombre"] != null)
+                    dgvPasajeros.Columns["nombre"].HeaderText = "Nombre";
+                if (dgvPasajeros.Columns["apellido"] != null)
+                    dgvPasajeros.Columns["apellido"].HeaderText = "Apellido";
+                if (dgvPasajeros.Columns["pasaporte"] != null)
+                    dgvPasajeros.Columns["pasaporte"].HeaderText = "Pasaporte / DUI";
+                if (dgvPasajeros.Columns["id_ciudad"] != null)
+                    dgvPasajeros.Columns["id_ciudad"].HeaderText = "ID Ciudad";
+            }
         }
 
         // ==========================================
@@ -68,35 +102,79 @@ namespace ESFE.SystemIveris.UI
 
         private void btncontinuar_Click(object sender, EventArgs e)
         {
-            // Continuar hacia el proceso de pago o reserva
             MetododePago pago = new MetododePago();
             pago.Show();
             this.Hide();
         }
 
-        // --- Eventos auxiliares del formulario ---
-        private void pnl1_Paint(object sender, PaintEventArgs e) { }
-        private void pic1_Click(object sender, EventArgs e) { }
-        private void lblDastospasajero_Click(object sender, EventArgs e) { }
-        private void lblNombres_Click(object sender, EventArgs e) { }
-        private void txt1_TextChanged(object sender, EventArgs e) { }
-        private void lblApellidos_Click(object sender, EventArgs e) { }
-        private void txt2_TextChanged(object sender, EventArgs e) { }
-        private void lblfechanacimiento_Click(object sender, EventArgs e) { }
-        private void dtp1_ValueChanged(object sender, EventArgs e) { }
-        private void lblnacionalidad_Click(object sender, EventArgs e) { }
-        private void txt3_TextChanged(object sender, EventArgs e) { }
-        private void lblNumeroPasaporteDui_Click(object sender, EventArgs e) { }
-        private void txt4_TextChanged(object sender, EventArgs e) { }
-        private void lblCorreoElectro_Click(object sender, EventArgs e) { }
-        private void txt5_TextChanged(object sender, EventArgs e) { }
-        private void lblNumeroTelefon_Click(object sender, EventArgs e) { }
-        private void txt6_TextChanged(object sender, EventArgs e) { }
+        // ==========================================
+        //  INTERACCIÓN CON DATAGRIDVIEW
+        // ==========================================
+        private void dgvPasajeros_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0 && e.RowIndex < dgvPasajeros.Rows.Count)
+                {
+                    DataGridViewRow fila = dgvPasajeros.Rows[e.RowIndex];
+
+                    if (fila.Cells["id_pasajero"] != null && fila.Cells["id_pasajero"].Value != null)
+                    {
+                        _idPasajeroSeleccionado = Convert.ToInt32(fila.Cells["id_pasajero"].Value);
+                    }
+
+                    if (fila.Cells["nombre"] != null && fila.Cells["nombre"].Value != null)
+                        txt1.Text = fila.Cells["nombre"].Value.ToString();
+
+                    if (fila.Cells["apellido"] != null && fila.Cells["apellido"].Value != null)
+                        txt2.Text = fila.Cells["apellido"].Value.ToString();
+
+                    if (fila.Cells["pasaporte"] != null && fila.Cells["pasaporte"].Value != null)
+                        txt4.Text = fila.Cells["pasaporte"].Value.ToString();
+
+                    if (fila.Cells["id_ciudad"] != null && fila.Cells["id_ciudad"].Value != null)
+                        txt3.Text = fila.Cells["id_ciudad"].Value.ToString();
+                }
+            }
+            catch { }
+        }
+
+        private void btnBuscarGrid_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string criterio = txtBuscar.Text.Trim();
+                if (string.IsNullOrWhiteSpace(criterio))
+                {
+                    CargarPasajeros();
+                    return;
+                }
+
+                List<Pasajeros> lista = pasajeroLN.Buscar(criterio);
+                dgvPasajeros.DataSource = null;
+                dgvPasajeros.DataSource = lista;
+                ConfigurarColumnasGrid();
+
+                if (lista == null || lista.Count == 0)
+                {
+                    MessageBox.Show("No se encontró ningún pasajero con el criterio indicado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            txtBuscar.Clear();
+            CargarPasajeros();
+        }
 
         // ==========================================
         //  ACCIONES CRUD (PROCEDIMIENTOS ALMACENADOS)
         // ==========================================
-
         private void btnInsertar_Click(object sender, EventArgs e)
         {
             try
@@ -128,6 +206,7 @@ namespace ESFE.SystemIveris.UI
                 {
                     MessageBox.Show("Pasajero guardado exitosamente mediante Procedimiento Almacenado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarFormulario();
+                    CargarPasajeros();
                 }
             }
             catch (Exception ex)
@@ -164,6 +243,10 @@ namespace ESFE.SystemIveris.UI
                     txt3.Text = pasajero.id_ciudad.ToString();
                     txt4.Text = pasajero.pasaporte;
 
+                    dgvPasajeros.DataSource = null;
+                    dgvPasajeros.DataSource = lista;
+                    ConfigurarColumnasGrid();
+
                     MessageBox.Show($"Pasajero encontrado (ID: {pasajero.id_pasajero}).", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -190,7 +273,6 @@ namespace ESFE.SystemIveris.UI
 
                 int idPasajero = _idPasajeroSeleccionado;
 
-                // Si no se había buscado antes, obtener su ID por pasaporte
                 if (idPasajero == 0)
                 {
                     List<Pasajeros> busqueda = pasajeroLN.Buscar(txt4.Text.Trim());
@@ -226,6 +308,7 @@ namespace ESFE.SystemIveris.UI
                 {
                     MessageBox.Show("Datos del pasajero actualizados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarFormulario();
+                    CargarPasajeros();
                 }
             }
             catch (Exception ex)
@@ -247,7 +330,6 @@ namespace ESFE.SystemIveris.UI
 
                 int idPasajero = _idPasajeroSeleccionado;
 
-                // Si no se tiene el ID, buscarlo por pasaporte
                 if (idPasajero == 0)
                 {
                     List<Pasajeros> busqueda = pasajeroLN.Buscar(txt4.Text.Trim());
@@ -270,6 +352,7 @@ namespace ESFE.SystemIveris.UI
                     {
                         MessageBox.Show("Pasajero eliminado exitosamente mediante Procedimiento Almacenado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LimpiarFormulario();
+                        CargarPasajeros();
                     }
                 }
             }
@@ -279,12 +362,17 @@ namespace ESFE.SystemIveris.UI
             }
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarFormulario();
+        }
+
         private void LimpiarFormulario()
         {
             _idPasajeroSeleccionado = 0;
             txt1.Clear();
             txt2.Clear();
-            txt3.Clear();
+            txt3.Text = "1";
             txt4.Clear();
             txt5.Clear();
             txt6.Clear();

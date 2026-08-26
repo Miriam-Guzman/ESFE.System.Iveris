@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using ESFE.SystemIveris.LN;
 
@@ -71,12 +72,8 @@ namespace ESFE.SystemIveris.UI
 
         private void btnDestinos_Click(object sender, EventArgs e)
         {
-            // Ya estamos en Destinos
             CargarDestinos();
         }
-
-        private void pic1_Click(object sender, EventArgs e) { }
-        private void pnl1_Paint(object sender, PaintEventArgs e) { }
 
         // ==========================================
         //  INTERACCIÓN CON DATAGRIDVIEW
@@ -106,6 +103,19 @@ namespace ESFE.SystemIveris.UI
                     if (fila.Cells["Destino"] != null && fila.Cells["Destino"].Value != null)
                     {
                         txtNombreDestino.Text = fila.Cells["Destino"].Value.ToString();
+                    }
+
+                    if (fila.Cells["RutasDisponible"] != null && fila.Cells["RutasDisponible"].Value != null)
+                    {
+                        string ruta = fila.Cells["RutasDisponible"].Value.ToString() ?? "";
+                        if (ruta.Contains("->"))
+                        {
+                            string[] partes = ruta.Split(new[] { "->" }, StringSplitOptions.RemoveEmptyEntries);
+                            if (partes.Length > 1)
+                            {
+                                txtCodigoIata.Text = partes[1].Trim();
+                            }
+                        }
                     }
                 }
             }
@@ -261,6 +271,11 @@ namespace ESFE.SystemIveris.UI
             txtBuscar.Clear();
             LimpiarCampos();
             CargarDestinos();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
         }
 
         private void LimpiarCampos()

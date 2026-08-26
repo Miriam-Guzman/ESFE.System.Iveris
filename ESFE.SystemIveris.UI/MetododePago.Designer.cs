@@ -29,519 +29,718 @@ namespace ESFE.SystemIveris.UI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MetododePago));
-            lblNumerodeTarjeta = new Label();
-            txtccv = new TextBox();
-            lblCCV = new Label();
-            dtpFecha = new DateTimePicker();
-            lblFechaVencimiento = new Label();
-            txtNomTitular = new TextBox();
-            lblNombreTitular = new Label();
-            lblDatosTarj = new Label();
-            picimg2 = new PictureBox();
-            lblSelecionMetPag = new Label();
-            lblmetododepago = new Label();
-            panel2 = new Panel();
-            lblTarjetaDevito = new Label();
-            picimagen = new PictureBox();
-            btnO = new Button();
             pnl1 = new Panel();
-            pic1 = new PictureBox();
-            btnDestinos = new Button();
+            pnlNav = new Panel();
+            btnInicio = new Button();
+            btnMétodopago = new Button();
             btnReserva = new Button();
             btnVuelos = new Button();
-            btnMétodopago = new Button();
-            btnInicio = new Button();
-            btnConfirmarPago = new Button();
-            btnCancelar = new Button();
-            txt00000 = new TextBox();
-            lblCodigoPostal = new Label();
-            txtIngresacuidad = new TextBox();
-            lblCuidad = new Label();
-            cmbpaises = new ComboBox();
-            lblPais = new Label();
-            lblDirecciònFatura = new Label();
+            btnDestinos = new Button();
+            pic1 = new PictureBox();
+            pnlContent = new Panel();
+            scMain = new SplitContainer();
+            pnlFormCard = new Panel();
+            lblmetododepago = new Label();
+            panel2 = new Panel();
+            btnO = new Button();
+            lblTarjetaDevito = new Label();
+            picimagen = new PictureBox();
+            lblDatosTarj = new Label();
+            lblNombreTitular = new Label();
+            txtNomTitular = new TextBox();
+            lblNumerodeTarjeta = new Label();
             txtnumeroTarjeta = new TextBox();
-            btnBuscar = new Button();
-            btnEliminar = new Button();
+            lblFechaVencimiento = new Label();
+            dtpFecha = new DateTimePicker();
+            lblCCV = new Label();
+            txtccv = new TextBox();
+            lblDirecciònFatura = new Label();
+            lblPais = new Label();
+            cmbpaises = new ComboBox();
+            lblCuidad = new Label();
+            txtIngresacuidad = new TextBox();
+            lblCodigoPostal = new Label();
+            txt00000 = new TextBox();
             btnInsertar = new Button();
+            btnBuscar = new Button();
             btnModificar = new Button();
-            ((System.ComponentModel.ISupportInitialize)picimg2).BeginInit();
+            btnEliminar = new Button();
+            btnConfirmarPago = new Button();
+            btnLimpiar = new Button();
+            btnCancelar = new Button();
+            pnlGridCard = new Panel();
+            dgvPagos = new DataGridView();
+            pnlTopGrid = new Panel();
+            lblHistorial = new Label();
+            btnRefrescarPagos = new Button();
+            pnl1.SuspendLayout();
+            pnlNav.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
+            pnlContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)scMain).BeginInit();
+            scMain.Panel1.SuspendLayout();
+            scMain.Panel2.SuspendLayout();
+            scMain.SuspendLayout();
+            pnlFormCard.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picimagen).BeginInit();
-            pnl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
+            pnlGridCard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvPagos).BeginInit();
+            pnlTopGrid.SuspendLayout();
             SuspendLayout();
             // 
-            // lblNumerodeTarjeta
+            // pnl1
             // 
-            lblNumerodeTarjeta.AutoSize = true;
-            lblNumerodeTarjeta.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNumerodeTarjeta.Location = new Point(185, 379);
-            lblNumerodeTarjeta.Name = "lblNumerodeTarjeta";
-            lblNumerodeTarjeta.Size = new Size(125, 16);
-            lblNumerodeTarjeta.TabIndex = 25;
-            lblNumerodeTarjeta.Text = "Numero de Tarjeta";
-            lblNumerodeTarjeta.Click += lblNumerodeTarjeta_Click;
+            pnl1.BackColor = Color.FromArgb(70, 90, 200);
+            pnl1.Controls.Add(pnlNav);
+            pnl1.Controls.Add(pic1);
+            pnl1.Dock = DockStyle.Top;
+            pnl1.Location = new Point(0, 0);
+            pnl1.Name = "pnl1";
+            pnl1.Size = new Size(1150, 160);
+            pnl1.TabIndex = 13;
             // 
-            // txtccv
+            // pnlNav
             // 
-            txtccv.Location = new Point(535, 321);
-            txtccv.Name = "txtccv";
-            txtccv.Size = new Size(100, 23);
-            txtccv.TabIndex = 24;
-            txtccv.TextChanged += txtccv_TextChanged;
+            pnlNav.Anchor = AnchorStyles.Top;
+            pnlNav.Controls.Add(btnInicio);
+            pnlNav.Controls.Add(btnMétodopago);
+            pnlNav.Controls.Add(btnReserva);
+            pnlNav.Controls.Add(btnVuelos);
+            pnlNav.Controls.Add(btnDestinos);
+            pnlNav.Location = new Point(200, 110);
+            pnlNav.Name = "pnlNav";
+            pnlNav.Size = new Size(750, 42);
+            pnlNav.TabIndex = 10;
             // 
-            // lblCCV
+            // btnInicio
             // 
-            lblCCV.AutoSize = true;
-            lblCCV.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCCV.Location = new Point(535, 290);
-            lblCCV.Name = "lblCCV";
-            lblCCV.Size = new Size(34, 16);
-            lblCCV.TabIndex = 23;
-            lblCCV.Text = "CCV";
-            lblCCV.Click += lblCCV_Click;
+            btnInicio.BackColor = Color.White;
+            btnInicio.Cursor = Cursors.Hand;
+            btnInicio.FlatAppearance.BorderSize = 0;
+            btnInicio.FlatStyle = FlatStyle.Flat;
+            btnInicio.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnInicio.Location = new Point(10, 5);
+            btnInicio.Name = "btnInicio";
+            btnInicio.Size = new Size(130, 32);
+            btnInicio.TabIndex = 0;
+            btnInicio.Text = "INICIO";
+            btnInicio.UseVisualStyleBackColor = false;
+            btnInicio.Click += btnInicio_Click;
             // 
-            // dtpFecha
+            // btnMétodopago
             // 
-            dtpFecha.Location = new Point(291, 321);
-            dtpFecha.Name = "dtpFecha";
-            dtpFecha.Size = new Size(214, 23);
-            dtpFecha.TabIndex = 22;
-            dtpFecha.ValueChanged += dtpFecha_ValueChanged;
+            btnMétodopago.BackColor = Color.FromArgb(128, 255, 128);
+            btnMétodopago.Cursor = Cursors.Hand;
+            btnMétodopago.FlatAppearance.BorderSize = 0;
+            btnMétodopago.FlatStyle = FlatStyle.Flat;
+            btnMétodopago.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnMétodopago.Location = new Point(155, 5);
+            btnMétodopago.Name = "btnMétodopago";
+            btnMétodopago.Size = new Size(140, 32);
+            btnMétodopago.TabIndex = 1;
+            btnMétodopago.Text = "MÉTODO DE PAGO";
+            btnMétodopago.UseVisualStyleBackColor = false;
+            btnMétodopago.Click += btnMétodopago_Click;
             // 
-            // lblFechaVencimiento
+            // btnReserva
             // 
-            lblFechaVencimiento.AutoSize = true;
-            lblFechaVencimiento.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFechaVencimiento.Location = new Point(292, 290);
-            lblFechaVencimiento.Name = "lblFechaVencimiento";
-            lblFechaVencimiento.Size = new Size(149, 16);
-            lblFechaVencimiento.TabIndex = 21;
-            lblFechaVencimiento.Text = "Fecha de Vencimiento";
-            lblFechaVencimiento.Click += lblFechaVencimiento_Click;
+            btnReserva.BackColor = Color.White;
+            btnReserva.Cursor = Cursors.Hand;
+            btnReserva.FlatAppearance.BorderSize = 0;
+            btnReserva.FlatStyle = FlatStyle.Flat;
+            btnReserva.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnReserva.Location = new Point(310, 5);
+            btnReserva.Name = "btnReserva";
+            btnReserva.Size = new Size(130, 32);
+            btnReserva.TabIndex = 3;
+            btnReserva.Text = "RESERVAS";
+            btnReserva.UseVisualStyleBackColor = false;
+            btnReserva.Click += btnReserva_Click;
             // 
-            // txtNomTitular
+            // btnVuelos
             // 
-            txtNomTitular.Location = new Point(28, 321);
-            txtNomTitular.Name = "txtNomTitular";
-            txtNomTitular.Size = new Size(243, 23);
-            txtNomTitular.TabIndex = 20;
-            txtNomTitular.TextChanged += txtNomTitular_TextChanged;
+            btnVuelos.BackColor = Color.White;
+            btnVuelos.Cursor = Cursors.Hand;
+            btnVuelos.FlatAppearance.BorderSize = 0;
+            btnVuelos.FlatStyle = FlatStyle.Flat;
+            btnVuelos.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnVuelos.Location = new Point(455, 5);
+            btnVuelos.Name = "btnVuelos";
+            btnVuelos.Size = new Size(130, 32);
+            btnVuelos.TabIndex = 2;
+            btnVuelos.Text = "VUELOS";
+            btnVuelos.UseVisualStyleBackColor = false;
+            btnVuelos.Click += btnVuelos_Click;
             // 
-            // lblNombreTitular
+            // btnDestinos
             // 
-            lblNombreTitular.AutoSize = true;
-            lblNombreTitular.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNombreTitular.Location = new Point(28, 287);
-            lblNombreTitular.Name = "lblNombreTitular";
-            lblNombreTitular.Size = new Size(122, 16);
-            lblNombreTitular.TabIndex = 19;
-            lblNombreTitular.Text = "Nombre del titular";
-            lblNombreTitular.Click += lblNombreTitular_Click;
+            btnDestinos.BackColor = Color.White;
+            btnDestinos.Cursor = Cursors.Hand;
+            btnDestinos.FlatAppearance.BorderSize = 0;
+            btnDestinos.FlatStyle = FlatStyle.Flat;
+            btnDestinos.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnDestinos.Location = new Point(600, 5);
+            btnDestinos.Name = "btnDestinos";
+            btnDestinos.Size = new Size(130, 32);
+            btnDestinos.TabIndex = 4;
+            btnDestinos.Text = "DESTINOS";
+            btnDestinos.UseVisualStyleBackColor = false;
+            btnDestinos.Click += btnDestinos_Click;
             // 
-            // lblDatosTarj
+            // pic1
             // 
-            lblDatosTarj.AutoSize = true;
-            lblDatosTarj.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDatosTarj.ForeColor = Color.Blue;
-            lblDatosTarj.Location = new Point(27, 258);
-            lblDatosTarj.Name = "lblDatosTarj";
-            lblDatosTarj.Size = new Size(123, 16);
-            lblDatosTarj.TabIndex = 18;
-            lblDatosTarj.Text = "Datos de la tarjeta";
-            lblDatosTarj.Click += lblDatosTarj_Click;
+            pic1.Anchor = AnchorStyles.Top;
+            pic1.BorderStyle = BorderStyle.FixedSingle;
+            pic1.Image = Properties.Resources.WhatsApp_Image_2026_08_11_at_9_32_19_PM;
+            pic1.Location = new Point(485, 10);
+            pic1.Name = "pic1";
+            pic1.Size = new Size(180, 90);
+            pic1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pic1.TabIndex = 5;
+            pic1.TabStop = false;
             // 
-            // picimg2
+            // pnlContent
             // 
-            picimg2.BorderStyle = BorderStyle.FixedSingle;
-            picimg2.Image = (Image)resources.GetObject("picimg2.Image");
-            picimg2.Location = new Point(28, 161);
-            picimg2.Name = "picimg2";
-            picimg2.Size = new Size(51, 36);
-            picimg2.SizeMode = PictureBoxSizeMode.AutoSize;
-            picimg2.TabIndex = 17;
-            picimg2.TabStop = false;
-            picimg2.Click += picimg2_Click;
+            pnlContent.Controls.Add(scMain);
+            pnlContent.Dock = DockStyle.Fill;
+            pnlContent.Location = new Point(0, 160);
+            pnlContent.Name = "pnlContent";
+            pnlContent.Padding = new Padding(15);
+            pnlContent.Size = new Size(1150, 600);
+            pnlContent.TabIndex = 14;
             // 
-            // lblSelecionMetPag
+            // scMain
             // 
-            lblSelecionMetPag.AutoSize = true;
-            lblSelecionMetPag.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSelecionMetPag.Location = new Point(517, 160);
-            lblSelecionMetPag.Name = "lblSelecionMetPag";
-            lblSelecionMetPag.Size = new Size(179, 16);
-            lblSelecionMetPag.TabIndex = 16;
-            lblSelecionMetPag.Text = "Seleciona un método de pago";
-            lblSelecionMetPag.Click += lblSelecionMetPag_Click;
+            scMain.Dock = DockStyle.Fill;
+            scMain.FixedPanel = FixedPanel.Panel1;
+            scMain.Location = new Point(15, 15);
+            scMain.Name = "scMain";
+            // 
+            // scMain.Panel1
+            // 
+            scMain.Panel1.AutoScroll = true;
+            scMain.Panel1.Controls.Add(pnlFormCard);
+            scMain.Panel1MinSize = 480;
+            // 
+            // scMain.Panel2
+            // 
+            scMain.Panel2.Controls.Add(pnlGridCard);
+            scMain.Panel2MinSize = 450;
+            scMain.Size = new Size(1120, 570);
+            scMain.SplitterDistance = 500;
+            scMain.TabIndex = 0;
+            // 
+            // pnlFormCard
+            // 
+            pnlFormCard.BackColor = Color.White;
+            pnlFormCard.BorderStyle = BorderStyle.FixedSingle;
+            pnlFormCard.Controls.Add(lblmetododepago);
+            pnlFormCard.Controls.Add(panel2);
+            pnlFormCard.Controls.Add(lblDatosTarj);
+            pnlFormCard.Controls.Add(lblNombreTitular);
+            pnlFormCard.Controls.Add(txtNomTitular);
+            pnlFormCard.Controls.Add(lblNumerodeTarjeta);
+            pnlFormCard.Controls.Add(txtnumeroTarjeta);
+            pnlFormCard.Controls.Add(lblFechaVencimiento);
+            pnlFormCard.Controls.Add(dtpFecha);
+            pnlFormCard.Controls.Add(lblCCV);
+            pnlFormCard.Controls.Add(txtccv);
+            pnlFormCard.Controls.Add(lblDirecciònFatura);
+            pnlFormCard.Controls.Add(lblPais);
+            pnlFormCard.Controls.Add(cmbpaises);
+            pnlFormCard.Controls.Add(lblCuidad);
+            pnlFormCard.Controls.Add(txtIngresacuidad);
+            pnlFormCard.Controls.Add(lblCodigoPostal);
+            pnlFormCard.Controls.Add(txt00000);
+            pnlFormCard.Controls.Add(btnInsertar);
+            pnlFormCard.Controls.Add(btnBuscar);
+            pnlFormCard.Controls.Add(btnModificar);
+            pnlFormCard.Controls.Add(btnEliminar);
+            pnlFormCard.Controls.Add(btnConfirmarPago);
+            pnlFormCard.Controls.Add(btnLimpiar);
+            pnlFormCard.Controls.Add(btnCancelar);
+            pnlFormCard.Dock = DockStyle.Fill;
+            pnlFormCard.Location = new Point(0, 0);
+            pnlFormCard.Name = "pnlFormCard";
+            pnlFormCard.Padding = new Padding(15);
+            pnlFormCard.Size = new Size(500, 570);
+            pnlFormCard.TabIndex = 0;
             // 
             // lblmetododepago
             // 
             lblmetododepago.AutoSize = true;
-            lblmetododepago.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblmetododepago.Location = new Point(85, 178);
+            lblmetododepago.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblmetododepago.ForeColor = Color.FromArgb(40, 50, 120);
+            lblmetododepago.Location = new Point(15, 10);
             lblmetododepago.Name = "lblmetododepago";
-            lblmetododepago.Size = new Size(155, 19);
+            lblmetododepago.Size = new Size(160, 25);
             lblmetododepago.TabIndex = 15;
-            lblmetododepago.Text = "MÉTODO DE PAGO";
-            lblmetododepago.Click += lblmetododepago_Click;
+            lblmetododepago.Text = "Proceso de Pago";
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(224, 224, 224);
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.BackColor = Color.FromArgb(240, 243, 248);
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(btnO);
             panel2.Controls.Add(lblTarjetaDevito);
             panel2.Controls.Add(picimagen);
-            panel2.Controls.Add(btnO);
-            panel2.Location = new Point(517, 179);
+            panel2.Location = new Point(15, 40);
             panel2.Name = "panel2";
-            panel2.Size = new Size(194, 95);
+            panel2.Size = new Size(465, 55);
             panel2.TabIndex = 14;
-            panel2.Paint += panel2_Paint;
+            // 
+            // btnO
+            // 
+            btnO.BackColor = Color.White;
+            btnO.Cursor = Cursors.Hand;
+            btnO.FlatStyle = FlatStyle.Flat;
+            btnO.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnO.Location = new Point(10, 10);
+            btnO.Name = "btnO";
+            btnO.Size = new Size(35, 35);
+            btnO.TabIndex = 5;
+            btnO.Text = "●";
+            btnO.UseVisualStyleBackColor = false;
+            btnO.Click += btnO_Click;
             // 
             // lblTarjetaDevito
             // 
             lblTarjetaDevito.AutoSize = true;
-            lblTarjetaDevito.Location = new Point(69, 67);
+            lblTarjetaDevito.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblTarjetaDevito.Location = new Point(110, 18);
             lblTarjetaDevito.Name = "lblTarjetaDevito";
-            lblTarjetaDevito.Size = new Size(123, 15);
+            lblTarjetaDevito.Size = new Size(174, 19);
             lblTarjetaDevito.TabIndex = 6;
-            lblTarjetaDevito.Text = "Tarjeta Crédito/Devito";
-            lblTarjetaDevito.Click += lblTarjetaDevito_Click;
+            lblTarjetaDevito.Text = "Tarjeta Crédito / Débito";
             // 
             // picimagen
             // 
             picimagen.BackColor = Color.Silver;
             picimagen.BorderStyle = BorderStyle.FixedSingle;
             picimagen.Image = (Image)resources.GetObject("picimagen.Image");
-            picimagen.Location = new Point(12, 54);
+            picimagen.Location = new Point(53, 10);
             picimagen.Name = "picimagen";
-            picimagen.Size = new Size(51, 36);
-            picimagen.SizeMode = PictureBoxSizeMode.AutoSize;
+            picimagen.Size = new Size(51, 35);
+            picimagen.SizeMode = PictureBoxSizeMode.StretchImage;
             picimagen.TabIndex = 5;
             picimagen.TabStop = false;
-            picimagen.Click += picimagen_Click;
             // 
-            // btnO
+            // lblDatosTarj
             // 
-            btnO.FlatStyle = FlatStyle.System;
-            btnO.Font = new Font("Arial Black", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnO.Location = new Point(12, 14);
-            btnO.Name = "btnO";
-            btnO.Size = new Size(36, 36);
-            btnO.TabIndex = 5;
-            btnO.Text = "O";
-            btnO.UseVisualStyleBackColor = true;
-            btnO.Click += btnO_Click;
+            lblDatosTarj.AutoSize = true;
+            lblDatosTarj.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblDatosTarj.ForeColor = Color.FromArgb(41, 128, 185);
+            lblDatosTarj.Location = new Point(15, 102);
+            lblDatosTarj.Name = "lblDatosTarj";
+            lblDatosTarj.Size = new Size(130, 19);
+            lblDatosTarj.TabIndex = 18;
+            lblDatosTarj.Text = "Datos de la Tarjeta";
             // 
-            // pnl1
+            // lblNombreTitular
             // 
-            pnl1.BackColor = Color.FromArgb(128, 128, 255);
-            pnl1.BorderStyle = BorderStyle.Fixed3D;
-            pnl1.Controls.Add(pic1);
-            pnl1.Controls.Add(btnDestinos);
-            pnl1.Controls.Add(btnReserva);
-            pnl1.Controls.Add(btnVuelos);
-            pnl1.Controls.Add(btnMétodopago);
-            pnl1.Controls.Add(btnInicio);
-            pnl1.Location = new Point(-3, -2);
-            pnl1.Name = "pnl1";
-            pnl1.Size = new Size(735, 157);
-            pnl1.TabIndex = 13;
-            pnl1.Paint += pnl1_Paint;
+            lblNombreTitular.AutoSize = true;
+            lblNombreTitular.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblNombreTitular.Location = new Point(15, 128);
+            lblNombreTitular.Name = "lblNombreTitular";
+            lblNombreTitular.Size = new Size(116, 15);
+            lblNombreTitular.TabIndex = 19;
+            lblNombreTitular.Text = "Nombre del Titular:";
             // 
-            // pic1
+            // txtNomTitular
             // 
-            pic1.BorderStyle = BorderStyle.FixedSingle;
-            pic1.Image = (Image)resources.GetObject("pic1.Image");
-            pic1.Location = new Point(292, 11);
-            pic1.Name = "pic1";
-            pic1.Size = new Size(151, 71);
-            pic1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pic1.TabIndex = 5;
-            pic1.TabStop = false;
-            pic1.Click += pic1_Click;
+            txtNomTitular.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtNomTitular.Location = new Point(15, 146);
+            txtNomTitular.Name = "txtNomTitular";
+            txtNomTitular.Size = new Size(465, 23);
+            txtNomTitular.TabIndex = 20;
             // 
-            // btnDestinos
+            // lblNumerodeTarjeta
             // 
-            btnDestinos.Location = new Point(570, 115);
-            btnDestinos.Name = "btnDestinos";
-            btnDestinos.Size = new Size(100, 23);
-            btnDestinos.TabIndex = 4;
-            btnDestinos.Text = "Destinos";
-            btnDestinos.UseVisualStyleBackColor = true;
-            btnDestinos.Click += btnDestinos_Click;
+            lblNumerodeTarjeta.AutoSize = true;
+            lblNumerodeTarjeta.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblNumerodeTarjeta.Location = new Point(15, 175);
+            lblNumerodeTarjeta.Name = "lblNumerodeTarjeta";
+            lblNumerodeTarjeta.Size = new Size(115, 15);
+            lblNumerodeTarjeta.TabIndex = 25;
+            lblNumerodeTarjeta.Text = "Número de Tarjeta:";
             // 
-            // btnReserva
+            // txtnumeroTarjeta
             // 
-            btnReserva.Location = new Point(448, 115);
-            btnReserva.Name = "btnReserva";
-            btnReserva.Size = new Size(100, 23);
-            btnReserva.TabIndex = 3;
-            btnReserva.Text = "Reserva";
-            btnReserva.UseVisualStyleBackColor = true;
-            btnReserva.Click += btnReserva_Click;
+            txtnumeroTarjeta.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtnumeroTarjeta.Location = new Point(15, 193);
+            txtnumeroTarjeta.MaxLength = 19;
+            txtnumeroTarjeta.Name = "txtnumeroTarjeta";
+            txtnumeroTarjeta.PlaceholderText = "4000 1234 5678 9010";
+            txtnumeroTarjeta.Size = new Size(465, 23);
+            txtnumeroTarjeta.TabIndex = 26;
             // 
-            // btnVuelos
+            // lblFechaVencimiento
             // 
-            btnVuelos.Location = new Point(325, 115);
-            btnVuelos.Name = "btnVuelos";
-            btnVuelos.Size = new Size(100, 23);
-            btnVuelos.TabIndex = 2;
-            btnVuelos.Text = "Vuelos";
-            btnVuelos.UseVisualStyleBackColor = true;
-            btnVuelos.Click += btnVuelos_Click;
+            lblFechaVencimiento.AutoSize = true;
+            lblFechaVencimiento.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblFechaVencimiento.Location = new Point(15, 225);
+            lblFechaVencimiento.Name = "lblFechaVencimiento";
+            lblFechaVencimiento.Size = new Size(115, 15);
+            lblFechaVencimiento.TabIndex = 21;
+            lblFechaVencimiento.Text = "Fecha Vencimiento:";
             // 
-            // btnMétodopago
+            // dtpFecha
             // 
-            btnMétodopago.BackColor = Color.FromArgb(128, 255, 128);
-            btnMétodopago.Location = new Point(163, 115);
-            btnMétodopago.Name = "btnMétodopago";
-            btnMétodopago.Size = new Size(139, 23);
-            btnMétodopago.TabIndex = 1;
-            btnMétodopago.Text = "Método de pago";
-            btnMétodopago.UseVisualStyleBackColor = false;
-            btnMétodopago.Click += btnMétodopago_Click;
+            dtpFecha.CustomFormat = "MM/yy";
+            dtpFecha.Format = DateTimePickerFormat.Custom;
+            dtpFecha.Location = new Point(15, 243);
+            dtpFecha.Name = "dtpFecha";
+            dtpFecha.Size = new Size(180, 23);
+            dtpFecha.TabIndex = 22;
             // 
-            // btnInicio
+            // lblCCV
             // 
-            btnInicio.Location = new Point(43, 115);
-            btnInicio.Name = "btnInicio";
-            btnInicio.Size = new Size(100, 23);
-            btnInicio.TabIndex = 0;
-            btnInicio.Text = "Inicio";
-            btnInicio.UseVisualStyleBackColor = true;
-            btnInicio.Click += btnInicio_Click;
+            lblCCV.AutoSize = true;
+            lblCCV.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblCCV.Location = new Point(220, 225);
+            lblCCV.Name = "lblCCV";
+            lblCCV.Size = new Size(67, 15);
+            lblCCV.TabIndex = 23;
+            lblCCV.Text = "CVV / CCV:";
+            // 
+            // txtccv
+            // 
+            txtccv.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtccv.Location = new Point(220, 243);
+            txtccv.MaxLength = 4;
+            txtccv.Name = "txtccv";
+            txtccv.Size = new Size(260, 23);
+            txtccv.TabIndex = 24;
+            txtccv.Text = "123";
+            // 
+            // lblDirecciònFatura
+            // 
+            lblDirecciònFatura.AutoSize = true;
+            lblDirecciònFatura.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblDirecciònFatura.ForeColor = Color.FromArgb(41, 128, 185);
+            lblDirecciònFatura.Location = new Point(15, 275);
+            lblDirecciònFatura.Name = "lblDirecciònFatura";
+            lblDirecciònFatura.Size = new Size(174, 19);
+            lblDirecciònFatura.TabIndex = 27;
+            lblDirecciònFatura.Text = "Dirección de Facturación";
+            // 
+            // lblPais
+            // 
+            lblPais.AutoSize = true;
+            lblPais.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblPais.Location = new Point(15, 300);
+            lblPais.Name = "lblPais";
+            lblPais.Size = new Size(32, 15);
+            lblPais.TabIndex = 28;
+            lblPais.Text = "País:";
+            // 
+            // cmbpaises
+            // 
+            cmbpaises.FormattingEnabled = true;
+            cmbpaises.Location = new Point(15, 318);
+            cmbpaises.Name = "cmbpaises";
+            cmbpaises.Size = new Size(140, 23);
+            cmbpaises.TabIndex = 29;
+            // 
+            // lblCuidad
+            // 
+            lblCuidad.AutoSize = true;
+            lblCuidad.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblCuidad.Location = new Point(170, 300);
+            lblCuidad.Name = "lblCuidad";
+            lblCuidad.Size = new Size(47, 15);
+            lblCuidad.TabIndex = 30;
+            lblCuidad.Text = "Ciudad:";
+            // 
+            // txtIngresacuidad
+            // 
+            txtIngresacuidad.Location = new Point(170, 318);
+            txtIngresacuidad.Name = "txtIngresacuidad";
+            txtIngresacuidad.PlaceholderText = "Ciudad";
+            txtIngresacuidad.Size = new Size(150, 23);
+            txtIngresacuidad.TabIndex = 31;
+            // 
+            // lblCodigoPostal
+            // 
+            lblCodigoPostal.AutoSize = true;
+            lblCodigoPostal.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblCodigoPostal.Location = new Point(335, 300);
+            lblCodigoPostal.Name = "lblCodigoPostal";
+            lblCodigoPostal.Size = new Size(99, 15);
+            lblCodigoPostal.TabIndex = 32;
+            lblCodigoPostal.Text = "C.P. / ID de Pago:";
+            // 
+            // txt00000
+            // 
+            txt00000.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt00000.Location = new Point(335, 318);
+            txt00000.Name = "txt00000";
+            txt00000.Size = new Size(145, 23);
+            txt00000.TabIndex = 33;
+            txt00000.Text = "1";
+            // 
+            // btnInsertar
+            // 
+            btnInsertar.BackColor = Color.FromArgb(46, 204, 113);
+            btnInsertar.Cursor = Cursors.Hand;
+            btnInsertar.FlatAppearance.BorderSize = 0;
+            btnInsertar.FlatStyle = FlatStyle.Flat;
+            btnInsertar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnInsertar.ForeColor = Color.White;
+            btnInsertar.Location = new Point(15, 355);
+            btnInsertar.Name = "btnInsertar";
+            btnInsertar.Size = new Size(88, 32);
+            btnInsertar.TabIndex = 38;
+            btnInsertar.Text = "Insertar";
+            btnInsertar.UseVisualStyleBackColor = false;
+            btnInsertar.Click += btnInsertar_Click;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.BackColor = Color.LightSkyBlue;
+            btnBuscar.Cursor = Cursors.Hand;
+            btnBuscar.FlatAppearance.BorderSize = 0;
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnBuscar.Location = new Point(110, 355);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(88, 32);
+            btnBuscar.TabIndex = 36;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
+            // 
+            // btnModificar
+            // 
+            btnModificar.BackColor = Color.FromArgb(241, 196, 15);
+            btnModificar.Cursor = Cursors.Hand;
+            btnModificar.FlatAppearance.BorderSize = 0;
+            btnModificar.FlatStyle = FlatStyle.Flat;
+            btnModificar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnModificar.ForeColor = Color.Black;
+            btnModificar.Location = new Point(205, 355);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(88, 32);
+            btnModificar.TabIndex = 39;
+            btnModificar.Text = "Modificar";
+            btnModificar.UseVisualStyleBackColor = false;
+            btnModificar.Click += btnModificar_Click;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.BackColor = Color.FromArgb(231, 76, 60);
+            btnEliminar.Cursor = Cursors.Hand;
+            btnEliminar.FlatAppearance.BorderSize = 0;
+            btnEliminar.FlatStyle = FlatStyle.Flat;
+            btnEliminar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnEliminar.ForeColor = Color.White;
+            btnEliminar.Location = new Point(300, 355);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(88, 32);
+            btnEliminar.TabIndex = 37;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnLimpiar.BackColor = Color.LightGray;
+            btnLimpiar.Cursor = Cursors.Hand;
+            btnLimpiar.FlatAppearance.BorderSize = 0;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnLimpiar.Location = new Point(395, 355);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(85, 32);
+            btnLimpiar.TabIndex = 40;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnConfirmarPago
             // 
-            btnConfirmarPago.BackColor = Color.FromArgb(128, 128, 255);
-            btnConfirmarPago.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnConfirmarPago.ForeColor = Color.Black;
-            btnConfirmarPago.Location = new Point(402, 468);
+            btnConfirmarPago.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnConfirmarPago.BackColor = Color.FromArgb(41, 128, 185);
+            btnConfirmarPago.Cursor = Cursors.Hand;
+            btnConfirmarPago.FlatAppearance.BorderSize = 0;
+            btnConfirmarPago.FlatStyle = FlatStyle.Flat;
+            btnConfirmarPago.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnConfirmarPago.ForeColor = Color.White;
+            btnConfirmarPago.Location = new Point(15, 400);
             btnConfirmarPago.Name = "btnConfirmarPago";
-            btnConfirmarPago.Size = new Size(165, 37);
+            btnConfirmarPago.Size = new Size(465, 42);
             btnConfirmarPago.TabIndex = 35;
-            btnConfirmarPago.Text = "Confirmar Pago";
+            btnConfirmarPago.Text = "💳 CONFIRMAR Y PROCESAR PAGO";
             btnConfirmarPago.UseVisualStyleBackColor = false;
             btnConfirmarPago.Click += btnConfirmarPago_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancelar.Location = new Point(189, 468);
+            btnCancelar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnCancelar.BackColor = Color.WhiteSmoke;
+            btnCancelar.Cursor = Cursors.Hand;
+            btnCancelar.FlatAppearance.BorderColor = Color.LightGray;
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCancelar.ForeColor = Color.DimGray;
+            btnCancelar.Location = new Point(15, 450);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(153, 37);
+            btnCancelar.Size = new Size(465, 35);
             btnCancelar.TabIndex = 34;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Text = "Cancelar y Volver al Inicio";
+            btnCancelar.UseVisualStyleBackColor = false;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // txt00000
+            // pnlGridCard
             // 
-            txt00000.Location = new Point(539, 409);
-            txt00000.Name = "txt00000";
-            txt00000.Size = new Size(100, 23);
-            txt00000.TabIndex = 33;
-            txt00000.Text = "00000";
-            txt00000.TextChanged += txt00000_TextChanged;
+            pnlGridCard.BackColor = Color.White;
+            pnlGridCard.BorderStyle = BorderStyle.FixedSingle;
+            pnlGridCard.Controls.Add(dgvPagos);
+            pnlGridCard.Controls.Add(pnlTopGrid);
+            pnlGridCard.Dock = DockStyle.Fill;
+            pnlGridCard.Location = new Point(0, 0);
+            pnlGridCard.Name = "pnlGridCard";
+            pnlGridCard.Padding = new Padding(15);
+            pnlGridCard.Size = new Size(616, 570);
+            pnlGridCard.TabIndex = 0;
             // 
-            // lblCodigoPostal
+            // dgvPagos
             // 
-            lblCodigoPostal.AutoSize = true;
-            lblCodigoPostal.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCodigoPostal.Location = new Point(539, 374);
-            lblCodigoPostal.Name = "lblCodigoPostal";
-            lblCodigoPostal.Size = new Size(95, 16);
-            lblCodigoPostal.TabIndex = 32;
-            lblCodigoPostal.Text = "Codigo Postal";
-            lblCodigoPostal.Click += lblCodigoPostal_Click;
+            dgvPagos.AllowUserToAddRows = false;
+            dgvPagos.AllowUserToDeleteRows = false;
+            dgvPagos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPagos.BackgroundColor = Color.FromArgb(245, 247, 250);
+            dgvPagos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPagos.Dock = DockStyle.Fill;
+            dgvPagos.Location = new Point(15, 60);
+            dgvPagos.MultiSelect = false;
+            dgvPagos.Name = "dgvPagos";
+            dgvPagos.ReadOnly = true;
+            dgvPagos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPagos.Size = new Size(584, 493);
+            dgvPagos.TabIndex = 1;
+            dgvPagos.CellClick += dgvPagos_CellClick;
             // 
-            // txtIngresacuidad
+            // pnlTopGrid
             // 
-            txtIngresacuidad.Location = new Point(368, 409);
-            txtIngresacuidad.Name = "txtIngresacuidad";
-            txtIngresacuidad.Size = new Size(126, 23);
-            txtIngresacuidad.TabIndex = 31;
-            txtIngresacuidad.Text = "Ingresa tu ciudad";
-            txtIngresacuidad.TextChanged += txtIngresacuidad_TextChanged;
+            pnlTopGrid.Controls.Add(lblHistorial);
+            pnlTopGrid.Controls.Add(btnRefrescarPagos);
+            pnlTopGrid.Dock = DockStyle.Top;
+            pnlTopGrid.Location = new Point(15, 15);
+            pnlTopGrid.Name = "pnlTopGrid";
+            pnlTopGrid.Size = new Size(584, 45);
+            pnlTopGrid.TabIndex = 0;
             // 
-            // lblCuidad
+            // lblHistorial
             // 
-            lblCuidad.AutoSize = true;
-            lblCuidad.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCuidad.Location = new Point(365, 374);
-            lblCuidad.Name = "lblCuidad";
-            lblCuidad.Size = new Size(52, 16);
-            lblCuidad.TabIndex = 30;
-            lblCuidad.Text = "Cuidad";
-            lblCuidad.Click += lblCuidad_Click;
+            lblHistorial.AutoSize = true;
+            lblHistorial.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblHistorial.ForeColor = Color.FromArgb(40, 50, 120);
+            lblHistorial.Location = new Point(0, 8);
+            lblHistorial.Name = "lblHistorial";
+            lblHistorial.Size = new Size(276, 25);
+            lblHistorial.TabIndex = 0;
+            lblHistorial.Text = "Historial de Pagos Registrados";
             // 
-            // cmbpaises
+            // btnRefrescarPagos
             // 
-            cmbpaises.FormattingEnabled = true;
-            cmbpaises.Location = new Point(30, 409);
-            cmbpaises.Name = "cmbpaises";
-            cmbpaises.Size = new Size(121, 23);
-            cmbpaises.TabIndex = 29;
-            cmbpaises.Text = "El Salvador";
-            cmbpaises.SelectedIndexChanged += cmbpaises_SelectedIndexChanged;
-            // 
-            // lblPais
-            // 
-            lblPais.AutoSize = true;
-            lblPais.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPais.Location = new Point(37, 379);
-            lblPais.Name = "lblPais";
-            lblPais.Size = new Size(34, 16);
-            lblPais.TabIndex = 28;
-            lblPais.Text = "Pais";
-            lblPais.Click += lblPais_Click;
-            // 
-            // lblDirecciònFatura
-            // 
-            lblDirecciònFatura.AutoSize = true;
-            lblDirecciònFatura.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDirecciònFatura.ForeColor = Color.Blue;
-            lblDirecciònFatura.Location = new Point(30, 351);
-            lblDirecciònFatura.Name = "lblDirecciònFatura";
-            lblDirecciònFatura.Size = new Size(166, 16);
-            lblDirecciònFatura.TabIndex = 27;
-            lblDirecciònFatura.Text = "Direcciòn de Facturacion";
-            lblDirecciònFatura.Click += lblDirecciònFatura_Click;
-            // 
-            // txtnumeroTarjeta
-            // 
-            txtnumeroTarjeta.Location = new Point(185, 409);
-            txtnumeroTarjeta.Name = "txtnumeroTarjeta";
-            txtnumeroTarjeta.Size = new Size(160, 23);
-            txtnumeroTarjeta.TabIndex = 26;
-            txtnumeroTarjeta.TextChanged += txtnumeroTarjeta_TextChanged;
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.Location = new Point(165, 222);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(75, 23);
-            btnBuscar.TabIndex = 36;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = true;
-            btnBuscar.Click += btnBuscar_Click;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Location = new Point(246, 222);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(75, 23);
-            btnEliminar.TabIndex = 37;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click;
-            // 
-            // btnInsertar
-            // 
-            btnInsertar.Location = new Point(324, 222);
-            btnInsertar.Name = "btnInsertar";
-            btnInsertar.Size = new Size(75, 23);
-            btnInsertar.TabIndex = 38;
-            btnInsertar.Text = "Insertar";
-            btnInsertar.UseVisualStyleBackColor = true;
-            btnInsertar.Click += btnInsertar_Click;
-            // 
-            // btnModificar
-            // 
-            btnModificar.Location = new Point(405, 222);
-            btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(75, 23);
-            btnModificar.TabIndex = 39;
-            btnModificar.Text = "Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
-            btnModificar.Click += btnModificar_Click;
+            btnRefrescarPagos.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRefrescarPagos.BackColor = Color.FromArgb(46, 204, 113);
+            btnRefrescarPagos.Cursor = Cursors.Hand;
+            btnRefrescarPagos.FlatAppearance.BorderSize = 0;
+            btnRefrescarPagos.FlatStyle = FlatStyle.Flat;
+            btnRefrescarPagos.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnRefrescarPagos.ForeColor = Color.White;
+            btnRefrescarPagos.Location = new Point(474, 6);
+            btnRefrescarPagos.Name = "btnRefrescarPagos";
+            btnRefrescarPagos.Size = new Size(110, 30);
+            btnRefrescarPagos.TabIndex = 1;
+            btnRefrescarPagos.Text = "Actualizar Lista";
+            btnRefrescarPagos.UseVisualStyleBackColor = false;
+            btnRefrescarPagos.Click += btnRefrescarPagos_Click;
             // 
             // MetododePago
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(729, 548);
-            WindowState = FormWindowState.Maximized;
-            StartPosition = FormStartPosition.CenterScreen;
-            Controls.Add(btnModificar);
-            Controls.Add(btnInsertar);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnBuscar);
-            Controls.Add(btnConfirmarPago);
-            Controls.Add(btnCancelar);
-            Controls.Add(txt00000);
-            Controls.Add(lblCodigoPostal);
-            Controls.Add(txtIngresacuidad);
-            Controls.Add(lblCuidad);
-            Controls.Add(cmbpaises);
-            Controls.Add(lblPais);
-            Controls.Add(lblDirecciònFatura);
-            Controls.Add(txtnumeroTarjeta);
-            Controls.Add(lblNumerodeTarjeta);
-            Controls.Add(txtccv);
-            Controls.Add(lblCCV);
-            Controls.Add(dtpFecha);
-            Controls.Add(lblFechaVencimiento);
-            Controls.Add(txtNomTitular);
-            Controls.Add(lblNombreTitular);
-            Controls.Add(lblDatosTarj);
-            Controls.Add(picimg2);
-            Controls.Add(lblSelecionMetPag);
-            Controls.Add(lblmetododepago);
-            Controls.Add(panel2);
+            BackColor = Color.FromArgb(245, 247, 250);
+            ClientSize = new Size(1150, 760);
+            Controls.Add(pnlContent);
             Controls.Add(pnl1);
+            MinimumSize = new Size(950, 650);
             Name = "MetododePago";
-            Text = "MetododePago";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Método de Pago - ESFE System Iveris";
+            WindowState = FormWindowState.Maximized;
             Load += MetododePago_Load;
-            ((System.ComponentModel.ISupportInitialize)picimg2).EndInit();
+            pnl1.ResumeLayout(false);
+            pnlNav.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pic1).EndInit();
+            pnlContent.ResumeLayout(false);
+            scMain.Panel1.ResumeLayout(false);
+            scMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)scMain).EndInit();
+            scMain.ResumeLayout(false);
+            pnlFormCard.ResumeLayout(false);
+            pnlFormCard.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picimagen).EndInit();
-            pnl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pic1).EndInit();
+            pnlGridCard.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvPagos).EndInit();
+            pnlTopGrid.ResumeLayout(false);
+            pnlTopGrid.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label lblNumerodeTarjeta;
-        private TextBox txtccv;
-        private Label lblCCV;
-        private DateTimePicker dtpFecha;
-        private Label lblFechaVencimiento;
-        private TextBox txtNomTitular;
-        private Label lblNombreTitular;
-        private Label lblDatosTarj;
-        private PictureBox picimg2;
-        private Label lblSelecionMetPag;
-        private Label lblmetododepago;
-        private Panel panel2;
-        private Label lblTarjetaDevito;
-        private PictureBox picimagen;
-        private Button btnO;
         private Panel pnl1;
+        private Panel pnlNav;
         private PictureBox pic1;
-        private Button btnDestinos;
+        private Button btnInicio;
+        private Button btnMétodopago;
         private Button btnReserva;
         private Button btnVuelos;
-        private Button btnMétodopago;
-        private Button btnInicio;
+        private Button btnDestinos;
+        private Panel pnlContent;
+        private SplitContainer scMain;
+        private Panel pnlFormCard;
+        private Label lblmetododepago;
+        private Panel panel2;
+        private Button btnO;
+        private Label lblTarjetaDevito;
+        private PictureBox picimagen;
+        private Label lblDatosTarj;
+        private Label lblNombreTitular;
+        private TextBox txtNomTitular;
+        private Label lblNumerodeTarjeta;
+        private TextBox txtnumeroTarjeta;
+        private Label lblFechaVencimiento;
+        private DateTimePicker dtpFecha;
+        private Label lblCCV;
+        private TextBox txtccv;
+        private Label lblDirecciònFatura;
+        private Label lblPais;
+        private ComboBox cmbpaises;
+        private Label lblCuidad;
+        private TextBox txtIngresacuidad;
+        private Label lblCodigoPostal;
+        private TextBox txt00000;
+        private Button btnInsertar;
+        private Button btnBuscar;
+        private Button btnModificar;
+        private Button btnEliminar;
+        private Button btnLimpiar;
         private Button btnConfirmarPago;
         private Button btnCancelar;
-        private TextBox txt00000;
-        private Label lblCodigoPostal;
-        private TextBox txtIngresacuidad;
-        private Label lblCuidad;
-        private ComboBox cmbpaises;
-        private Label lblPais;
-        private Label lblDirecciònFatura;
-        private TextBox txtnumeroTarjeta;
-        private Button btnBuscar;
-        private Button btnEliminar;
-        private Button btnInsertar;
-        private Button btnModificar;
+        private Panel pnlGridCard;
+        private DataGridView dgvPagos;
+        private Panel pnlTopGrid;
+        private Label lblHistorial;
+        private Button btnRefrescarPagos;
     }
 }

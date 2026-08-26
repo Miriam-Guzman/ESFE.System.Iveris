@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using ESFE.SystemIveris.EN;
 using ESFE.SystemIveris.LN;
@@ -25,6 +26,7 @@ namespace ESFE.SystemIveris.UI
         {
             this.WindowState = FormWindowState.Maximized;
             CargarPaises();
+            CargarPagos();
         }
 
         private void CargarPaises()
@@ -59,6 +61,19 @@ namespace ESFE.SystemIveris.UI
             }
         }
 
+        private void CargarPagos()
+        {
+            try
+            {
+                DataTable dtPagos = pagosLN.ListarPagosDetalle();
+                dgvPagos.DataSource = dtPagos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al conectar y listar pagos: " + ex.Message, "Error de Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         // ==========================================
         //  NAVEGACIÓN ENTRE FORMULARIOS
         // ==========================================
@@ -71,7 +86,7 @@ namespace ESFE.SystemIveris.UI
 
         private void btnMétodopago_Click(object sender, EventArgs e)
         {
-            // Ya estamos en Método de Pago
+            CargarPagos();
         }
 
         private void btnVuelos_Click(object sender, EventArgs e)
@@ -109,31 +124,41 @@ namespace ESFE.SystemIveris.UI
             MessageBox.Show("Método de pago seleccionado: Tarjeta Crédito/Débito.", "Selección", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        // --- Métodos de eventos auxiliares ---
-        private void lblSelecionMetPag_Click(object sender, EventArgs e) { }
-        private void pic1_Click(object sender, EventArgs e) { }
-        private void pnl1_Paint(object sender, PaintEventArgs e) { }
-        private void picimg2_Click(object sender, EventArgs e) { }
-        private void lblmetododepago_Click(object sender, EventArgs e) { }
-        private void panel2_Paint(object sender, PaintEventArgs e) { }
-        private void picimagen_Click(object sender, EventArgs e) { }
-        private void lblTarjetaDevito_Click(object sender, EventArgs e) { }
-        private void lblDatosTarj_Click(object sender, EventArgs e) { }
-        private void lblNombreTitular_Click(object sender, EventArgs e) { }
-        private void lblFechaVencimiento_Click(object sender, EventArgs e) { }
-        private void lblCCV_Click(object sender, EventArgs e) { }
-        private void txtNomTitular_TextChanged(object sender, EventArgs e) { }
-        private void dtpFecha_ValueChanged(object sender, EventArgs e) { }
-        private void txtccv_TextChanged(object sender, EventArgs e) { }
-        private void lblDirecciònFatura_Click(object sender, EventArgs e) { }
-        private void lblPais_Click(object sender, EventArgs e) { }
-        private void lblNumerodeTarjeta_Click(object sender, EventArgs e) { }
-        private void lblCuidad_Click(object sender, EventArgs e) { }
-        private void lblCodigoPostal_Click(object sender, EventArgs e) { }
-        private void cmbpaises_SelectedIndexChanged(object sender, EventArgs e) { }
-        private void txtnumeroTarjeta_TextChanged(object sender, EventArgs e) { }
-        private void txtIngresacuidad_TextChanged(object sender, EventArgs e) { }
-        private void txt00000_TextChanged(object sender, EventArgs e) { }
+        // ==========================================
+        //  INTERACCIÓN CON DATAGRIDVIEW
+        // ==========================================
+        private void dgvPagos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0 && e.RowIndex < dgvPagos.Rows.Count)
+                {
+                    DataGridViewRow fila = dgvPagos.Rows[e.RowIndex];
+
+                    if (fila.Cells["id_pago"] != null && fila.Cells["id_pago"].Value != DBNull.Value)
+                    {
+                        _idPagoSeleccionado = Convert.ToInt32(fila.Cells["id_pago"].Value);
+                        txt00000.Text = _idPagoSeleccionado.ToString();
+                    }
+
+                    if (fila.Cells["Cliente"] != null && fila.Cells["Cliente"].Value != DBNull.Value)
+                    {
+                        txtNomTitular.Text = fila.Cells["Cliente"].Value.ToString();
+                    }
+
+                    if (fila.Cells["fecha_pago"] != null && fila.Cells["fecha_pago"].Value != DBNull.Value)
+                    {
+                        dtpFecha.Value = Convert.ToDateTime(fila.Cells["fecha_pago"].Value);
+                    }
+                }
+            }
+            catch { }
+        }
+
+        private void btnRefrescarPagos_Click(object sender, EventArgs e)
+        {
+            CargarPagos();
+        }
 
         // ==========================================
         //  ACCIONES CRUD (PROCEDIMIENTOS ALMACENADOS)
@@ -172,7 +197,7 @@ namespace ESFE.SystemIveris.UI
                     fecha_pago = DateTime.Now,
                     monto = 150.00m,
                     id_reserva = 1,
-                    id_est_pago = 1, // 1: Pagado/Completado
+                    id_est_pago = 1,
                     id_met_pago = _idMetodoPagoSeleccionado
                 };
 
@@ -182,6 +207,7 @@ namespace ESFE.SystemIveris.UI
                 {
                     MessageBox.Show("¡Pago procesado y registrado exitosamente en la base de datos mediante Procedimiento Almacenado!", "Pago Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
+                    CargarPagos();
                 }
             }
             catch (Exception ex)
@@ -210,6 +236,7 @@ namespace ESFE.SystemIveris.UI
                     txtnumeroTarjeta.Text = "**** **** **** " + (1000 + pago.id_pago % 1000);
                     txtccv.Text = "123";
                     dtpFecha.Value = pago.fecha_pago;
+                    txt00000.Text = pago.id_pago.ToString();
 
                     MessageBox.Show($"Pago encontrado: ID #{pago.id_pago}, Monto: ${pago.monto:F2}, Fecha: {pago.fecha_pago:g}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -259,6 +286,7 @@ namespace ESFE.SystemIveris.UI
                 {
                     MessageBox.Show("Pago actualizado exitosamente mediante Procedimiento Almacenado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
+                    CargarPagos();
                 }
             }
             catch (Exception ex)
@@ -296,6 +324,7 @@ namespace ESFE.SystemIveris.UI
                     {
                         MessageBox.Show("Pago eliminado exitosamente mediante Procedimiento Almacenado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LimpiarCampos();
+                        CargarPagos();
                     }
                 }
             }
@@ -305,6 +334,11 @@ namespace ESFE.SystemIveris.UI
             }
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
+
         private void LimpiarCampos()
         {
             _idPagoSeleccionado = 0;
@@ -312,8 +346,8 @@ namespace ESFE.SystemIveris.UI
             txtnumeroTarjeta.Clear();
             txtccv.Clear();
             txtIngresacuidad.Clear();
-            txt00000.Text = "00000";
-            btnO.Text = "O";
+            txt00000.Text = "1";
+            btnO.Text = "●";
             txtNomTitular.Focus();
         }
     }
