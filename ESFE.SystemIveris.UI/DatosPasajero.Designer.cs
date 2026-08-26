@@ -1,4 +1,4 @@
-﻿namespace ESFE.SystemIveris.UI
+namespace ESFE.SystemIveris.UI
 {
     partial class DatosPasajero
     {
@@ -361,12 +361,15 @@
             btnBuscar.TabIndex = 26;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // DatosPasajero
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(731, 661);
+            WindowState = FormWindowState.Maximized;
+            StartPosition = FormStartPosition.CenterScreen;
             Controls.Add(btnBuscar);
             Controls.Add(btnModificar);
             Controls.Add(btnEliminar);

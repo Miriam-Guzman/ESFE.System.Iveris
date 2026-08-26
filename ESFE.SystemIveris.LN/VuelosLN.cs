@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using ESFE.SystemIveris.EN;
@@ -33,6 +33,21 @@ namespace ESFE.SystemIveris.LN
         public List<Vuelos> Buscar(string numeroVuelo)
         {
             return vuelosDAL.Buscar(numeroVuelo);
+        }
+
+        public System.Data.DataTable ListarVuelosDetalle()
+        {
+            return vuelosDAL.ListarVuelosDetalle();
+        }
+
+        public System.Data.DataTable BuscarVuelosDetalle(string criterio)
+        {
+            return vuelosDAL.BuscarVuelosDetalle(criterio);
+        }
+
+        public List<Vuelos> Listar()
+        {
+            return vuelosDAL.Listar();
         }
     }
 }

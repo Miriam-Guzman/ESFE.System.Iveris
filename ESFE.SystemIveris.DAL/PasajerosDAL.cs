@@ -1,4 +1,4 @@
-﻿using ESFE.SystemIveris.EN;
+using ESFE.SystemIveris.EN;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -80,6 +80,40 @@ namespace ESFE.SystemIveris.DAL
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@criterio", criterio);
 
+                    conexion.Open();
+
+                    using (SqlDataReader reader = comando.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Pasajeros pasajero = new Pasajeros
+                            {
+                                id_pasajero = Convert.ToInt32(reader["id_pasajero"]),
+                                nombre = reader["nombre"].ToString(),
+                                apellido = reader["apellido"].ToString(),
+                                pasaporte = reader["pasaporte"].ToString(),
+                                id_ciudad = Convert.ToInt32(reader["id_ciudad"])
+                            };
+
+                            lista.Add(pasajero);
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+        // Método para listar todos los pasajeros
+        public List<Pasajeros> Listar()
+        {
+            List<Pasajeros> lista = new List<Pasajeros>();
+
+            using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
+            {
+                using (SqlCommand comando = new SqlCommand("SP_ListarPasajero", conexion))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
                     conexion.Open();
 
                     using (SqlDataReader reader = comando.ExecuteReader())

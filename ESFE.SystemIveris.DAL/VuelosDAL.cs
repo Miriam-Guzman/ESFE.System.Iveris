@@ -1,4 +1,4 @@
-﻿using ESFE.SystemIveris.EN;
+using ESFE.SystemIveris.EN;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -88,6 +88,85 @@ namespace ESFE.SystemIveris.DAL
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@numero_vuelo", numeroVuelo);
 
+                    conexion.Open();
+
+                    using (SqlDataReader reader = comando.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Vuelos vuelo = new Vuelos
+                            {
+                                id_vuelo = Convert.ToInt32(reader["id_vuelo"]),
+                                numero_vuelo = reader["numero_vuelo"].ToString(),
+                                fecha_salida = Convert.ToDateTime(reader["fecha_salida"]),
+                                fecha_llegada = Convert.ToDateTime(reader["fecha_llegada"]),
+                                id_aeropuerto_origen = Convert.ToInt32(reader["id_aeropuerto_origen"]),
+                                id_aeropuerto_destino = Convert.ToInt32(reader["id_aeropuerto_destino"]),
+                                id_avion = Convert.ToInt32(reader["id_avion"]),
+                                id_est_vuelo = Convert.ToInt32(reader["id_est_vuelo"]),
+                                id_puerta = Convert.ToInt32(reader["id_puerta"])
+                            };
+
+                            lista.Add(vuelo);
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+        // Método para listar vuelos con información detallada para DataGridView
+        public DataTable ListarVuelosDetalle()
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
+            {
+                using (SqlCommand comando = new SqlCommand("SP_ListarVuelosDetalle", conexion))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(comando))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+
+            return dt;
+        }
+
+        // Método para buscar vuelos con información detallada para DataGridView
+        public DataTable BuscarVuelosDetalle(string criterio)
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
+            {
+                using (SqlCommand comando = new SqlCommand("SP_BuscarVuelosDetalle", conexion))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    comando.Parameters.AddWithValue("@criterio", criterio ?? "");
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(comando))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+            }
+
+            return dt;
+        }
+
+        // Método para listar todos los vuelos simples
+        public List<Vuelos> Listar()
+        {
+            List<Vuelos> lista = new List<Vuelos>();
+
+            using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
+            {
+                using (SqlCommand comando = new SqlCommand("SP_ListarVuelo", conexion))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
                     conexion.Open();
 
                     using (SqlDataReader reader = comando.ExecuteReader())

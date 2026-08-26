@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,10 +18,13 @@ namespace ESFE.SystemIveris.UI
         {
             InitializeComponent();
             reservaLN = new ReservasLN();
+            this.WindowState = FormWindowState.Maximized;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Reserva_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void pnl1_Paint(object sender, PaintEventArgs e)

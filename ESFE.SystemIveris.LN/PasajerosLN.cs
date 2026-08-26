@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Text;
 using ESFE.SystemIveris.EN;
 using ESFE.SystemIveris.DAL;
@@ -32,6 +32,11 @@ namespace ESFE.SystemIveris.LN
         public List<Pasajeros> Buscar(string criterio)
         {
             return pasajerosDAL.Buscar(criterio);
+        }
+
+        public List<Pasajeros> Listar()
+        {
+            return pasajerosDAL.Listar();
         }
     }
 }

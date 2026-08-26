@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,6 +36,31 @@ namespace ESFE.SystemIveris.LN
         public List<Pagos> Buscar(int idReserva)
         {
             return pagosDAL.Buscar(idReserva);
+        }
+
+        public List<Pagos> BuscarPago(int? idPago, int? idReserva)
+        {
+            return pagosDAL.BuscarPago(idPago, idReserva);
+        }
+
+        public System.Data.DataTable ListarPagosDetalle()
+        {
+            return pagosDAL.ListarPagosDetalle();
+        }
+
+        public System.Data.DataTable ListarPaises()
+        {
+            return pagosDAL.ListarPaises();
+        }
+
+        public System.Data.DataTable ListarMetPagos()
+        {
+            return pagosDAL.ListarMetPagos();
+        }
+
+        public List<Pagos> Listar()
+        {
+            return pagosDAL.Listar();
         }
     }
 }

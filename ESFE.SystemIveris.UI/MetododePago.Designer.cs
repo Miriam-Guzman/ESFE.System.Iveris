@@ -1,4 +1,4 @@
-﻿namespace ESFE.SystemIveris.UI
+namespace ESFE.SystemIveris.UI
 {
     partial class MetododePago
     {
@@ -426,6 +426,7 @@
             btnBuscar.TabIndex = 36;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // btnEliminar
             // 
@@ -435,6 +436,7 @@
             btnEliminar.TabIndex = 37;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnInsertar
             // 
@@ -444,6 +446,7 @@
             btnInsertar.TabIndex = 38;
             btnInsertar.Text = "Insertar";
             btnInsertar.UseVisualStyleBackColor = true;
+            btnInsertar.Click += btnInsertar_Click;
             // 
             // btnModificar
             // 
@@ -453,12 +456,15 @@
             btnModificar.TabIndex = 39;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // MetododePago
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(729, 548);
+            WindowState = FormWindowState.Maximized;
+            StartPosition = FormStartPosition.CenterScreen;
             Controls.Add(btnModificar);
             Controls.Add(btnInsertar);
             Controls.Add(btnEliminar);
