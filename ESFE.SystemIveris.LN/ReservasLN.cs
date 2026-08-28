@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using ESFE.SystemIveris.EN;
@@ -34,6 +34,17 @@ namespace ESFE.SystemIveris.LN
         {
             return reservasDAL.Buscar(idCliente);
         }
+
+        public System.Data.DataTable ListarClases()
+        {
+            return reservasDAL.ListarClases();
+        }
+
+        public System.Data.DataTable ListarPasajerosYClientes()
+        {
+            return reservasDAL.ListarPasajerosYClientes();
+        }
     }
 }
+
 

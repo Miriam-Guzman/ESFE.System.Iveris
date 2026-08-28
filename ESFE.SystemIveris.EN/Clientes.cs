@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,5 +12,6 @@ namespace ESFE.SystemIveris.EN
         public string? email { get; set; } 
         public string? telefono { get; set; }
         public int id_ciudad { get; set; }
+        public string? contrasena { get; set; }
     }
 }

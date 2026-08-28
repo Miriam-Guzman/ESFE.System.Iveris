@@ -41,9 +41,9 @@ namespace ESFE.SystemIveris.UI
             lblTitulo = new Label();
             lblidaVuelta = new Label();
             lblorigen = new Label();
-            txt1 = new TextBox();
+            cboOrigen = new ComboBox();
             lblDestino = new Label();
-            txt2 = new TextBox();
+            cboDestino = new ComboBox();
             lblfechasalida = new Label();
             dtp2 = new DateTimePicker();
             lblfecharegreso = new Label();
@@ -51,7 +51,9 @@ namespace ESFE.SystemIveris.UI
             lblpasajero = new Label();
             txt5 = new TextBox();
             lblclase = new Label();
-            txt6 = new TextBox();
+            cboClase = new ComboBox();
+            lblTelefono = new Label();
+            txtTelefono = new TextBox();
             btnGuardar = new Button();
             btnBuscar = new Button();
             btnModificar = new Button();
@@ -193,9 +195,9 @@ namespace ESFE.SystemIveris.UI
             pnlCenter.Controls.Add(lblTitulo);
             pnlCenter.Controls.Add(lblidaVuelta);
             pnlCenter.Controls.Add(lblorigen);
-            pnlCenter.Controls.Add(txt1);
+            pnlCenter.Controls.Add(cboOrigen);
             pnlCenter.Controls.Add(lblDestino);
-            pnlCenter.Controls.Add(txt2);
+            pnlCenter.Controls.Add(cboDestino);
             pnlCenter.Controls.Add(lblfechasalida);
             pnlCenter.Controls.Add(dtp2);
             pnlCenter.Controls.Add(lblfecharegreso);
@@ -203,7 +205,9 @@ namespace ESFE.SystemIveris.UI
             pnlCenter.Controls.Add(lblpasajero);
             pnlCenter.Controls.Add(txt5);
             pnlCenter.Controls.Add(lblclase);
-            pnlCenter.Controls.Add(txt6);
+            pnlCenter.Controls.Add(cboClase);
+            pnlCenter.Controls.Add(lblTelefono);
+            pnlCenter.Controls.Add(txtTelefono);
             pnlCenter.Controls.Add(btnGuardar);
             pnlCenter.Controls.Add(btnBuscar);
             pnlCenter.Controls.Add(btnModificar);
@@ -211,7 +215,7 @@ namespace ESFE.SystemIveris.UI
             pnlCenter.Location = new Point(175, 10);
             pnlCenter.Name = "pnlCenter";
             pnlCenter.Padding = new Padding(25);
-            pnlCenter.Size = new Size(750, 530);
+            pnlCenter.Size = new Size(750, 560);
             pnlCenter.TabIndex = 0;
             // 
             // lblTitulo
@@ -246,13 +250,14 @@ namespace ESFE.SystemIveris.UI
             lblorigen.TabIndex = 18;
             lblorigen.Text = "Aeropuerto Origen:";
             // 
-            // txt1
+            // cboOrigen
             // 
-            txt1.Location = new Point(25, 100);
-            txt1.Name = "txt1";
-            txt1.PlaceholderText = "Ciudad o Código de Origen";
-            txt1.Size = new Size(330, 23);
-            txt1.TabIndex = 17;
+            cboOrigen.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboOrigen.FormattingEnabled = true;
+            cboOrigen.Location = new Point(25, 100);
+            cboOrigen.Name = "cboOrigen";
+            cboOrigen.Size = new Size(330, 23);
+            cboOrigen.TabIndex = 17;
             // 
             // lblDestino
             // 
@@ -264,13 +269,14 @@ namespace ESFE.SystemIveris.UI
             lblDestino.TabIndex = 19;
             lblDestino.Text = "Aeropuerto Destino:";
             // 
-            // txt2
+            // cboDestino
             // 
-            txt2.Location = new Point(390, 100);
-            txt2.Name = "txt2";
-            txt2.PlaceholderText = "Ciudad o Código de Destino";
-            txt2.Size = new Size(330, 23);
-            txt2.TabIndex = 25;
+            cboDestino.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboDestino.FormattingEnabled = true;
+            cboDestino.Location = new Point(390, 100);
+            cboDestino.Name = "cboDestino";
+            cboDestino.Size = new Size(330, 23);
+            cboDestino.TabIndex = 25;
             // 
             // lblfechasalida
             // 
@@ -314,15 +320,17 @@ namespace ESFE.SystemIveris.UI
             lblpasajero.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblpasajero.Location = new Point(25, 200);
             lblpasajero.Name = "lblpasajero";
-            lblpasajero.Size = new Size(128, 15);
+            lblpasajero.Size = new Size(160, 15);
             lblpasajero.TabIndex = 22;
-            lblpasajero.Text = "Pasajero / ID Cliente:";
+            lblpasajero.Text = "Pasajero (Escribe el nombre):";
             // 
             // txt5
             // 
+            txt5.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txt5.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txt5.Location = new Point(25, 220);
             txt5.Name = "txt5";
-            txt5.PlaceholderText = "Nombre del pasajero o ID cliente";
+            txt5.PlaceholderText = "Escribe el nombre del pasajero...";
             txt5.Size = new Size(330, 23);
             txt5.TabIndex = 28;
             // 
@@ -332,17 +340,37 @@ namespace ESFE.SystemIveris.UI
             lblclase.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblclase.Location = new Point(390, 200);
             lblclase.Name = "lblclase";
-            lblclase.Size = new Size(93, 15);
+            lblclase.Size = new Size(106, 15);
             lblclase.TabIndex = 23;
-            lblclase.Text = "Clase de Asiento:";
+            lblclase.Text = "Clase de Asientos:";
             // 
-            // txt6
+            // cboClase
             // 
-            txt6.Location = new Point(390, 220);
-            txt6.Name = "txt6";
-            txt6.PlaceholderText = "Económica / Ejecutiva";
-            txt6.Size = new Size(330, 23);
-            txt6.TabIndex = 29;
+            cboClase.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboClase.FormattingEnabled = true;
+            cboClase.Location = new Point(390, 220);
+            cboClase.Name = "cboClase";
+            cboClase.Size = new Size(330, 23);
+            cboClase.TabIndex = 29;
+            // 
+            // lblTelefono
+            // 
+            lblTelefono.AutoSize = true;
+            lblTelefono.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblTelefono.Location = new Point(25, 260);
+            lblTelefono.Name = "lblTelefono";
+            lblTelefono.Size = new Size(164, 15);
+            lblTelefono.TabIndex = 24;
+            lblTelefono.Text = "Número de Teléfono (9999-9999):";
+            // 
+            // txtTelefono
+            // 
+            txtTelefono.Location = new Point(25, 280);
+            txtTelefono.MaxLength = 9;
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.PlaceholderText = "9999-9999";
+            txtTelefono.Size = new Size(330, 23);
+            txtTelefono.TabIndex = 30;
             // 
             // btnGuardar
             // 
@@ -352,7 +380,7 @@ namespace ESFE.SystemIveris.UI
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(25, 280);
+            btnGuardar.Location = new Point(25, 330);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(160, 42);
             btnGuardar.TabIndex = 33;
@@ -368,7 +396,7 @@ namespace ESFE.SystemIveris.UI
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnBuscar.ForeColor = Color.Black;
-            btnBuscar.Location = new Point(200, 280);
+            btnBuscar.Location = new Point(200, 330);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(160, 42);
             btnBuscar.TabIndex = 32;
@@ -384,7 +412,7 @@ namespace ESFE.SystemIveris.UI
             btnModificar.FlatStyle = FlatStyle.Flat;
             btnModificar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnModificar.ForeColor = Color.Black;
-            btnModificar.Location = new Point(375, 280);
+            btnModificar.Location = new Point(375, 330);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(160, 42);
             btnModificar.TabIndex = 35;
@@ -400,7 +428,7 @@ namespace ESFE.SystemIveris.UI
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(550, 280);
+            btnEliminar.Location = new Point(550, 330);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(160, 42);
             btnEliminar.TabIndex = 34;
@@ -446,9 +474,9 @@ namespace ESFE.SystemIveris.UI
         private Label lblTitulo;
         private Label lblidaVuelta;
         private Label lblorigen;
-        private TextBox txt1;
+        private ComboBox cboOrigen;
         private Label lblDestino;
-        private TextBox txt2;
+        private ComboBox cboDestino;
         private Label lblfechasalida;
         private DateTimePicker dtp2;
         private Label lblfecharegreso;
@@ -456,10 +484,12 @@ namespace ESFE.SystemIveris.UI
         private Label lblpasajero;
         private TextBox txt5;
         private Label lblclase;
-        private TextBox txt6;
+        private ComboBox cboClase;
+        private Label lblTelefono;
+        private TextBox txtTelefono;
         private Button btnGuardar;
         private Button btnBuscar;
         private Button btnModificar;
         private Button btnEliminar;
     }
-}
+}

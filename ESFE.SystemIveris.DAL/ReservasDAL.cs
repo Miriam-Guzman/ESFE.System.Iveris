@@ -1,4 +1,4 @@
-﻿using ESFE.SystemIveris.EN;
+using ESFE.SystemIveris.EN;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -100,6 +100,90 @@ namespace ESFE.SystemIveris.DAL
 
             return lista;
         }
+
+        // Método para listar clases de asientos
+        public DataTable ListarClases()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("SP_ListarClase", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(comando))
+                        {
+                            adapter.Fill(dt);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                // Fallback por consulta directa si el SP no existiera aún
+                try
+                {
+                    using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
+                    {
+                        using (SqlCommand comando = new SqlCommand("SELECT id_clase, descripcion FROM dbo.Clases ORDER BY id_clase", conexion))
+                        {
+                            comando.CommandType = CommandType.Text;
+                            using (SqlDataAdapter adapter = new SqlDataAdapter(comando))
+                            {
+                                adapter.Fill(dt);
+                            }
+                        }
+                    }
+                }
+                catch { }
+            }
+
+            // Si la tabla sigue vacía, agregamos las clases estándar como fallback seguro
+            if (dt.Rows.Count == 0)
+            {
+                if (!dt.Columns.Contains("id_clase"))
+                    dt.Columns.Add("id_clase", typeof(int));
+                if (!dt.Columns.Contains("descripcion"))
+                    dt.Columns.Add("descripcion", typeof(string));
+
+                dt.Rows.Add(1, "Económica");
+                dt.Rows.Add(2, "Ejecutiva");
+                dt.Rows.Add(3, "Primera Clase");
+            }
+
+            return dt;
+        }
+
+        // Método para listar pasajeros y clientes para autocompletar
+        public DataTable ListarPasajerosYClientes()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
+                {
+                    string sql = @"
+                        SELECT id_pasajero AS Id, nombre + ' ' + apellido AS NombreCompleto, pasaporte AS Documento, 'Pasajero' AS Tipo
+                        FROM dbo.Pasajeros
+                        UNION
+                        SELECT id_cliente AS Id, nombre + ' ' + apellido AS NombreCompleto, telefono AS Documento, 'Cliente' AS Tipo
+                        FROM dbo.Clientes
+                        ORDER BY NombreCompleto";
+
+                    using (SqlCommand comando = new SqlCommand(sql, conexion))
+                    {
+                        comando.CommandType = CommandType.Text;
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(comando))
+                        {
+                            adapter.Fill(dt);
+                        }
+                    }
+                }
+            }
+            catch { }
+
+            return dt;
+        }
     }
 }
-    

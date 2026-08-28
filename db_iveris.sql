@@ -145,7 +145,8 @@ CREATE TABLE dbo.Clientes(
     apellido VARCHAR(100) NOT NULL,
     email VARCHAR(150) NOT NULL,
     telefono VARCHAR(20) NOT NULL,
-    id_ciudad INT NOT NULL FOREIGN KEY REFERENCES dbo.Cuidades(id_ciudad)
+    id_ciudad INT NOT NULL FOREIGN KEY REFERENCES dbo.Cuidades(id_ciudad),
+    contrasena VARCHAR(255) NULL
 );
 
 IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Aviones')
@@ -524,11 +525,12 @@ CREATE PROCEDURE dbo.SP_InsertarCliente
     @apellido VARCHAR(100),
     @email VARCHAR(150),
     @telefono VARCHAR(20),
-    @id_ciudad INT
+    @id_ciudad INT,
+    @contrasena VARCHAR(255) = NULL
 AS
 BEGIN
-    INSERT INTO dbo.Clientes (nombre, apellido, email, telefono, id_ciudad)
-    VALUES (@nombre, @apellido, @email, @telefono, @id_ciudad);
+    INSERT INTO dbo.Clientes (nombre, apellido, email, telefono, id_ciudad, contrasena)
+    VALUES (@nombre, @apellido, @email, @telefono, @id_ciudad, @contrasena);
 END;
 GO
 
@@ -538,7 +540,8 @@ CREATE PROCEDURE dbo.SP_ActualizarCliente
     @apellido VARCHAR(100),
     @email VARCHAR(150),
     @telefono VARCHAR(20),
-    @id_ciudad INT
+    @id_ciudad INT,
+    @contrasena VARCHAR(255) = NULL
 AS
 BEGIN
     UPDATE dbo.Clientes
@@ -546,7 +549,8 @@ BEGIN
         apellido = @apellido,
         email = @email,
         telefono = @telefono,
-        id_ciudad = @id_ciudad
+        id_ciudad = @id_ciudad,
+        contrasena = COALESCE(@contrasena, contrasena)
     WHERE id_cliente = @id_cliente;
 END;
 GO
@@ -557,10 +561,11 @@ CREATE PROCEDURE dbo.SP_ModificarCliente
     @apellido VARCHAR(100),
     @email VARCHAR(150),
     @telefono VARCHAR(20),
-    @id_ciudad INT
+    @id_ciudad INT,
+    @contrasena VARCHAR(255) = NULL
 AS
 BEGIN
-    EXEC dbo.SP_ActualizarCliente @id_cliente, @nombre, @apellido, @email, @telefono, @id_ciudad;
+    EXEC dbo.SP_ActualizarCliente @id_cliente, @nombre, @apellido, @email, @telefono, @id_ciudad, @contrasena;
 END;
 GO
 
@@ -579,13 +584,13 @@ AS
 BEGIN
     IF @id_cliente IS NOT NULL
     BEGIN
-        SELECT id_cliente, nombre, apellido, email, telefono, id_ciudad
+        SELECT id_cliente, nombre, apellido, email, telefono, id_ciudad, contrasena
         FROM dbo.Clientes
         WHERE id_cliente = @id_cliente;
     END
     ELSE
     BEGIN
-        SELECT id_cliente, nombre, apellido, email, telefono, id_ciudad
+        SELECT id_cliente, nombre, apellido, email, telefono, id_ciudad, contrasena
         FROM dbo.Clientes
         WHERE nombre LIKE '%' + @criterio + '%'
            OR apellido LIKE '%' + @criterio + '%'
@@ -599,7 +604,33 @@ GO
 CREATE PROCEDURE dbo.SP_ListarCliente
 AS
 BEGIN
-    SELECT id_cliente, nombre, apellido, email, telefono, id_ciudad FROM dbo.Clientes;
+    SELECT id_cliente, nombre, apellido, email, telefono, id_ciudad, contrasena FROM dbo.Clientes;
+END;
+GO
+
+CREATE PROCEDURE dbo.SP_IniciarSesionCliente
+    @email VARCHAR(150),
+    @contrasena VARCHAR(255)
+AS
+BEGIN
+    SELECT id_cliente, nombre, apellido, email, telefono, id_ciudad, contrasena
+    FROM dbo.Clientes
+    WHERE email = @email AND contrasena = @contrasena;
+END;
+GO
+
+CREATE PROCEDURE dbo.SP_ExisteEmailCliente
+    @email VARCHAR(150)
+AS
+BEGIN
+    SELECT COUNT(*) FROM dbo.Clientes WHERE email = @email;
+END;
+GO
+
+CREATE PROCEDURE dbo.SP_ListarCuidades
+AS
+BEGIN
+    SELECT id_ciudad, nombre_ciudad, id_pais FROM dbo.Cuidades;
 END;
 GO
 
@@ -1486,4 +1517,12 @@ BEGIN
     LEFT JOIN dbo.Clientes c ON r.id_cliente = c.id_cliente;
 END;
 GO
+
+CREATE OR ALTER PROCEDURE dbo.SP_ListarClase
+AS
+BEGIN
+    SELECT id_clase, descripcion FROM dbo.Clases ORDER BY id_clase;
+END;
+GO
+
 

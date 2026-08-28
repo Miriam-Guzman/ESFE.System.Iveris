@@ -19,7 +19,44 @@ namespace ESFE.SystemIveris.UI
             pasajeroLN = new PasajerosLN();
             this.WindowState = FormWindowState.Maximized;
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            txt6.MaxLength = 9;
+            txt6.PlaceholderText = "9999-9999";
+            txt6.TextChanged += txt6_Telefono_TextChanged;
+            txt6.KeyPress += txt6_Telefono_KeyPress;
         }
+
+        private void txt6_Telefono_TextChanged(object? sender, EventArgs e)
+        {
+            try
+            {
+                int cursor = txt6.SelectionStart;
+                string digits = new string(txt6.Text.Where(char.IsDigit).ToArray());
+                if (digits.Length > 8) digits = digits.Substring(0, 8);
+
+                string formatted = digits;
+                if (digits.Length > 4)
+                {
+                    formatted = digits.Substring(0, 4) + "-" + digits.Substring(4);
+                }
+
+                if (txt6.Text != formatted)
+                {
+                    txt6.Text = formatted;
+                    txt6.SelectionStart = formatted.Length;
+                }
+            }
+            catch { }
+        }
+
+        private void txt6_Telefono_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
 
         private void DatosPasajero_Load(object sender, EventArgs e)
         {

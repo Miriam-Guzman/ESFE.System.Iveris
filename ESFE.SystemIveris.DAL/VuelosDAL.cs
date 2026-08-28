@@ -194,5 +194,28 @@ namespace ESFE.SystemIveris.DAL
 
             return lista;
         }
+
+        // Método para generar automáticamente un nuevo número de vuelo único
+        public string GenerarSiguienteNumeroVuelo()
+        {
+            try
+            {
+                using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
+                {
+                    conexion.Open();
+                    using (SqlCommand comando = new SqlCommand("SELECT ISNULL(MAX(id_vuelo), 0) + 1 FROM dbo.Vuelos", conexion))
+                    {
+                        object result = comando.ExecuteScalar();
+                        int nextId = (result != null && result != DBNull.Value) ? Convert.ToInt32(result) : 1;
+                        return $"IV-{500 + nextId}";
+                    }
+                }
+            }
+            catch
+            {
+                Random rnd = new Random();
+                return $"IV-{rnd.Next(100, 999)}";
+            }
+        }
     }
 }

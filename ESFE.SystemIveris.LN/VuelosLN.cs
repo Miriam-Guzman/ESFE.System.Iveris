@@ -49,5 +49,10 @@ namespace ESFE.SystemIveris.LN
         {
             return vuelosDAL.Listar();
         }
+
+        public string GenerarSiguienteNumeroVuelo()
+        {
+            return vuelosDAL.GenerarSiguienteNumeroVuelo();
+        }
     }
 }

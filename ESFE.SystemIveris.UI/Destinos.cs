@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using ESFE.SystemIveris.LN;
 
@@ -11,6 +13,8 @@ namespace ESFE.SystemIveris.UI
         private readonly DestinosLN destinosLN;
         private int _idAeropuertoSeleccionado = 0;
         private int _idVueloSeleccionado = 0;
+        private Dictionary<string, (string Iata, int IdCiudad, int IdAeropuerto)> _aeropuertosRegistrados = new Dictionary<string, (string, int, int)>(StringComparer.OrdinalIgnoreCase);
+        private bool _isUpdatingIata = false;
 
         public Destinos()
         {
@@ -18,12 +22,47 @@ namespace ESFE.SystemIveris.UI
             destinosLN = new DestinosLN();
             this.WindowState = FormWindowState.Maximized;
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            cboNombreDestino.SelectedIndexChanged += cboNombreDestino_SelectedIndexChanged;
+            cboNombreDestino.TextChanged += cboNombreDestino_TextChanged;
         }
 
         private void Destinos_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
+            CargarComboAeropuertos();
             CargarDestinos();
+        }
+
+        private void CargarComboAeropuertos()
+        {
+            try
+            {
+                _aeropuertosRegistrados.Clear();
+                cboNombreDestino.Items.Clear();
+
+                DataTable dt = destinosLN.ListarAeropuertos();
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        string nombre = row["nombre"]?.ToString()?.Trim() ?? "";
+                        string iata = row["codigo_iata"]?.ToString()?.Trim() ?? "";
+                        int idCiudad = (row["id_ciudad"] != DBNull.Value) ? Convert.ToInt32(row["id_ciudad"]) : 1;
+                        int idAeropuerto = (row["id_aeropuerto"] != DBNull.Value) ? Convert.ToInt32(row["id_aeropuerto"]) : 0;
+
+                        if (!string.IsNullOrWhiteSpace(nombre) && !_aeropuertosRegistrados.ContainsKey(nombre))
+                        {
+                            _aeropuertosRegistrados[nombre] = (iata, idCiudad, idAeropuerto);
+                            cboNombreDestino.Items.Add(nombre);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar lista de aeropuertos: " + ex.Message, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void CargarDestinos()
@@ -37,6 +76,62 @@ namespace ESFE.SystemIveris.UI
             {
                 MessageBox.Show("Error al conectar y cargar destinos: " + ex.Message, "Error de Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // ==========================================
+        //  ASIGNACIÓN AUTOMÁTICA DE CÓDIGO IATA
+        // ==========================================
+
+        private void cboNombreDestino_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            AsignarIataSegunNombre(cboNombreDestino.Text);
+        }
+
+        private void cboNombreDestino_TextChanged(object? sender, EventArgs e)
+        {
+            AsignarIataSegunNombre(cboNombreDestino.Text);
+        }
+
+        private void AsignarIataSegunNombre(string nombre)
+        {
+            if (_isUpdatingIata) return;
+
+            string nombreLimpio = nombre?.Trim() ?? "";
+            if (string.IsNullOrWhiteSpace(nombreLimpio))
+            {
+                txtCodigoIata.Clear();
+                return;
+            }
+
+            if (_aeropuertosRegistrados.TryGetValue(nombreLimpio, out var info))
+            {
+                _isUpdatingIata = true;
+                txtCodigoIata.Text = info.Iata;
+                txtIdCiudad.Text = info.IdCiudad.ToString();
+                _idAeropuertoSeleccionado = info.IdAeropuerto;
+                _isUpdatingIata = false;
+            }
+            else
+            {
+                // Generar código IATA sugerido de 3 letras automáticamente
+                string iataSugerido = GenerarCodigoIataAutomatico(nombreLimpio);
+                _isUpdatingIata = true;
+                txtCodigoIata.Text = iataSugerido;
+                _isUpdatingIata = false;
+            }
+        }
+
+        private string GenerarCodigoIataAutomatico(string nombre)
+        {
+            if (string.IsNullOrWhiteSpace(nombre)) return "";
+
+            // Tomar sólo letras
+            string letras = new string(nombre.Where(char.IsLetter).ToArray()).ToUpper();
+            if (letras.Length >= 3)
+            {
+                return letras.Substring(0, 3);
+            }
+            return letras.PadRight(3, 'X');
         }
 
         // ==========================================
@@ -73,6 +168,7 @@ namespace ESFE.SystemIveris.UI
         private void btnDestinos_Click(object sender, EventArgs e)
         {
             CargarDestinos();
+            CargarComboAeropuertos();
         }
 
         // ==========================================
@@ -102,7 +198,12 @@ namespace ESFE.SystemIveris.UI
 
                     if (fila.Cells["Destino"] != null && fila.Cells["Destino"].Value != null)
                     {
-                        txtNombreDestino.Text = fila.Cells["Destino"].Value.ToString();
+                        string destinoCompleto = fila.Cells["Destino"].Value.ToString() ?? "";
+                        if (destinoCompleto.Contains("("))
+                        {
+                            destinoCompleto = destinoCompleto.Substring(0, destinoCompleto.IndexOf("(")).Trim();
+                        }
+                        cboNombreDestino.Text = destinoCompleto;
                     }
 
                     if (fila.Cells["RutasDisponible"] != null && fila.Cells["RutasDisponible"].Value != null)
@@ -113,7 +214,7 @@ namespace ESFE.SystemIveris.UI
                             string[] partes = ruta.Split(new[] { "->" }, StringSplitOptions.RemoveEmptyEntries);
                             if (partes.Length > 1)
                             {
-                                txtCodigoIata.Text = partes[1].Trim();
+                                txtCodigoIata.Text = partes[1].Trim().ToUpper();
                             }
                         }
                     }
@@ -156,12 +257,21 @@ namespace ESFE.SystemIveris.UI
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtNombreDestino.Text) || string.IsNullOrWhiteSpace(txtCodigoIata.Text))
+                string nombreAeropuerto = cboNombreDestino.Text.Trim();
+                if (string.IsNullOrWhiteSpace(nombreAeropuerto))
                 {
-                    MessageBox.Show("Por favor ingresa Nombre del Aeropuerto/Destino y Código IATA.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtNombreDestino.Focus();
+                    MessageBox.Show("Por favor ingresa o selecciona el Nombre del Aeropuerto/Destino.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cboNombreDestino.Focus();
                     return;
                 }
+
+                string codigoIata = txtCodigoIata.Text.Trim().ToUpper();
+                if (string.IsNullOrWhiteSpace(codigoIata))
+                {
+                    codigoIata = GenerarCodigoIataAutomatico(nombreAeropuerto);
+                    txtCodigoIata.Text = codigoIata;
+                }
+                if (codigoIata.Length > 3) codigoIata = codigoIata.Substring(0, 3);
 
                 int idCiudad = 1;
                 if (!string.IsNullOrWhiteSpace(txtIdCiudad.Text) && int.TryParse(txtIdCiudad.Text.Trim(), out int parsedId))
@@ -169,15 +279,13 @@ namespace ESFE.SystemIveris.UI
                     idCiudad = parsedId;
                 }
 
-                string codigoIata = txtCodigoIata.Text.Trim().ToUpper();
-                if (codigoIata.Length > 3) codigoIata = codigoIata.Substring(0, 3);
-
-                bool resultado = destinosLN.InsertarAeropuerto(txtNombreDestino.Text.Trim(), codigoIata, idCiudad);
+                bool resultado = destinosLN.InsertarAeropuerto(nombreAeropuerto, codigoIata, idCiudad);
 
                 if (resultado)
                 {
-                    MessageBox.Show("Destino/Aeropuerto guardado exitosamente mediante Procedimiento Almacenado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"¡Destino '{nombreAeropuerto}' con código IATA '{codigoIata}' guardado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
+                    CargarComboAeropuertos();
                     CargarDestinos();
                 }
             }
@@ -191,20 +299,28 @@ namespace ESFE.SystemIveris.UI
         {
             try
             {
+                string nombreAeropuerto = cboNombreDestino.Text.Trim();
                 if (_idAeropuertoSeleccionado <= 0)
                 {
-                    MessageBox.Show("Por favor selecciona un destino de la tabla para modificar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    if (_aeropuertosRegistrados.TryGetValue(nombreAeropuerto, out var info))
+                    {
+                        _idAeropuertoSeleccionado = info.IdAeropuerto;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor selecciona un destino de la tabla para modificar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                 }
 
-                if (string.IsNullOrWhiteSpace(txtNombreDestino.Text))
+                if (string.IsNullOrWhiteSpace(nombreAeropuerto))
                 {
                     MessageBox.Show("Ingresa el nombre del destino/aeropuerto.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtNombreDestino.Focus();
+                    cboNombreDestino.Focus();
                     return;
                 }
 
-                string codigoIata = string.IsNullOrWhiteSpace(txtCodigoIata.Text) ? "DES" : txtCodigoIata.Text.Trim().ToUpper();
+                string codigoIata = string.IsNullOrWhiteSpace(txtCodigoIata.Text) ? GenerarCodigoIataAutomatico(nombreAeropuerto) : txtCodigoIata.Text.Trim().ToUpper();
                 if (codigoIata.Length > 3) codigoIata = codigoIata.Substring(0, 3);
 
                 int idCiudad = 1;
@@ -213,12 +329,13 @@ namespace ESFE.SystemIveris.UI
                     idCiudad = parsedId;
                 }
 
-                bool resultado = destinosLN.ActualizarAeropuerto(_idAeropuertoSeleccionado, txtNombreDestino.Text.Trim(), codigoIata, idCiudad);
+                bool resultado = destinosLN.ActualizarAeropuerto(_idAeropuertoSeleccionado, nombreAeropuerto, codigoIata, idCiudad);
 
                 if (resultado)
                 {
                     MessageBox.Show("Destino actualizado exitosamente mediante Procedimiento Almacenado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
+                    CargarComboAeropuertos();
                     CargarDestinos();
                 }
             }
@@ -256,6 +373,7 @@ namespace ESFE.SystemIveris.UI
                     {
                         MessageBox.Show("Destino eliminado exitosamente mediante Procedimiento Almacenado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LimpiarCampos();
+                        CargarComboAeropuertos();
                         CargarDestinos();
                     }
                 }
@@ -270,6 +388,7 @@ namespace ESFE.SystemIveris.UI
         {
             txtBuscar.Clear();
             LimpiarCampos();
+            CargarComboAeropuertos();
             CargarDestinos();
         }
 
@@ -282,9 +401,10 @@ namespace ESFE.SystemIveris.UI
         {
             _idAeropuertoSeleccionado = 0;
             _idVueloSeleccionado = 0;
-            txtNombreDestino.Clear();
+            cboNombreDestino.Text = "";
+            cboNombreDestino.SelectedIndex = -1;
             txtCodigoIata.Clear();
             txtIdCiudad.Text = "1";
         }
     }
-}
+}

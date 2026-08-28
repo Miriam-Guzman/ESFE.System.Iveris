@@ -48,7 +48,7 @@ namespace ESFE.SystemIveris.UI
             pnlFormCard = new Panel();
             lblTituloForm = new Label();
             lblNombreDestino = new Label();
-            txtNombreDestino = new TextBox();
+            cboNombreDestino = new ComboBox();
             lblCodigoIata = new Label();
             txtCodigoIata = new TextBox();
             lblIdCiudad = new Label();
@@ -316,7 +316,7 @@ namespace ESFE.SystemIveris.UI
             pnlFormCard.BorderStyle = BorderStyle.FixedSingle;
             pnlFormCard.Controls.Add(lblTituloForm);
             pnlFormCard.Controls.Add(lblNombreDestino);
-            pnlFormCard.Controls.Add(txtNombreDestino);
+            pnlFormCard.Controls.Add(cboNombreDestino);
             pnlFormCard.Controls.Add(lblCodigoIata);
             pnlFormCard.Controls.Add(txtCodigoIata);
             pnlFormCard.Controls.Add(lblIdCiudad);
@@ -353,13 +353,16 @@ namespace ESFE.SystemIveris.UI
             lblNombreDestino.TabIndex = 21;
             lblNombreDestino.Text = "Nombre del Aeropuerto:";
             // 
-            // txtNombreDestino
+            // cboNombreDestino
             // 
-            txtNombreDestino.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txtNombreDestino.Location = new Point(20, 85);
-            txtNombreDestino.Name = "txtNombreDestino";
-            txtNombreDestino.Size = new Size(364, 23);
-            txtNombreDestino.TabIndex = 22;
+            cboNombreDestino.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cboNombreDestino.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cboNombreDestino.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cboNombreDestino.FormattingEnabled = true;
+            cboNombreDestino.Location = new Point(20, 85);
+            cboNombreDestino.Name = "cboNombreDestino";
+            cboNombreDestino.Size = new Size(364, 23);
+            cboNombreDestino.TabIndex = 22;
             // 
             // lblCodigoIata
             // 
@@ -521,7 +524,7 @@ namespace ESFE.SystemIveris.UI
         private Panel pnlFormCard;
         private Label lblTituloForm;
         private Label lblNombreDestino;
-        private TextBox txtNombreDestino;
+        private ComboBox cboNombreDestino;
         private Label lblCodigoIata;
         private TextBox txtCodigoIata;
         private Label lblIdCiudad;

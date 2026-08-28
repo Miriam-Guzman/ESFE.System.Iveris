@@ -25,6 +25,7 @@ namespace ESFE.SystemIveris.UI
             this.WindowState = FormWindowState.Maximized;
             dtpSalida.Value = DateTime.Now.AddDays(1);
             dtpLlegada.Value = DateTime.Now.AddDays(1).AddHours(4);
+            txtNumeroVuelo.Text = vuelosLN.GenerarSiguienteNumeroVuelo();
             CargarVuelos();
         }
 
@@ -168,9 +169,7 @@ namespace ESFE.SystemIveris.UI
             {
                 if (string.IsNullOrWhiteSpace(txtNumeroVuelo.Text))
                 {
-                    MessageBox.Show("Por favor ingresa el número de vuelo (ejemplo: IV-501).", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtNumeroVuelo.Focus();
-                    return;
+                    txtNumeroVuelo.Text = vuelosLN.GenerarSiguienteNumeroVuelo();
                 }
 
                 int origenId = int.TryParse(txtOrigenId.Text.Trim(), out int oId) ? oId : 1;
@@ -193,7 +192,7 @@ namespace ESFE.SystemIveris.UI
 
                 if (resultado)
                 {
-                    MessageBox.Show("Vuelo insertado exitosamente mediante Procedimiento Almacenado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"¡Vuelo {nuevoVuelo.numero_vuelo} insertado exitosamente mediante Procedimiento Almacenado!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
                     CargarVuelos();
                 }
@@ -298,7 +297,7 @@ namespace ESFE.SystemIveris.UI
         private void LimpiarCampos()
         {
             _idVueloSeleccionado = 0;
-            txtNumeroVuelo.Clear();
+            txtNumeroVuelo.Text = vuelosLN.GenerarSiguienteNumeroVuelo();
             txtOrigenId.Text = "1";
             txtDestinoId.Text = "2";
             txtAvionId.Text = "1";

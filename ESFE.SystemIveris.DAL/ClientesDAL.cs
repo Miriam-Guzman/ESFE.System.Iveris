@@ -1,4 +1,4 @@
-﻿using ESFE.SystemIveris.EN;
+using ESFE.SystemIveris.EN;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -18,11 +18,12 @@ namespace ESFE.SystemIveris.DAL
                 {
                     comando.CommandType = CommandType.StoredProcedure;
 
-                    comando.Parameters.AddWithValue("@nombre", clientes.nombre);
-                    comando.Parameters.AddWithValue("@apellido", clientes.apellido);
-                    comando.Parameters.AddWithValue("@email", clientes.email);
-                    comando.Parameters.AddWithValue("@telefono", clientes.telefono);
+                    comando.Parameters.AddWithValue("@nombre", clientes.nombre ?? (object)DBNull.Value);
+                    comando.Parameters.AddWithValue("@apellido", clientes.apellido ?? (object)DBNull.Value);
+                    comando.Parameters.AddWithValue("@email", clientes.email ?? (object)DBNull.Value);
+                    comando.Parameters.AddWithValue("@telefono", clientes.telefono ?? (object)DBNull.Value);
                     comando.Parameters.AddWithValue("@id_ciudad", clientes.id_ciudad);
+                    comando.Parameters.AddWithValue("@contrasena", string.IsNullOrEmpty(clientes.contrasena) ? (object)DBNull.Value : clientes.contrasena);
 
                     conexion.Open();
                     comando.ExecuteNonQuery();
@@ -41,11 +42,12 @@ namespace ESFE.SystemIveris.DAL
                     comando.CommandType = CommandType.StoredProcedure;
 
                     comando.Parameters.AddWithValue("@id_cliente", clientes.id_cliente);
-                    comando.Parameters.AddWithValue("@nombre", clientes.nombre);
-                    comando.Parameters.AddWithValue("@apellido", clientes.apellido);
-                    comando.Parameters.AddWithValue("@email", clientes.email);
-                    comando.Parameters.AddWithValue("@telefono", clientes.telefono);
+                    comando.Parameters.AddWithValue("@nombre", clientes.nombre ?? (object)DBNull.Value);
+                    comando.Parameters.AddWithValue("@apellido", clientes.apellido ?? (object)DBNull.Value);
+                    comando.Parameters.AddWithValue("@email", clientes.email ?? (object)DBNull.Value);
+                    comando.Parameters.AddWithValue("@telefono", clientes.telefono ?? (object)DBNull.Value);
                     comando.Parameters.AddWithValue("@id_ciudad", clientes.id_ciudad);
+                    comando.Parameters.AddWithValue("@contrasena", string.IsNullOrEmpty(clientes.contrasena) ? (object)DBNull.Value : clientes.contrasena);
 
                     conexion.Open();
                     comando.ExecuteNonQuery();
@@ -80,7 +82,7 @@ namespace ESFE.SystemIveris.DAL
                 using (SqlCommand comando = new SqlCommand("SP_BuscarCliente", conexion))
                 {
                     comando.CommandType = CommandType.StoredProcedure;
-                    comando.Parameters.AddWithValue("@criterio", criterio);
+                    comando.Parameters.AddWithValue("@criterio", criterio ?? string.Empty);
 
                     conexion.Open();
 
@@ -91,11 +93,12 @@ namespace ESFE.SystemIveris.DAL
                             Clientes cliente = new Clientes
                             {
                                 id_cliente = Convert.ToInt32(reader["id_cliente"]),
-                                nombre = reader["nombre"].ToString(),
-                                apellido = reader["apellido"].ToString(),
-                                email = reader["email"].ToString(),
-                                telefono = reader["telefono"].ToString(),
-                                id_ciudad = Convert.ToInt32(reader["id_ciudad"])
+                                nombre = reader["nombre"] != DBNull.Value ? reader["nombre"].ToString() : string.Empty,
+                                apellido = reader["apellido"] != DBNull.Value ? reader["apellido"].ToString() : string.Empty,
+                                email = reader["email"] != DBNull.Value ? reader["email"].ToString() : string.Empty,
+                                telefono = reader["telefono"] != DBNull.Value ? reader["telefono"].ToString() : string.Empty,
+                                id_ciudad = Convert.ToInt32(reader["id_ciudad"]),
+                                contrasena = reader["contrasena"] != DBNull.Value ? reader["contrasena"].ToString() : string.Empty
                             };
 
                             lista.Add(cliente);
@@ -105,6 +108,77 @@ namespace ESFE.SystemIveris.DAL
             }
 
             return lista;
+        }
+
+        // Método para validar credenciales e iniciar sesión
+        public Clientes? IniciarSesion(string email, string contrasena)
+        {
+            using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
+            {
+                using (SqlCommand comando = new SqlCommand("SP_IniciarSesionCliente", conexion))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    comando.Parameters.AddWithValue("@email", email);
+                    comando.Parameters.AddWithValue("@contrasena", contrasena);
+
+                    conexion.Open();
+
+                    using (SqlDataReader reader = comando.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new Clientes
+                            {
+                                id_cliente = Convert.ToInt32(reader["id_cliente"]),
+                                nombre = reader["nombre"] != DBNull.Value ? reader["nombre"].ToString() : string.Empty,
+                                apellido = reader["apellido"] != DBNull.Value ? reader["apellido"].ToString() : string.Empty,
+                                email = reader["email"] != DBNull.Value ? reader["email"].ToString() : string.Empty,
+                                telefono = reader["telefono"] != DBNull.Value ? reader["telefono"].ToString() : string.Empty,
+                                id_ciudad = Convert.ToInt32(reader["id_ciudad"]),
+                                contrasena = reader["contrasena"] != DBNull.Value ? reader["contrasena"].ToString() : string.Empty
+                            };
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        // Método para verificar si un correo ya se encuentra registrado
+        public bool ExisteEmail(string email)
+        {
+            using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
+            {
+                using (SqlCommand comando = new SqlCommand("SP_ExisteEmailCliente", conexion))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    comando.Parameters.AddWithValue("@email", email);
+
+                    conexion.Open();
+                    int count = Convert.ToInt32(comando.ExecuteScalar());
+                    return count > 0;
+                }
+            }
+        }
+
+        // Método para listar ciudades para el registro
+        public DataTable ListarCiudades()
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conexion = (SqlConnection)DBComun.ObtenerConexion())
+            {
+                using (SqlCommand comando = new SqlCommand("SP_ListarCuidades", conexion))
+                {
+                    comando.CommandType = CommandType.StoredProcedure;
+                    conexion.Open();
+                    using (SqlDataAdapter da = new SqlDataAdapter(comando))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+            }
+            return dt;
         }
     }
 }
